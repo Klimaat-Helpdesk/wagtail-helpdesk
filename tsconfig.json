@@ -9,7 +9,7 @@
     "esModuleInterop": true
   },
   "files": [
-    "klimaat_helpdesk/static_src/main.tsx",
-    "klimaat_helpdesk/static_src/custom.d.ts"
+    "wagtail_helpdesk/static_src/main.tsx",
+    "wagtail_helpdesk/static_src/custom.d.ts"
   ]
 }

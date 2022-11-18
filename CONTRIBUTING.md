@@ -1,1 +1,1 @@
-# Contributing to klimaat-helpdesk
+# Contributing to wagtail-helpdesk

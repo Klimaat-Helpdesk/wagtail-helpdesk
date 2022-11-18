@@ -1,4 +1,4 @@
-# klimaat-helpdesk Changelog
+# wagtail-helpdesk Changelog
 
 All notable changes to this project will be documented in this file.
 

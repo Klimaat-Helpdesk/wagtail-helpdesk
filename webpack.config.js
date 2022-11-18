@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './klimaat_helpdesk/static_src/main.tsx',
+  entry: './wagtail_helpdesk/static_src/main.tsx',
   module: {
     rules: [
       {
@@ -39,8 +39,8 @@ module.exports = {
   output: {
     path: path.resolve(
       __dirname,
-      'klimaat_helpdesk/static/klimaat_helpdesk/js'
+      'wagtail_helpdesk/static/wagtail_helpdesk/js'
     ),
-    filename: 'klimaat-helpdesk.js'
+    filename: 'wagtail-helpdesk.js'
   },
 };

@@ -4,7 +4,7 @@ from os import path
 
 from setuptools import find_packages, setup
 
-from klimaat_helpdesk import __version__
+from wagtail_helpdesk import __version__
 
 
 this_directory = path.abspath(path.dirname(__file__))
@@ -12,7 +12,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name="klimaat-helpdesk",
+    name="wagtail-helpdesk",
     version=__version__,
     description="This repository holds the code for https://www.klimaathelpdesk.org, a website aimed at answering questions regarding climate change, global warming, and related.",
     long_description=long_description,

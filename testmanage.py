@@ -9,7 +9,7 @@ import warnings
 from django.core.management import execute_from_command_line
 
 
-os.environ["DJANGO_SETTINGS_MODULE"] = "klimaat_helpdesk.test.settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "wagtail_helpdesk.test.settings"
 
 
 def make_parser():

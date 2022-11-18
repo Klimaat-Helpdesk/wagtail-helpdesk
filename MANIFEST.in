@@ -1,4 +1,4 @@
 include LICENSE *.rst *.txt *.md
-graft klimaat_helpdesk
+graft wagtail_helpdesk
 global-exclude __pycache__
 global-exclude *.py[co]

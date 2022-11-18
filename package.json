@@ -1,8 +1,8 @@
 {
-  "name": "klimaat-helpdesk",
+  "name": "wagtail-helpdesk",
   "version": "0.1.0",
   "description": "This repository holds the code for https://www.klimaathelpdesk.org, a website aimed at answering questions regarding climate change, global warming, and related.",
-  "main": "klimaat_helpdesk/static_src/main.tsx",
+  "main": "wagtail_helpdesk/static_src/main.tsx",
   "scripts": {
     "start": "webpack --config ./webpack.config.js --mode development --progress --watch",
     "build": "webpack --config ./webpack.config.js --mode production",

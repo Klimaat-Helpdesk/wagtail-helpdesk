@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "lib": ["es2015", "dom"],
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true
+  },
+  "files": [
+    "klimaat_helpdesk/static_src/main.tsx",
+    "klimaat_helpdesk/static_src/custom.d.ts"
+  ]
+}

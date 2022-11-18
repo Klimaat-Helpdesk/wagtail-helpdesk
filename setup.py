@@ -16,7 +16,7 @@ setup(
     version=__version__,
     description="This repository holds the code for https://www.klimaathelpdesk.org, a website aimed at answering questions regarding climate change, global warming, and related.",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     author="Four Digits",
     author_email="info@fourdigits.nl",
     url="",
@@ -40,9 +40,20 @@ setup(
         "Framework :: Wagtail",
         "Framework :: Wagtail :: 2",
     ],
-    install_requires=["Django>=3.0,<3.1.13", "Wagtail>=2.0,<=2.12"],
+    install_requires=[
+        "Django>=3.0,<3.1.13",
+        "Wagtail>=2.0,<=2.12",
+        "django-allauth==0.44.0",
+        "django-crispy-forms==1.11.0",
+        "python-gitlab==2.5.0",
+    ],
     extras_require={
-        "testing": ["dj-database-url==0.5.0", "freezegun==0.3.15"],
+        "testing": [
+            "dj-database-url==0.5.0",
+            "freezegun==0.3.15",
+            "pytest==5.3.1",
+            "factory-boy==2.12.0",
+        ],
     },
     zip_safe=False,
 )

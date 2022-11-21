@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static i18n helpdesk_tags %}
 
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
   <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
   {% block css %}
-    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% versioned_static 'main.css' %}">
   {% endblock %}
 
 
@@ -91,7 +91,7 @@
 {% endblock %}
 
 {% block js %}
-  <script src="{% static 'main.js' %}"></script>
+  <script src="{% versioned_static 'main.js' %}"></script>
 {% endblock %}
 </body>
 </html>

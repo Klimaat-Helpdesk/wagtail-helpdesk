@@ -29,7 +29,7 @@
 @import 'definitions/typography';
 
 // Normalization
-@import '/normalize/normalize';
+@import 'normalize/normalize';
 
 // Project output
 @import '../components/_document';
@@ -63,6 +63,3 @@
 
 @import '../components/pages/_answer-detail';
 @import '../components/pages/_ask-a-question';
-
-
-

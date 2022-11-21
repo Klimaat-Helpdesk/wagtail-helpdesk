@@ -8,7 +8,6 @@ from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
 from wagtail.admin.edit_handlers import (
     FieldPanel,
-    HelpPanel,
     InlinePanel,
     MultiFieldPanel,
     StreamFieldPanel,
@@ -28,7 +27,6 @@ from wagtail_helpdesk.cms.blocks import (
     QuoteBlock,
     RelatedItemsBlock,
 )
-
 from wagtail_helpdesk.experts.models import Expert
 from wagtail_helpdesk.volunteers.models import Volunteer
 

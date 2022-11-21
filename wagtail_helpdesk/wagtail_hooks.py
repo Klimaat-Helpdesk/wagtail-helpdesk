@@ -1,6 +1,5 @@
-from django.urls import path, include
+from django.urls import include, path
 from django.views.i18n import JavaScriptCatalog
-
 from wagtail.core import hooks
 
 

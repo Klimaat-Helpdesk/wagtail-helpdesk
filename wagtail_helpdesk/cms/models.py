@@ -16,7 +16,7 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Orderable, Page
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.search import index
+from wagtail.search import index as search_index
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
@@ -207,7 +207,7 @@ class Answer(Page):
     ]
 
     search_fields = Page.search_fields + [
-        index.SearchField("page_content"),
+        search_index.SearchField("page_content"),
     ]
 
     @property

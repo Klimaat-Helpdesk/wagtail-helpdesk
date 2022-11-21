@@ -17,7 +17,7 @@ class ClimateQuestionForm(forms.Form):
 
     try:
         choices = [(c.name, c.name) for c in AnswerCategory.objects.all()]
-    except ProgrammingError as e:
+    except ProgrammingError:
         choices = [
             "general",
         ]

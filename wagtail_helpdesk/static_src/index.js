@@ -1,8 +1,4 @@
-//MKR  to compile opur scss import it once here
-import './stylesheets/main.scss';
-
 function setupControllers(container) {
-
   // Initialize all controllers defined on nodes
   Array.from(container.querySelectorAll(
     '[data-controller]:not([data-initialized])')
@@ -18,7 +14,7 @@ function setupControllers(container) {
       }
 
       try {
-        let Controller = require(`controllers/${controller}.js`).default;
+        let Controller = require(`./scripts/controllers/${controller}.js`).default;
         el.__controller__ = new Controller(el);
         return el.__controller__;
       } catch(e) {
@@ -28,7 +24,6 @@ function setupControllers(container) {
     });
   });
 }
-
 
 document.addEventListener('DOMContentLoaded', function (event) {
   const container = event.target;

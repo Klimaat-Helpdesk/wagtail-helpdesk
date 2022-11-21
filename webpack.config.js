@@ -1,46 +1,77 @@
-const path = require('path');
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-module.exports = {
-  entry: './wagtail_helpdesk/static_src/main.tsx',
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: ['file-loader'],
-      },
+const source = path.resolve(path.join("./wagtail_helpdesk", "./static_src"));
+const destination = path.resolve(path.join("./wagtail_helpdesk", "./static"));
+
+module.exports = (env, argv) => {
+  const isProductionMode = argv.mode === "production";
+
+  return {
+    entry: {
+      main: [
+        path.join(source, "index.js"),
+        path.join(source, "stylesheets", "main.scss"),
+      ],
+    },
+    output: {
+      path: destination,
+      publicPath: "/static/",
+      filename: "[name].js",
+      clean: true,
+    },
+    devtool: isProductionMode ? false : "inline-source-map",
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"]
+            }
+          }
+        },
+        {
+          test: /\.(scss|css)$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true,
+              },
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                sourceMap: true,
+                postcssOptions: {
+                  plugins: [
+                    "postcss-preset-env"
+                  ]
+                }
+              },
+            },
+            "sass-loader",
+          ],
+        },
+      ],
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.join(source, "images"),
+            to: path.join(destination, "images"),
+          },
+        ],
+      }),
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
-  externals: {
-    /* These are provided by Wagtail */
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-    'gettext': 'gettext',
-  },
-  output: {
-    path: path.resolve(
-      __dirname,
-      'wagtail_helpdesk/static/wagtail_helpdesk/js'
-    ),
-    filename: 'wagtail-helpdesk.js'
-  },
-};
+  }
+}

@@ -27,7 +27,7 @@
   }
 
   .simple-header__back-link-icon {
-    background-image: url('/static/icons/arrow-right.svg');
+    background-image: url('../icons/arrow-right.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -92,5 +92,3 @@
       background: $color-yellow-warm;
     }
   }
-
-

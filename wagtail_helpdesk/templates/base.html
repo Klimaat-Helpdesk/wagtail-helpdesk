@@ -1,5 +1,4 @@
 {% load static i18n %}
-{% load render_bundle from webpack_loader %}
 
 
 <!DOCTYPE html>
@@ -12,7 +11,7 @@
   <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
   {% block css %}
-    {% render_bundle 'main' 'css' %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
   {% endblock %}
 
 
@@ -92,7 +91,7 @@
 {% endblock %}
 
 {% block js %}
-  {% render_bundle 'main' 'js' %}
+  <script src="{% static 'main.js' %}"></script>
 {% endblock %}
 </body>
 </html>

@@ -15,12 +15,12 @@
     color: $color-true-black;
 
     .button__icon {
-      background-image: url('/static/icons/arrow-right.svg');
+      background-image: url('../icons/arrow-right.svg');
     }
   }
 
   .button__icon {
-    background-image: url('/static/icons/arrow-right-white.svg');
+    background-image: url('../icons/arrow-right-white.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -39,7 +39,7 @@
   color: $color-true-black;
 
   .button__icon {
-    background-image: url('/static/icons/arrow-right.svg');
+    background-image: url('../icons/arrow-right.svg');
   }
 
   &:hover {

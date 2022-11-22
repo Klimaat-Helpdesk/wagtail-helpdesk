@@ -146,21 +146,6 @@ class AskAQuestionPage(FormView):
             form = ClimateQuestionForm(form_data)
 
             if form.is_valid():
-                data = (
-                    form.cleaned_data["main_question"],
-                    form.cleaned_data["relevant_location"],
-                    form.cleaned_data["relevant_timespan"],
-                    form.cleaned_data["extra_info"],
-                    form.cleaned_data["categories"],
-                )
-
-                # question_str = """Question: {}
-                #             Relevant location: {}
-                #             Relevant timespan: {}
-                #             Extra info: {}
-                #             Categories: {}
-                #             """.format(*data)
-
                 q = Question.objects.create(
                     question=form.cleaned_data["main_question"],
                     relevant_location=form.cleaned_data["relevant_location"],

@@ -23,7 +23,9 @@ def get_version_hash(version_string):
         use_version_strings = not issubclass(storage, HashedFilesMixin)
 
     if use_version_strings:
-        return hashlib.sha1((version_string + settings.SECRET_KEY).encode("utf-8")).hexdigest()[:8]
+        return hashlib.sha1(
+            (version_string + settings.SECRET_KEY).encode("utf-8")
+        ).hexdigest()[:8]
 
 
 def versioned_static(path):

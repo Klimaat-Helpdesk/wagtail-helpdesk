@@ -8,7 +8,6 @@ from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
 from wagtail.admin.edit_handlers import (
     FieldPanel,
-    HelpPanel,
     InlinePanel,
     MultiFieldPanel,
     StreamFieldPanel,
@@ -17,7 +16,7 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Orderable, Page
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.search import index
+from wagtail.search import index as search_index
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
@@ -28,7 +27,6 @@ from wagtail_helpdesk.cms.blocks import (
     QuoteBlock,
     RelatedItemsBlock,
 )
-
 from wagtail_helpdesk.experts.models import Expert
 from wagtail_helpdesk.volunteers.models import Volunteer
 
@@ -209,7 +207,7 @@ class Answer(Page):
     ]
 
     search_fields = Page.search_fields + [
-        index.SearchField("page_content"),
+        search_index.SearchField("page_content"),
     ]
 
     @property

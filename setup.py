@@ -49,10 +49,12 @@ setup(
     ],
     extras_require={
         "testing": [
-            "dj-database-url==0.5.0",
-            "freezegun==0.3.15",
-            "pytest==5.3.1",
-            "factory-boy==2.12.0",
+            "dj-database-url<1",  # 1.0.0 requires django 3.2
+            "freezegun>=0.3.15,<2",
+            "pytest<8",
+            "factory-boy<3",  # 3.0 requires refactoring of factories
+            "pytest-django<5",
+            "pytest-cov<5",
         ],
     },
     zip_safe=False,

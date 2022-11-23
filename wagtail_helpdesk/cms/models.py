@@ -6,16 +6,10 @@ from django.utils.translation import gettext_lazy as _
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
-from wagtail.admin.edit_handlers import (
-    FieldPanel,
-    InlinePanel,
-    MultiFieldPanel,
-    StreamFieldPanel,
-)
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Orderable, Page
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index as search_index
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
@@ -198,10 +192,10 @@ class Answer(Page):
             ],
             heading=_("Expert(s)"),
         ),
-        StreamFieldPanel("page_content"),
-        StreamFieldPanel("answer_origin"),
-        StreamFieldPanel("related_items"),
-        ImageChooserPanel(
+        FieldPanel("page_content"),
+        FieldPanel("answer_origin"),
+        FieldPanel("related_items"),
+        FieldPanel(
             "social_image", help_text=_("Image to be used when sharing on social media")
         ),
     ]

@@ -46,7 +46,7 @@ setup(
     install_requires=[
         "Django>=3.2,<4.2",
         "Wagtail>=2.16,<4.2",
-        "django-allauth==0.44.0",
+        "django-allauth<1.0",
         "django-crispy-forms==1.11.0",
         "python-gitlab==2.5.0",
     ],

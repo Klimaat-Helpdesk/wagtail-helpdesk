@@ -41,10 +41,11 @@ setup(
         "Framework :: Wagtail :: 2",
         "Framework :: Wagtail :: 3",
         "Framework :: Wagtail :: 4",
+        "Framework :: Wagtail :: 4.1",
     ],
     install_requires=[
         "Django>=3.1,<4.0",
-        "Wagtail>=2.0,<4.1",
+        "Wagtail>=2.0,<4.2",
         "django-allauth==0.44.0",
         "django-crispy-forms==1.11.0",
         "python-gitlab==2.5.0",

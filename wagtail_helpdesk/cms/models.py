@@ -11,7 +11,6 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Orderable, Page
 from wagtail.search import index as search_index
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
 from wagtail_helpdesk.cms.blocks import (
@@ -40,7 +39,7 @@ class ExpertAnswerRelationship(Orderable, models.Model):
         on_delete=models.CASCADE,
     )
 
-    panels = [SnippetChooserPanel("expert")]
+    panels = [FieldPanel("expert")]
 
 
 class CategoryAnswerRelationship(Orderable, models.Model):
@@ -57,7 +56,7 @@ class CategoryAnswerRelationship(Orderable, models.Model):
         on_delete=models.CASCADE,
     )
 
-    panels = [SnippetChooserPanel("category")]
+    panels = [FieldPanel("category")]
 
 
 class AnswerTag(TaggedItemBase):

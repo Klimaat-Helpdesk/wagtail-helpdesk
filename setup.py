@@ -53,7 +53,6 @@ setup(
     extras_require={
         "testing": [
             "dj-database-url>=1,<2",
-            "freezegun>=0.3.15,<2",
             "pytest<8",
             "factory-boy<4",
             "pytest-django<5",

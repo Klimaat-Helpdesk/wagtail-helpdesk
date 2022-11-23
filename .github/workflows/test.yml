@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         python: ['3.9']
-        django: ['3.2']
+        django: ['3.2', '4.0']
         wagtail: ['2.16', '3.0', '4.0', '4.1']
 
     steps:
@@ -37,7 +37,7 @@ jobs:
     strategy:
       matrix:
         python: ['3.9']
-        django: ['3.2']
+        django: ['3.2', '4.0']
         wagtail: ['2.16', '3.0', '4.0', '4.1']
         postgres: ['10.8']
 

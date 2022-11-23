@@ -55,7 +55,7 @@ setup(
             "dj-database-url>=1,<2",
             "freezegun>=0.3.15,<2",
             "pytest<8",
-            "factory-boy<3",  # 3.0 requires refactoring of factories
+            "factory-boy<4",
             "pytest-django<5",
             "pytest-cov<5",
         ],

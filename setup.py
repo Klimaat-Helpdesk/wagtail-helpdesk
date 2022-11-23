@@ -52,7 +52,7 @@ setup(
     ],
     extras_require={
         "testing": [
-            "dj-database-url<1",  # 1.0.0 requires django 3.2
+            "dj-database-url>=1,<2",
             "freezegun>=0.3.15,<2",
             "pytest<8",
             "factory-boy<3",  # 3.0 requires refactoring of factories

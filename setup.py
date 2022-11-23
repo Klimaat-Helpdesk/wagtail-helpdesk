@@ -49,6 +49,7 @@ setup(
         "django-allauth<1.0",
         "django-crispy-forms<2.0",
         "python-gitlab==2.5.0",
+        "argon2-cffi<22.0"
     ],
     extras_require={
         "testing": [

@@ -23,6 +23,31 @@
         color: $color-white;
       }
     }
+    .header__search-input {
+      border: 1px solid $color-true-black;
+      display: inline-block;
+      border-radius: 5px 0 0 5px;
+      padding: 10px;
+    }
+  }
+  .header__search-wrapper {
+    @include typography(button);
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 30px;
+  }
+  .header__search-button {
+    background: $color-true-black;
+    color: $color-white;
+    height: 42px;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    margin-left: -5px;
+    top: 5px;
+    position: relative;
+  }
+  .header__search-icon {
+    max-width: 30px;
   }
 
   .header__buttons {
@@ -34,10 +59,6 @@
   }
 
   .header__search-themes {
-    margin-bottom: 10px;
-  }
-
-  .header__search-button {
     margin-bottom: 10px;
   }
 

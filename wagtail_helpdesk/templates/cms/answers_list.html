@@ -6,6 +6,12 @@
       <h1 class="header__title">{{ page.title }}</h1>
 
       <form class="header__form" name="filter" method="get">
+        <div class="header__search-wrapper">
+          <input class="header__search-input" type="text" name="search" value="{{ search }}" placeholder="{% trans 'Uw zoekterm' %}" />
+          <button class="header__search-button" type="submit" aria-label="{% trans 'Zoek' %}">
+            <svg class="header__search-icon"><use xlink:href="#search" /></svg>
+          </button>
+        </div>
         <div class="header__buttons">
           <div class="header__search-themes">
             {% for item in categories %}
@@ -36,6 +42,10 @@
       <div class="question-link-list__links">
         {% for answer in answers_and_columns %}
           {{ answer.get_as_overview_row_card }}
+        {% empty %}
+          <div class="question-link-list__no-results">
+            {% trans 'Helaas, er zijn geen vragen gevonden' %}
+          </div>
         {% endfor %}
       </div>
     </div>

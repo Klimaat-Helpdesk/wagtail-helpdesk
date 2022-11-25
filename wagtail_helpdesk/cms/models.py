@@ -200,6 +200,7 @@ class Answer(Page):
     ]
 
     search_fields = Page.search_fields + [
+        search_index.FilterField("type"),
         search_index.SearchField("page_content"),
     ]
 
@@ -342,6 +343,13 @@ class AnswerIndexPage(RoutablePageMixin, Page):
             .specific()
             .order_by("-first_published_at")
         )
+
+        # Search
+        search = request.GET.get("search", "")
+        context["search"] = search
+        if search:
+            answers = answers.search(search).get_queryset()
+            columns = columns.search(search).get_queryset()
 
         # Filter categories based on GET params
         chosen_categories = []

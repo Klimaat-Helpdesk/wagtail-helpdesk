@@ -1,0 +1,41 @@
+.social-share-buttons {
+  @include typography(button);
+  max-width: calc(var(--grid-max-width) + var(--grid-gutter) * 2 + var(--grid-margin) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+  margin-bottom: 30px;
+  margin-top: 60px;
+  position: relative;
+
+  &__button-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__list-item {
+    display: inline;
+  }
+  .icon {
+    width: 30px;
+  }
+  &__button {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 99999px;
+    background-color: $color-true-black;
+    color: $color-white;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    transition: all .2s;
+    text-align: center;
+    &:hover {
+      background-color: $color-yellow-lighter;
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+}

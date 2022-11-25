@@ -130,6 +130,7 @@
   {% for block in self.page_content %}
     {% include_block block %}
   {% endfor %}
+  {% include "includes/social_share_buttons.html" %}
 
   {% for block in self.answer_origin %}
     {% include_block block %}

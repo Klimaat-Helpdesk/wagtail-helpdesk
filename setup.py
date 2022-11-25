@@ -48,7 +48,7 @@ setup(
         "Wagtail>=2.16,<4.2",
         "django-allauth<1.0",
         "django-crispy-forms<2.0",
-        "python-gitlab==2.5.0",
+        "python-gitlab<3.0",
         "argon2-cffi<22.0"
     ],
     extras_require={

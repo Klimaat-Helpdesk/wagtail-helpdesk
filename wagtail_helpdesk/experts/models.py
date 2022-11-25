@@ -1,8 +1,7 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
 from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -34,7 +33,7 @@ class Expert(models.Model):
             heading="Show this expert on the home page, 3 experts recommended",
         ),
         FieldPanel("name"),
-        ImageChooserPanel(
+        FieldPanel(
             "picture", heading="Expert's photo, 1:1 aspect ratio (square) works best"
         ),
         FieldPanel("email"),

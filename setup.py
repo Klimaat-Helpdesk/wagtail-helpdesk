@@ -46,18 +46,18 @@ setup(
     install_requires=[
         "Django>=3.2,<4.2",
         "Wagtail>=2.16,<4.2",
-        "django-allauth<1.0",
-        "django-crispy-forms<2.0",
-        "python-gitlab<3.0",
-        "argon2-cffi<22.0"
+        "django-allauth>=0.44,<1.0",
+        "django-crispy-forms>=1.0,<2.0",
+        "python-gitlab>=2.0,<3.0",
+        "argon2-cffi>=21.0,<22.0"
     ],
     extras_require={
         "testing": [
             "dj-database-url>=1,<2",
-            "pytest<8",
-            "factory-boy<4",
-            "pytest-django<5",
-            "pytest-cov<5",
+            "pytest>=7,<8",
+            "factory-boy>=3,<4",
+            "pytest-django>=4,<5",
+            "pytest-cov>=4,<5",
         ],
     },
     zip_safe=False,

@@ -1,42 +1,13 @@
 from django.template.response import SimpleTemplateResponse
 from django.urls import reverse_lazy
-from django.views.generic import FormView, TemplateView
+from django.views.generic import FormView
 
-from wagtail_helpdesk.cms.models import (
-    Answer,
-    AnswerCategory,
-    AnswerIndexPage,
-    ExpertIndexPage,
-)
+from wagtail_helpdesk.cms.models import Answer, AnswerCategory
 from wagtail_helpdesk.core.forms import (
     ClimateQuestionForm,
     ClimateQuestionUserContactForm,
 )
 from wagtail_helpdesk.core.models import Question
-from wagtail_helpdesk.experts.models import Expert
-
-
-class QuestionsInProgress(TemplateView):
-    template_name = "core/questions_in_progress.html"
-
-    def get_context_data(self, **kwargs):
-        featured_experts = Expert.objects.filter(featured=True)[:3]
-        questions = Question.objects.filter(status=Question.APPROVED)
-        for q in questions:
-            print(q)
-        context = super(QuestionsInProgress, self).get_context_data(**kwargs)
-        context.update(
-            {
-                "answers_page": AnswerIndexPage.objects.first().url,
-                "experts_page": ExpertIndexPage.objects.first(),
-                "featured_experts": featured_experts,
-                "questions_in_progress": questions,
-            }
-        )
-        return context
-
-
-questions_in_progress = QuestionsInProgress.as_view()
 
 
 class AskAQuestionPage(FormView):

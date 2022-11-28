@@ -6,6 +6,7 @@ from wagtail_helpdesk.tests.factories import (
     ExpertFactory,
     ExpertIndexPageFactory,
     QuestionFactory,
+    QuestionsInProgressPageFactory,
 )
 
 pytestmark = pytest.mark.django_db
@@ -20,7 +21,10 @@ def test_questions_in_progress_context(home_page, django_app):
     answer_index_page = AnswerIndexPageFactory(parent=home_page, slug="answers")
     expert_index_page = ExpertIndexPageFactory(parent=home_page, slug="experts")
 
-    response = django_app.get("/in_behandeling")
+    questions_in_progress_page = QuestionsInProgressPageFactory(
+        parent=home_page, slug="in_behandeling"
+    )
+    response = django_app.get(questions_in_progress_page.url)
     context = response.context
 
     assert context["answers_page"] == answer_index_page.url

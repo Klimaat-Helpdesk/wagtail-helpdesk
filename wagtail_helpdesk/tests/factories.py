@@ -8,6 +8,7 @@ from wagtail_helpdesk.cms.models import (
     AnswerIndexPage,
     ExpertIndexPage,
     HomePage,
+    QuestionsInProgressPage,
 )
 from wagtail_helpdesk.core.models import Question
 from wagtail_helpdesk.experts.models import Expert
@@ -69,3 +70,8 @@ class QuestionFactory(DjangoModelFactory):
 
     class Meta:
         model = Question
+
+
+class QuestionsInProgressPageFactory(PageFactory):
+    class Meta:
+        model = QuestionsInProgressPage

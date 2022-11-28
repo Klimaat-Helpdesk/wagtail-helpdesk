@@ -19,7 +19,7 @@ class AskAQuestionPage(FormView):
     template_name = "core/ask_a_question_page.html"
     form_class = ClimateQuestionForm
     success_url = reverse_lazy(
-        "core:post-question"
+        "post-question"
     )  # Forward with POST to the other view
 
     def get_random_category_and_questions(self):

@@ -1,3 +1,4 @@
+import factory
 from factory import Faker
 from factory.django import DjangoModelFactory
 from wagtail_factories import PageFactory
@@ -6,12 +7,21 @@ from wagtail_helpdesk.cms.models import (
     Answer,
     AnswerCategory,
     AnswerIndexPage,
+    CategoryAnswerRelationship,
     ExpertIndexPage,
     HomePage,
     QuestionsInProgressPage,
 )
 from wagtail_helpdesk.core.models import Question
 from wagtail_helpdesk.experts.models import Expert
+
+
+class CategoryAnswerRelationshipFactory(DjangoModelFactory):
+    answer = factory.SubFactory("factories.AnswerFactory")
+    category = factory.SubFactory("factories.AnswerCategoryFactory")
+
+    class Meta:
+        model = CategoryAnswerRelationship
 
 
 class AnswerCategoryFactory(DjangoModelFactory):
@@ -27,6 +37,12 @@ class AnswerCategoryFactory(DjangoModelFactory):
 class AnswerFactory(PageFactory):
     content = Faker("paragraph")
     excerpt = Faker("sentence")
+
+    @factory.post_generation
+    def categories(self, create, extracted, **kwargs):
+        if create and extracted:
+            for category in extracted:
+                CategoryAnswerRelationshipFactory(answer=self, category=category)
 
     class Meta:
         model = Answer

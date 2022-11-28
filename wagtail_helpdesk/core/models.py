@@ -58,11 +58,12 @@ class Question(models.Model):
 
     def save(self, **kwargs):
         super().save(**kwargs)
-        try:
-            self.issue
-        except ObjectDoesNotExist:
-            if self.status == self.APPROVED:
-                GitlabIssues.objects.create(question=self)
+        if hasattr(settings, "GITLAB_PERSONAL_TOKEN"):
+            try:
+                self.issue
+            except ObjectDoesNotExist:
+                if self.status == self.APPROVED:
+                    GitlabIssues.objects.create(question=self)
 
 
 class GitlabIssues(models.Model):

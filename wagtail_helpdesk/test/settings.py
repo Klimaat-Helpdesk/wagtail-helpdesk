@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ["localhost", "testserver"]
 INSTALLED_APPS = [
     "wagtail_helpdesk",
     "wagtail_helpdesk.cms",
-    "wagtail_helpdesk.user",
     "wagtail_helpdesk.core",
     "wagtail_helpdesk.experts",
     "wagtail_helpdesk.contrib",
@@ -167,3 +166,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "test-media")
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "Wagtail wagtail-helpdesk test site"
+
+AUTH_USER_MODEL = "users.User"

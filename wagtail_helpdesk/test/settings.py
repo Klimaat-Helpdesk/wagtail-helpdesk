@@ -32,6 +32,13 @@ ALLOWED_HOSTS = ["localhost", "testserver"]
 
 INSTALLED_APPS = [
     "wagtail_helpdesk",
+    "wagtail_helpdesk.cms",
+    "wagtail_helpdesk.user",
+    "wagtail_helpdesk.core",
+    "wagtail_helpdesk.experts",
+    "wagtail_helpdesk.contrib",
+    "wagtail_helpdesk.users",
+    "wagtail_helpdesk.volunteers",
     "wagtail_helpdesk.test",
     "wagtail.contrib.search_promotions",
     "wagtail.contrib.forms",

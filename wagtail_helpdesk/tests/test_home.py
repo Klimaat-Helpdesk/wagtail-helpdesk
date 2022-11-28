@@ -11,15 +11,15 @@ from wagtail_helpdesk.tests.factories import (
 pytestmark = pytest.mark.django_db
 
 
-def test_homepage_context(django_app):
+def test_homepage_context(django_app, home_page):
     featured_answers = AnswerFactory.create_batch(size=2, featured=True)
     not_featured_answer = AnswerFactory(featured=False)
 
     answer_categories = AnswerCategoryFactory.create_batch(size=2)
     featured_experts = ExpertFactory.create_batch(size=2, featured=True)
     not_featured_expert = ExpertFactory(featured=False)
-    answer_index_page = AnswerIndexPageFactory(slug="answers")
-    expert_index_page = ExpertIndexPageFactory(slug="experts")
+    answer_index_page = AnswerIndexPageFactory(parent=home_page, slug="answers")
+    expert_index_page = ExpertIndexPageFactory(parent=home_page, slug="experts")
 
     response = django_app.get("/")
     context = response.context

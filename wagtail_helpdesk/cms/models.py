@@ -24,6 +24,35 @@ from wagtail_helpdesk.experts.models import Expert
 from wagtail_helpdesk.volunteers.models import Volunteer
 
 
+class HomePage(Page):
+    max_count = 1
+
+    def get_context(self, request, *args, **kwargs):
+        featured_answers = (
+            Answer.objects.live()
+            .filter(featured=True)
+            .order_by("-first_published_at")[:10]
+        )
+        categories = AnswerCategory.objects.all()
+        featured_experts = Expert.objects.filter(featured=True)[:3]
+
+        context = super().get_context(request, *args, **kwargs)
+        context.update(
+            {
+                "answers_page": AnswerIndexPage.objects.first().url,
+                "experts_page": ExpertIndexPage.objects.first(),
+                "featured_answers": featured_answers,
+                "categories": categories,
+                "featured_experts": featured_experts,
+            }
+        )
+        return context
+
+    class Meta:
+        verbose_name = _("Homepage")
+        verbose_name_plural = _("Homepages")
+
+
 class ExpertAnswerRelationship(Orderable, models.Model):
     """
     Intermediate table for holding the many-to-many relationship in case there are

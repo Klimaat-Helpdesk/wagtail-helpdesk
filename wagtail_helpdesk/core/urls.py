@@ -3,7 +3,6 @@ from django.views.generic import TemplateView
 
 from wagtail_helpdesk.core.views import (
     ask_a_question_page,
-    home_page,
     post_question_submit_page,
     questions_in_progress,
 )
@@ -11,7 +10,6 @@ from wagtail_helpdesk.core.views import (
 app_name = "core"
 
 urlpatterns = [
-    path("", view=home_page, name="home"),
     path("in_behandeling", view=questions_in_progress, name="questions-in-progress"),
     path("ask", view=ask_a_question_page, name="ask"),
     path("ask/question_received", view=post_question_submit_page, name="post-question"),

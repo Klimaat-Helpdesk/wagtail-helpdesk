@@ -7,6 +7,7 @@ from wagtail_helpdesk.cms.models import (
     AnswerCategory,
     AnswerIndexPage,
     ExpertIndexPage,
+    HomePage,
 )
 from wagtail_helpdesk.experts.models import Expert
 
@@ -48,3 +49,8 @@ class ExpertIndexPageFactory(PageFactory):
 class AnswerIndexPageFactory(PageFactory):
     class Meta:
         model = AnswerIndexPage
+
+
+class HomePageFactory(PageFactory):
+    class Meta:
+        model = HomePage

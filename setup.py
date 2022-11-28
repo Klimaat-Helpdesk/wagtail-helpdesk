@@ -56,6 +56,8 @@ setup(
             "factory-boy>=3,<4",
             "pytest-django>=4,<5",
             "pytest-cov>=4,<5",
+            "wagtail-factories>=3,<4",
+            "django-webtest>=1,<2",
         ],
     },
     zip_safe=False,

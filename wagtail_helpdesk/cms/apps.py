@@ -9,8 +9,12 @@ class CmsConfig(AppConfig):
     def ready(self):
         # Fix partial matching
         # https://github.com/wagtail/wagtail/issues/7720
-        from wagtail.search.backends.database.postgres.postgres import (
-            PostgresSearchQueryCompiler,
-        )
+        try:
+            from wagtail.search.backends.database.postgres.postgres import (
+                PostgresSearchQueryCompiler,
+            )
 
-        PostgresSearchQueryCompiler.LAST_TERM_IS_PREFIX = True
+            PostgresSearchQueryCompiler.LAST_TERM_IS_PREFIX = True
+        except ModuleNotFoundError:
+            # Postgres is not used.
+            pass

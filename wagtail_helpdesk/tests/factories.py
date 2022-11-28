@@ -7,6 +7,7 @@ from wagtail_helpdesk.cms.models import (
     Answer,
     AnswerCategory,
     AnswerIndexPage,
+    AskQuestionPage,
     CategoryAnswerRelationship,
     ExpertIndexPage,
     HomePage,
@@ -91,3 +92,15 @@ class QuestionFactory(DjangoModelFactory):
 class QuestionsInProgressPageFactory(PageFactory):
     class Meta:
         model = QuestionsInProgressPage
+
+
+class AskQuestionPageFactory(PageFactory):
+    intro = Faker("paragraph")
+    step_1_title = Faker("sentence")
+    step_2_title = Faker("sentence")
+    keep_me_posted_title = Faker("sentence")
+    keep_me_posted_text = Faker("paragraph")
+    thank_you_text = Faker("paragraph")
+
+    class Meta:
+        model = AskQuestionPage

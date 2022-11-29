@@ -35,8 +35,6 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Framework :: Django",
         "Framework :: Django :: 3.2",
-        "Framework :: Django :: 4.0",
-        "Framework :: Django :: 4.1",
         "Framework :: Wagtail",
         "Framework :: Wagtail :: 2.16",
         "Framework :: Wagtail :: 3",
@@ -44,7 +42,7 @@ setup(
         "Framework :: Wagtail :: 4.1",
     ],
     install_requires=[
-        "Django>=3.2,<4.2",
+        "Django>=3.2,<4.0",
         "Wagtail>=2.16,<4.2",
         "django-allauth>=0.44,<1.0",
         "django-crispy-forms>=1.0,<2.0",
@@ -53,7 +51,7 @@ setup(
     ],
     extras_require={
         "testing": [
-            "dj-database-url>=1,<2",
+            "dj-database-url<1",  # 1.0.0 requires django > 3.2
             "pytest>=7,<8",
             "factory-boy>=3,<4",
             "pytest-django>=4,<5",

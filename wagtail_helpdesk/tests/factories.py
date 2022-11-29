@@ -9,6 +9,7 @@ from wagtail_helpdesk.cms.models import (
     AnswerIndexPage,
     AskQuestionPage,
     CategoryAnswerRelationship,
+    ExpertAnswerOverviewPage,
     ExpertAnswerRelationship,
     ExpertIndexPage,
     HomePage,
@@ -119,3 +120,8 @@ class AskQuestionPageFactory(PageFactory):
 
     class Meta:
         model = AskQuestionPage
+
+
+class ExpertAnswerOverviewPageFactory(PageFactory):
+    class Meta:
+        model = ExpertAnswerOverviewPage

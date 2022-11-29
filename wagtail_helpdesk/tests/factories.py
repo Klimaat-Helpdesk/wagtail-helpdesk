@@ -9,6 +9,8 @@ from wagtail_helpdesk.cms.models import (
     AnswerIndexPage,
     AskQuestionPage,
     CategoryAnswerRelationship,
+    ExpertAnswerOverviewPage,
+    ExpertAnswerRelationship,
     ExpertIndexPage,
     HomePage,
     QuestionsInProgressPage,
@@ -35,6 +37,14 @@ class AnswerCategoryFactory(DjangoModelFactory):
         django_get_or_create = ["slug"]
 
 
+class ExpertAnswerRelationshipFactory(DjangoModelFactory):
+    answer = factory.SubFactory("factories.AnswerFactory")
+    expert = factory.SubFactory("factories.ExpertFactory")
+
+    class Meta:
+        model = ExpertAnswerRelationship
+
+
 class AnswerFactory(PageFactory):
     content = Faker("paragraph")
     excerpt = Faker("sentence")
@@ -44,6 +54,12 @@ class AnswerFactory(PageFactory):
         if create and extracted:
             for category in extracted:
                 CategoryAnswerRelationshipFactory(answer=self, category=category)
+
+    @factory.post_generation
+    def experts(self, create, extracted, **kwargs):
+        if create and extracted:
+            for expert in extracted:
+                ExpertAnswerRelationshipFactory(answer=self, expert=expert)
 
     class Meta:
         model = Answer
@@ -104,3 +120,8 @@ class AskQuestionPageFactory(PageFactory):
 
     class Meta:
         model = AskQuestionPage
+
+
+class ExpertAnswerOverviewPageFactory(PageFactory):
+    class Meta:
+        model = ExpertAnswerOverviewPage

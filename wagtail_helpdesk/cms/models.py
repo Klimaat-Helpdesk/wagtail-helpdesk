@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import TextField
-from django.http import HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
@@ -485,6 +485,26 @@ class ExpertIndexPage(Page):
             }
         )
         return context
+
+
+class ExpertAnswerOverviewPage(RoutablePageMixin, Page):
+    template = "cms/expert_answer_overview_page.html"
+    preview_modes = []
+    max_count = 1
+
+    @route(r"^$")
+    def index(self, request, *args, **kwargs):
+        """This page does not exist. It's only used for expert_answers"""
+        raise Http404
+
+    @route(r"^(\d+)/$")
+    def expert_answers(self, request, expert_id):
+        expert = get_object_or_404(Expert, pk=expert_id)
+        answers = expert.get_answered_questions()
+
+        return self.render(
+            request, context_overrides={"expert": expert, "answers": answers}
+        )
 
 
 class VolunteerIndexPage(Page):

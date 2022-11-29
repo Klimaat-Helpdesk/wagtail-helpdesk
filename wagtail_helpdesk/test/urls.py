@@ -14,6 +14,6 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     path("", include(core_urlpatterns)),
     path("", include(experts_urlpatterns)),
-    path("", include(users_urlpatterns)),
     path("", include(wagtail_urls)),
+    path("", include(users_urlpatterns)),
 ]

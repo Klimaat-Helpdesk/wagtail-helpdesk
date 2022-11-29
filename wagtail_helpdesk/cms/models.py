@@ -20,6 +20,7 @@ from wagtail_helpdesk.cms.blocks import (
     QuoteBlock,
     RelatedItemsBlock,
 )
+from wagtail_helpdesk.core.models import Question
 from wagtail_helpdesk.experts.models import Expert
 from wagtail_helpdesk.volunteers.models import Volunteer
 
@@ -523,3 +524,25 @@ class GeneralPage(Page):
         FieldPanel("subtitle"),
         FieldPanel("content"),
     ]
+
+
+class QuestionsInProgressPage(Page):
+    template = "cms/questions_in_progress.html"
+
+    def get_context(self, request, *args, **kwargs):
+        featured_experts = Expert.objects.filter(featured=True)[:3]
+        questions = Question.objects.filter(status=Question.APPROVED)
+        context = super().get_context(request, *args, **kwargs)
+        context.update(
+            {
+                "answers_page": AnswerIndexPage.objects.first().url,
+                "experts_page": ExpertIndexPage.objects.first(),
+                "featured_experts": featured_experts,
+                "questions_in_progress": questions,
+            }
+        )
+        return context
+
+    class Meta:
+        verbose_name = _("Questions in progress page")
+        verbose_name_plural = _("Questions in progress pages")

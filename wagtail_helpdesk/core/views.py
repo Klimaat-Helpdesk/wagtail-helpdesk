@@ -16,34 +16,6 @@ from wagtail_helpdesk.core.models import Question
 from wagtail_helpdesk.experts.models import Expert
 
 
-class HomePage(TemplateView):
-    template_name = "core/home_page.html"
-
-    def get_context_data(self, **kwargs):
-        featured_answers = (
-            Answer.objects.live()
-            .filter(featured=True)
-            .order_by("-first_published_at")[:10]
-        )
-        categories = AnswerCategory.objects.all()
-        featured_experts = Expert.objects.filter(featured=True)[:3]
-
-        context = super(HomePage, self).get_context_data(**kwargs)
-        context.update(
-            {
-                "answers_page": AnswerIndexPage.objects.first().url,
-                "experts_page": ExpertIndexPage.objects.first(),
-                "featured_answers": featured_answers,
-                "categories": categories,
-                "featured_experts": featured_experts,
-            }
-        )
-        return context
-
-
-home_page = HomePage.as_view()
-
-
 class QuestionsInProgress(TemplateView):
     template_name = "core/questions_in_progress.html"
 

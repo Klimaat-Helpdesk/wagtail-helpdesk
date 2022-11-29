@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static i18n %}
+{% load static i18n wagtailcore_tags %}
 
 {% block smokedglass %}
 {% endblock %}
@@ -14,7 +14,7 @@
     <div class="form">
       <div class="form__wrapper">
         <div class="form__header__container">
-          <h1 class="form__header">{% trans 'Bedankt voor het stellen van je vraag. We nemen je vraag in behandeling en proberen zo snel mogelijk een expert te vinden die je vraag kan beantwoorden.' %}</h1>
+          <h1 class="form__header">{{ page.thank_you_text|richtext }}</h1>
         </div>
     </div>
   </div>

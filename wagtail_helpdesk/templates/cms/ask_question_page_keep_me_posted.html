@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static i18n %}
+{% load static i18n wagtailcore_tags %}
 
 {% block smokedglass %}
 {% endblock %}
@@ -18,8 +18,8 @@
     <div class="form__wrapper">
 
       <div class="form__header__container">
-          <h1 class="form__header">{% trans 'Bedankt voor je vraag!' %}</h1>
-          <p class="form__header-text">{% trans 'Laat je mailadres achter als je op de hoogte gehouden wilt worden [optioneel].' %}</p>
+          <h1 class="form__header">{{ page.keep_me_posted_title }}</h1>
+          <p class="form__header-text">{{ page.keep_me_posted_text|richtext }}</p>
       </div>
 
       <form class="form__form" method="post" novalidate>

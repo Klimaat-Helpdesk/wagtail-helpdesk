@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static i18n %}
+{% load static i18n wagtailcore_tags %}
 
 {% block smokedglass %}
 {% endblock %}
@@ -15,13 +15,13 @@
       </a>
 
       <div class="simple-header__title-container">
-        <h1 class="simple-header__title">{% trans 'Stel een vraag' %}</h1>
+        <h1 class="simple-header__title">{{ page.title }}</h1>
       </div>
 
       <div class="simple-header__introduction-container">
         <div class="simple-header__introduction">
           <p class="richtext">
-            {% blocktrans %}Wij willen je vraag graag zo compleet en correct mogelijk beantwoorden. Daarom vragen wij twee experts die voor jou aan de slag gaan om een antwoord te formuleren. De één doorzoekt bronnen en discussiëert, de ander gaat alles nog eens grondig controleren. Het kost wel wat tijd om deze wetenschappelijke standaard voor een betrouwbaar antwoord te behalen. Daarom kan het wat langer duren voordat je vraag beantwoord is.            {% endblocktrans %}
+            {{ page.intro|richtext }}
           </p>
         </div>
       </div>
@@ -107,9 +107,9 @@
 
       <div class="form__form-fields">
         <div class="form-field">
-          {{ form.main_question.label_tag }}
-          {{ form.main_question.errors }}
-          {{ form.main_question }}
+          {{ form.question.label_tag }}
+          {{ form.question.errors }}
+          {{ form.question }}
         </div>
 
         <div class="form-field">
@@ -130,14 +130,6 @@
           {{ form.extra_info }}
         </div>
 
-{#        <div class="form-field">#}
-{#          {{ form.accept_terms.label_tag }}#}
-{#          <p>#}
-{#            <a href="/voorwaarden">{% trans "Lees hier onze voorwaarden." %}</a>#}
-{#          </p>#}
-{#          {{ form.accept_terms }}#}
-{#          {{ form.accept_terms.errors }}#}
-{#        </div>#}
       </div>
 
       <div class="form__button">

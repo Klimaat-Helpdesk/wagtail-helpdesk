@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import TextField
-from django.shortcuts import redirect, render
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -20,6 +21,7 @@ from wagtail_helpdesk.cms.blocks import (
     QuoteBlock,
     RelatedItemsBlock,
 )
+from wagtail_helpdesk.core.forms import KeepMePostedForm, QuestionForm
 from wagtail_helpdesk.core.models import Question
 from wagtail_helpdesk.experts.models import Expert
 from wagtail_helpdesk.volunteers.models import Volunteer
@@ -546,3 +548,116 @@ class QuestionsInProgressPage(Page):
     class Meta:
         verbose_name = _("Questions in progress page")
         verbose_name_plural = _("Questions in progress pages")
+
+
+class AskQuestionPage(RoutablePageMixin, Page):
+    intro = RichTextField(
+        verbose_name="Intro",
+        default="<p>Wij willen je vraag graag zo compleet en correct mogelijk beantwoorden. "
+        "Daarom vragen wij twee experts die voor jou aan de slag gaan om een antwoord te formuleren. "
+        "De één doorzoekt bronnen en discussiëert, de ander gaat alles nog eens grondig controleren. "
+        "Het kost wel wat tijd om deze wetenschappelijke standaard voor een betrouwbaar antwoord te behalen. "
+        "Daarom kan het wat langer duren voordat je vraag beantwoord is.</p>",
+    )
+    step_1_title = models.CharField(
+        verbose_name="Titel", max_length=255, default="Waar gaat je vraag over?"
+    )
+    step_2_title = models.CharField(
+        verbose_name="Titel", max_length=255, default="Formuleer je vraag"
+    )
+    keep_me_posted_title = models.CharField(
+        verbose_name="Titel", max_length=255, default="Bedankt voor je vraag!"
+    )
+    keep_me_posted_text = RichTextField(
+        verbose_name="Tekst",
+        default="<p>Laat je mailadres achter als je op de hoogte gehouden wilt worden. Dit is optioneel.</p>",
+    )
+    thank_you_text = RichTextField(
+        verbose_name="Tekst",
+        default="<p>Bedankt voor het stellen van je vraag. "
+        "We nemen je vraag in behandeling en proberen zo snel mogelijk een "
+        "expert te vinden die je vraag kan beantwoorden.</p>",
+    )
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                FieldPanel("intro"),
+                FieldPanel("step_1_title"),
+                FieldPanel("step_2_title"),
+            ],
+            heading="Twee-traps-formulier",
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("keep_me_posted_title"),
+                FieldPanel("keep_me_posted_text"),
+            ],
+            heading="Houd me op de hoogte",
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("thank_you_text"),
+            ],
+            heading="Dank u!",
+        ),
+    ]
+
+    @route(r"^$")
+    def index(self, request, *args, **kwargs):
+        """
+        Index page, the form is spread over two steps using JavaScript.
+        """
+        if request.method == "POST":
+            form = QuestionForm(request.POST)
+            if form.is_valid():
+                obj = form.save(commit=False)
+                obj.asked_by_ip = request.META.get("REMOTE_ADDR", "")
+                obj.save()
+                request.session["question_id"] = obj.pk
+                return HttpResponseRedirect(self.reverse_subpage("keep-me-posted"))
+        else:
+            form = QuestionForm()
+
+        template = "cms/ask_question_page.html"
+        context = self.get_context(request)
+        context.update({"form": form})
+        return render(request, template, context)
+
+    @route(r"^houd-me-op-de-hoogte/$", name="keep-me-posted")
+    def keep_me_posted(self, request):
+        """
+        Keep me posted, optional step to leave your e-mail.
+        """
+        question = get_object_or_404(Question, pk=request.session.get("question_id"))
+        if request.method == "POST":
+            form = KeepMePostedForm(request.POST, instance=question)
+            if form.is_valid():
+                form.save()
+                del request.session["question_id"]
+                return HttpResponseRedirect(
+                    self.url + self.reverse_subpage("thank-you")
+                )
+        else:
+            form = KeepMePostedForm(instance=question)
+
+        template = "cms/ask_question_page_keep_me_posted.html"
+        context = self.get_context(request)
+        context.update({"form": form})
+        return render(request, template, context)
+
+    @route(r"^dank/$", name="thank-you")
+    def thank_you(self, request):
+        template = "cms/ask_question_page_thank_you.html"
+        context = self.get_context(request)
+        return render(request, template, context)
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        context.update(
+            {
+                "answer_index_page": AnswerIndexPage.objects.live().first(),
+            }
+        )
+        return context

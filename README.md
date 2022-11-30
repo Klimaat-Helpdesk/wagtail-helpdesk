@@ -39,12 +39,12 @@ This repository holds the code for https://www.klimaathelpdesk.org, a website ai
   
 - Add the wagtail_helpdesk urls to your project's `urls.py`:
   ```python
-  from wagtail_helpdesk.core.urls import urlpatterns as helpdesk_urlpatterns
+  from wagtail_helpdesk.urls import urlpatterns as helpdesk_urlpatterns
   
   urlpatterns += [
-      path("", include(helpdesk_urlpatterns)),
       ...
       path("", include(wagtail_urls)),
+      path("", include(helpdesk_urlpatterns)),
   ]
   ```
 

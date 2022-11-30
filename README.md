@@ -16,9 +16,9 @@ This repository holds the code for https://www.klimaathelpdesk.org, a website ai
 
 ## Supported versions
 
-- Python ...
-- Django ...
-- Wagtail ...
+- Python 3.9, 3.10
+- Django 3.2 LTS
+- Wagtail 4.1 LTS
 
 ## Installation
 

@@ -49,7 +49,7 @@ setup(
     ],
     extras_require={
         "testing": [
-            "dj-database-url<1",  # 1.0.0 requires django > 3.2
+            "dj-database-url>=1,<2",
             "pytest>=7,<8",
             "factory-boy>=3,<4",
             "pytest-django>=4,<5",

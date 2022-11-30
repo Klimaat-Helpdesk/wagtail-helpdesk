@@ -25,16 +25,15 @@ This repository holds the code for https://www.klimaathelpdesk.org, a website ai
 - Add the wagtail-helpdesk apps to your `INSTALLED_APPS` in your project's `settings.py`:
   ```python
     INSTALLED_APPS = [
-    "wagtail_helpdesk",
-    "wagtail_helpdesk.cms",
-    "wagtail_helpdesk.users",
-    "wagtail_helpdesk.contrib",
-    "wagtail_helpdesk.core",
-    "wagtail_helpdesk.experts",
-    "wagtail_helpdesk.search",
-    "wagtail_helpdesk.utils",
-    "wagtail_helpdesk.volunteers",
-  ]
+        "wagtail_helpdesk",
+        "wagtail_helpdesk.cms",
+        "wagtail_helpdesk.users",
+        "wagtail_helpdesk.contrib",
+        "wagtail_helpdesk.core",
+        "wagtail_helpdesk.experts",
+        "wagtail_helpdesk.utils",
+        "wagtail_helpdesk.volunteers",
+    ]
   ```
   
 - Add the wagtail_helpdesk urls to your project's `urls.py`:

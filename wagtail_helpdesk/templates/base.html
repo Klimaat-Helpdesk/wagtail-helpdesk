@@ -1,4 +1,5 @@
-{% load static i18n helpdesk_tags %}
+{% load static i18n helpdesk_tags wagtailcore_tags wagtailsettings_tags %}
+{% get_settings %}
 
 
 <!DOCTYPE html>
@@ -65,24 +66,29 @@
       </a>
     </div>
 
-    <div class="footer-bar__links">
-      <span class="footer-bar__title">Een initiatief van
-        <a class="footer-bar__title-link" href="https://scientists4future.nl/">Scientists4Future NL</a> &
-        <a class="footer-bar__title-link" href="https://www.uu.nl/en/research/utrecht-young-academy">Utrecht Young Academy</a>
-      </span>
-    </div>
-    <div class="footer-bar__links">
-      <a class="footer-bar__link" href="/about">Over ons</a>
-      <a class="footer-bar__link" href="/voorwaarden">Voorwaarden</a>
-      <a class="footer-bar__link" href="/contact">Contact</a>
-      <a class="footer-bar__link" href="/vrijwilligers">Vrijwilligers</a>
-    </div>
-    <div class="footer-bar__links">
-      <span class="footer-bar__kvk">Klimaathelpdesk.org is in beheer van de Stichting KlimaatHelpdesk, een organisatie zonder winstoogmerk, geregistreerd onder Kamer Van Koophandel nummer 83377646</span>
-    </div>
+    {% with settings.cms.FooterSettings as footer_settings %}
+      <div class="footer-bar__links">
+        <span class="footer-bar__title">
+          {{ footer_settings.initiator_text|richtext }}
+        </span>
+      </div>
+
+      {% if footer_settings.nav %}
+        <div class="footer-bar__links">
+          {% for item in footer_settings.nav %}
+            <a class="footer-bar__link" href="{% pageurl item.value.page %}">{{ item.value.title }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="footer-bar__links">
+        <span class="footer-bar__coc">{{ footer_settings.maintainer_text }}</span>
+      </div>
+    {% endwith %}
 
   </div>
 </footer>
+
 {% block footer_js %}
 {% endblock %}
 

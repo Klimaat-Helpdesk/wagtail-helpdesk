@@ -7,8 +7,11 @@ from django.utils.translation import gettext_lazy as _
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
+from wagtail import blocks
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
+from wagtail.contrib.settings.models import BaseSetting
+from wagtail.contrib.settings.registry import register_setting
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Orderable, Page
 from wagtail.search import index as search_index
@@ -681,3 +684,62 @@ class AskQuestionPage(RoutablePageMixin, Page):
             }
         )
         return context
+
+
+@register_setting
+class MainNavSettings(BaseSetting):
+    text = models.CharField(
+        verbose_name=_("Text"),
+        max_length=255,
+        default=_("Didn't find the answer you were looking for?"),
+    )
+    buttons = StreamField(
+        [
+            (
+                "item",
+                blocks.StructBlock(
+                    [
+                        ("title", blocks.CharBlock(verbose_name=_("Title"))),
+                        ("page", blocks.PageChooserBlock(verbose_name=_("Page"))),
+                    ]
+                ),
+            )
+        ],
+        verbose_name=_("Buttons"),
+        blank=True,
+    )
+
+    class Meta:
+        verbose_name = _("Main navigation")
+
+
+@register_setting
+class FooterSettings(BaseSetting):
+    initiator_text = RichTextField(
+        verbose_name=_("Initiator-text"),
+        default='<p>An initiative of <a href="#">...</a> & <a href="#">...</a></p>',
+    )
+    nav = StreamField(
+        [
+            (
+                "item",
+                blocks.StructBlock(
+                    [
+                        ("title", blocks.CharBlock(verbose_name=_("Title"))),
+                        ("page", blocks.PageChooserBlock(verbose_name=_("Page"))),
+                    ]
+                ),
+            )
+        ],
+        verbose_name=_("Navigation"),
+        blank=True,
+    )
+    maintainer_text = models.TextField(
+        verbose_name=_("Maintainer text"),
+        max_length=255,
+        default="example.com is managed by ..., a non-profit organization, "
+        "registered under Chamber of Commerce number ...",
+    )
+
+    class Meta:
+        verbose_name = "Footer"

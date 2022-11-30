@@ -31,7 +31,7 @@
     display: inline-block;
   }
 
-  .footer-bar__kvk {
+  .footer-bar__coc {
     color: $color-white;
     @include typography(navigation);
     font-weight: 500;
@@ -40,7 +40,7 @@
     display: inline-block;
   }
 
-  .footer-bar__link, .footer-bar__title-link {
+  .footer-bar__link, .footer-bar__title-link .footer-bar__title a {
     color: $color-yellow-warm;
     @include typography(navigation);
     font-weight: 500;

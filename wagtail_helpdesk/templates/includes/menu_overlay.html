@@ -1,32 +1,40 @@
-<div class="menu-overlay">
+{% load wagtailcore_tags wagtailsettings_tags i18n %}
+{% get_settings %}
+
+<div class="menu-overlay" data-navigation-target="overlay">
+  <div class="menu-overlay__outside js-menu-outside" data-action="click->navigation#close"></div>
   <div class="menu-overlay__wrapper">
+
     <div class="menu-overlay__button-container">
-      <button class="menu-overlay__close-button">
+      <button class="menu-overlay__close-button" aria-label="{% trans 'Close navigation' %}" data-action="navigation#close">
         <span class="menu-overlay__close-icon"></span>
       </button>
     </div>
 
-    <div class="menu-overlay__links">
-      <a class="menu-overlay__link" href="/answers">Jullie vragen</a>
-      <a class="menu-overlay__link" href="/experts">Onze experts</a>
-      <a class="menu-overlay__link" href="/about">Wie zijn wij?</a>
-      <a class="menu-overlay__link" href="/contact">Contact</a>
-    </div>
+    {% if main_nav %}
+      <div class="menu-overlay__links">
+        {% for page in main_nav %}
+          <a class="menu-overlay__link" href="{% pageurl page %}">{{ page }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
 
-    <div class="menu-overlay__footer-items">
-      <span class="menu-overlay__footer-text">Heb je het antwoord dat je zocht niet gevonden?</span>
-      <a href="/ask">
-        <button class="menu-overlay__i button">
-          <span class="button__text">Stel je vraag</span>
-          <span class="button__icon"></span>
-        </button>
-      </a>
-      <a href="/in_behandeling">
-          <button class="menu-overlay__i button">
-            <span class="button__text">In Behandeling</span>
-            <span class="button__icon"></span>
-          </button>
-        </a>
-    </div>
+    {% with settings.cms.MainNavSettings as nav %}
+      <div class="menu-overlay__footer-items">
+        <span class="menu-overlay__footer-text">{{ nav.text }}</span>
+
+        {% if nav.buttons %}
+          {% for obj in nav.buttons %}
+            <a href="{% pageurl obj.value.page %}">
+              <button class="menu-overlay__i button">
+                <span class="button__text">{{ obj.value.title }}</span>
+                <span class="button__icon"></span>
+              </button>
+            </a>
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endwith %}
+
   </div>
 </div>

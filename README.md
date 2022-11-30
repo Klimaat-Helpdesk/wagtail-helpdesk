@@ -16,35 +16,34 @@ This repository holds the code for https://www.klimaathelpdesk.org, a website ai
 
 ## Supported versions
 
-- Python ...
-- Django ...
-- Wagtail ...
+- Python 3.9, 3.10
+- Django 3.2 LTS
+- Wagtail 4.1 LTS
 
 ## Installation
 
 - Add the wagtail-helpdesk apps to your `INSTALLED_APPS` in your project's `settings.py`:
   ```python
     INSTALLED_APPS = [
-    "wagtail_helpdesk",
-    "wagtail_helpdesk.cms",
-    "wagtail_helpdesk.users",
-    "wagtail_helpdesk.contrib",
-    "wagtail_helpdesk.core",
-    "wagtail_helpdesk.experts",
-    "wagtail_helpdesk.search",
-    "wagtail_helpdesk.utils",
-    "wagtail_helpdesk.volunteers",
-  ]
+        "wagtail_helpdesk",
+        "wagtail_helpdesk.cms",
+        "wagtail_helpdesk.users",
+        "wagtail_helpdesk.contrib",
+        "wagtail_helpdesk.core",
+        "wagtail_helpdesk.experts",
+        "wagtail_helpdesk.utils",
+        "wagtail_helpdesk.volunteers",
+    ]
   ```
   
 - Add the wagtail_helpdesk urls to your project's `urls.py`:
   ```python
-  from wagtail_helpdesk.core.urls import urlpatterns as helpdesk_urlpatterns
+  from wagtail_helpdesk.urls import urlpatterns as helpdesk_urlpatterns
   
   urlpatterns += [
-      path("", include(helpdesk_urlpatterns)),
       ...
       path("", include(wagtail_urls)),
+      path("", include(helpdesk_urlpatterns)),
   ]
   ```
 

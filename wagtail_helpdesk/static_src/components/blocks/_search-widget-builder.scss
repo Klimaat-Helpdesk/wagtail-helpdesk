@@ -1,0 +1,29 @@
+.search-widget-builder {
+  @include typography(button);
+  &__input {
+    display: block;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid $color-true-black;
+    margin-bottom: 30px;
+    font-weight: normal;
+    width: 100%;
+  }
+  &__textarea {
+    padding: 10px;
+    border: 1px solid $color-true-black;
+    border-radius: 5px;
+    font-weight: normal;
+  }
+  &__label {
+    margin-bottom: 10px;
+    display: block;
+  }
+  &__button {
+    margin-top: 10px;
+  }
+  &__message {
+    display: none;
+    font-weight: normal;
+  }
+}

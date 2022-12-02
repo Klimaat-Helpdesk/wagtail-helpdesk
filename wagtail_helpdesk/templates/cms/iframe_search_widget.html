@@ -1,0 +1,29 @@
+{% load helpdesk_tags i18n %}
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{% versioned_static 'main.css' %}">
+</head>
+<body>
+  <div class="search-widget">
+    <div class="search-widget__search-wrapper">
+      {% if title %}
+      <h4>{{ title }}</h4>
+      {% endif %}
+
+      <form method="get" action="{{ answers_page }}" target="_parent">
+        <input class="search-widget__search-input" type="text" name="search" placeholder="{% trans 'Your search term' %}" />
+        <button class="search-widget__search-button" type="submit" aria-label="{% trans 'Search' %}">
+          <svg class="search-widget__search-icon"><use xlink:href="#search" /></svg>
+        </button>
+      </form>
+    <p class="search-widget__powered-by">Powered by: <a href="{{ base_url }}">{{ base_url }}</a></p>
+    </div>
+  </div>
+{% include "includes/icons.html" %}
+</body>
+</html>

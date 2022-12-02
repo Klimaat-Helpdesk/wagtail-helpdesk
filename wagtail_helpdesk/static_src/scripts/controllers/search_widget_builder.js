@@ -9,6 +9,7 @@ export default class SearchWidgetBuilderController extends Controller {
     this.codeTextareaElement = this.element.querySelector(".js-code-textarea");
     this.copyCodeButton = this.element.querySelector(".js-copy-code-button");
     this.message = this.element.querySelector(".js-message");
+    this.exampleElement = this.element.querySelector(".js-example");
 
     this.updateCode();
     this.initEventHandlers();
@@ -34,7 +35,8 @@ export default class SearchWidgetBuilderController extends Controller {
   }
 
   updateCode() {
-    this.codeTextareaElement.value = `<iframe src="${this.urlInputElement.value}?title=${this.titleInputElement.value}" style="width: 100%; height: 100px;"></iframe>`
+    this.codeTextareaElement.value = `<iframe src="${this.urlInputElement.value}?title=${this.titleInputElement.value}" style="width: 100%; height: 120px;"></iframe>`
+    this.exampleElement.innerHTML = this.codeTextareaElement.value;
   }
 }
 

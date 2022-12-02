@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.db.models import TextField
 from django.http import Http404, HttpResponseRedirect
@@ -743,3 +744,22 @@ class FooterSettings(BaseSetting):
 
     class Meta:
         verbose_name = "Footer"
+
+
+class SearchWidgetPage(Page):
+    intro = models.TextField(
+        default=_("Create a search widget to place on your own website")
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("intro"),
+    ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context.update(
+            {
+                "base_url": settings.BASE_URL,
+            }
+        )
+        return context

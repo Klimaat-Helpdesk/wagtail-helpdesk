@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n static wagtailcore_tags %}
+
+{% block smokedglass %}
+{% endblock %}
+
+{% block content_area %}
+  <div {% block smokedglass-class %}{% endblock %}>
+
+  {% block head %}
+    <div class="content-header">
+      <div class="content-header__wrapper">
+        <div class="content-header__title-container">
+          <h1 class="content-header__title">
+            {{ self.title }}
+          </h1>
+        </div>
+
+        <div class="content-header__introduction">
+          <p class="content-header__introduction-text">
+            {{ self.subtitle }}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+{% block content %}
+    <div class="content">
+      <div class="content__container">
+        <div class="content__answer richtext" data-controller="search_widget_builder">
+          {{ self.intro|richtext }}<br/>
+          <input class="js-url-input" type="hidden" value="{{ base_url }}{% url "cms:iframe-search-widget" %}">
+          <input class="js-title-input" value="Zoek een vraag" style="border: 1px solid black"/><br/>
+          <textarea class="js-code-textarea" disabled style="width: 100%">asdsda</textarea>
+        </div>
+      </div>
+      {% include "includes/social_share_buttons.html" %}
+    </div>
+
+{% endblock %}
+
+  </div>
+{% endblock content_area %}

@@ -1,0 +1,31 @@
+.search-widget {
+  &__search-wrapper {
+    @include typography(button);
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  &__search-button {
+    background: $color-yellow-lighter;
+    color: $color-white;
+    height: 42px;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    margin-left: -5px;
+    top: 5px;
+    position: relative;
+  }
+  &__search-icon {
+    max-width: 30px;
+  }
+  &__search-input {
+    border: 1px solid $color-true-black;
+    display: inline-block;
+    border-radius: 5px 0 0 5px;
+    padding: 10px;
+  }
+  &__powered-by {
+    font-weight: normal;
+    font-size: 10px;
+    margin-top: 10px;
+  }
+}

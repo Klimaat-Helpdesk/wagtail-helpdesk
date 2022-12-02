@@ -13,5 +13,6 @@ def iframe_search_widget(request):
         {
             "title": request.GET.get("title", "Zoeken"),
             "answers_page": f"{settings.BASE_URL}{AnswerIndexPage.objects.first().url}",
+            "base_url": settings.BASE_URL,
         },
     )

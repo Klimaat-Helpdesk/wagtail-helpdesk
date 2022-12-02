@@ -28,11 +28,22 @@
 {% block content %}
     <div class="content">
       <div class="content__container">
+
         <div class="content__answer richtext" data-controller="search_widget_builder">
-          {{ self.intro|richtext }}<br/>
-          <input class="js-url-input" type="hidden" value="{{ base_url }}{% url "cms:iframe-search-widget" %}">
-          <input class="js-title-input" value="Zoek een vraag" style="border: 1px solid black"/><br/>
-          <textarea class="js-code-textarea" disabled style="width: 100%">asdsda</textarea>
+
+          <div class="search-widget-builder">
+            {{ self.intro|richtext }}
+
+            <input class="js-url-input" type="hidden" value="{{ base_url }}{% url "cms:iframe-search-widget" %}">
+
+            <label class="search-widget-builder__label" for="search-text">{% trans "Enter an accompanying text:" %}</label>
+            <input id="search-text" class="js-title-input search-widget-builder__input" />
+
+            <label class="search-widget-builder__label" for="widget-coe">{% trans "Copy the code below:" %}</label>
+            <textarea id="widget-code" class="js-code-textarea search-widget-builder__textarea" disabled style="width: 100%"></textarea>
+            <button aria-label="{% trans "Kopieer" %}" class="js-copy-code-button button search-widget-builder__button">{% trans "Copy" %}</button>
+            <span class="js-message search-widget-builder__message">{% trans "Code has been copied!" %}</span>
+          </div>
         </div>
       </div>
       {% include "includes/social_share_buttons.html" %}

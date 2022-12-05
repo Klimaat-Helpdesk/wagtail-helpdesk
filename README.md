@@ -27,7 +27,6 @@ This repository holds the code for https://www.klimaathelpdesk.org, a website ai
     INSTALLED_APPS = [
         "wagtail_helpdesk",
         "wagtail_helpdesk.cms",
-        "wagtail_helpdesk.users",
         "wagtail_helpdesk.contrib",
         "wagtail_helpdesk.core",
         "wagtail_helpdesk.experts",

@@ -1,6 +1,6 @@
 # Wagtail helpdesk
 
-This repository holds the code for https://www.klimaathelpdesk.org, a website aimed at answering questions regarding climate change, global warming, and related.
+This repository holds the code for `wagtail-helpdesk`, a Wagtail app aimed at answering questions by experts. The original implementation was done for [Klimaathelpdesk](https://klimaathelpdesk.org), a website aimed at answering questions regarding climate change, global warming, and related.
 
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![PyPI version](https://badge.fury.io/py/wagtail-helpdesk.svg)](https://badge.fury.io/py/wagtail-helpdesk)

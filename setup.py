@@ -13,7 +13,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 setup(
     name="wagtail-helpdesk",
     version=__version__,
-    description="This repository holds the code for https://www.klimaathelpdesk.org, a website aimed at answering questions regarding climate change, global warming, and related.",
+    description="A Wagtail app aimed at answering questions by experts",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Four Digits",

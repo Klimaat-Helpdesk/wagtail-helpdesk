@@ -8,4 +8,10 @@ def settings_context(_request):
 
 
 def defaults(request):
-    return {"main_nav": HomePage.objects.first().get_children().live().in_menu()}
+    home_page = HomePage.objects.first()
+    if home_page:
+        menu_qs = home_page.get_children().live().in_menu()
+    else:
+        menu_qs = None
+
+    return {"main_nav": menu_qs}

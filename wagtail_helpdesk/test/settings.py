@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "wagtail_helpdesk.cms",
     "wagtail_helpdesk.core",
     "wagtail_helpdesk.experts",
-    "wagtail_helpdesk.contrib",
     "wagtail_helpdesk.volunteers",
     "wagtail_helpdesk.test",
     "wagtail.contrib.search_promotions",

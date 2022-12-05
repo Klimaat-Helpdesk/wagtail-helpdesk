@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     "wagtail_helpdesk.core",
     "wagtail_helpdesk.experts",
     "wagtail_helpdesk.contrib",
-    "wagtail_helpdesk.users",
     "wagtail_helpdesk.volunteers",
     "wagtail_helpdesk.test",
     "wagtail.contrib.search_promotions",
@@ -168,5 +167,3 @@ BASE_URL = "example.com"
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "Wagtail wagtail-helpdesk test site"
-
-AUTH_USER_MODEL = "users.User"

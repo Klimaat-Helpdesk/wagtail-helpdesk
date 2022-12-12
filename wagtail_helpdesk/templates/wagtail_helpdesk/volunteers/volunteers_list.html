@@ -1,0 +1,45 @@
+{% extends "wagtail_helpdesk/base.html" %}
+{% load i18n static wagtailcore_tags %}
+
+{% block smokedglass %}
+{% endblock %}
+
+{% block content_area %}
+  <div {% block smokedglass-class %}{% endblock %}>
+
+    {% block head %}
+      <div class="simple-header">
+        <div class="simple-header__wrapper">
+          <a class="simple-header__back-link" href="/">
+            <span class="simple-header__back-link-icon"></span>
+          </a>
+
+          <div class="simple-header__title-container">
+            <h1 class="simple-header__title">{{ page.title }}</h1>
+          </div>
+
+          <div class="simple-header__introduction-container">
+            <div class="simple-header__introduction">
+              {{ page.intro|richtext }}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    {% endblock %}
+
+    {% block content %}
+      <div class="expert-list">
+        <div class="expert-list__wrapper">
+          <div class="expert-list__experts">
+            {% for volunteer in volunteers %}
+              {% include "wagtail_helpdesk/volunteers/includes/volunteer_block.html" with volunteer=volunteer %}
+            {% endfor %}
+            {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}
+  </div>
+{% endblock content_area %}

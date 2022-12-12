@@ -1,0 +1,24 @@
+{% extends "wagtail_helpdesk/base.html" %}
+{% load static i18n wagtailcore_tags %}
+
+{% block smokedglass %}
+{% endblock %}
+
+{% block content_area %}
+  <div {% block smokedglass-class %}{% endblock %}>
+
+  {% block head %}
+  {% endblock %}
+
+  {% block content %}
+    <div class="form">
+      <div class="form__wrapper">
+        <div class="form__header__container">
+          <h1 class="form__header">{{ page.thank_you_text|richtext }}</h1>
+        </div>
+    </div>
+  </div>
+  {% endblock %}
+
+  </div>
+{% endblock content_area %}

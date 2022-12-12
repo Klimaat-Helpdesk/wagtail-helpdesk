@@ -1,0 +1,58 @@
+{% extends "wagtail_helpdesk/base.html" %}
+{% load i18n static wagtailcore_tags %}
+
+{% block smokedglass %}
+{% endblock %}
+
+{% block content_area %}
+  <div {% block smokedglass-class %}{% endblock %}>
+
+  {% block head %}
+    <div class="content-header">
+      <div class="content-header__wrapper">
+        <div class="content-header__title-container">
+          <h1 class="content-header__title">
+            {{ self.title }}
+          </h1>
+        </div>
+
+        <div class="content-header__introduction">
+          <p class="content-header__introduction-text">
+            {{ self.subtitle }}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+{% block content %}
+    <div class="content">
+      <div class="content__container">
+
+        <div class="content__answer richtext" data-controller="search_widget_builder">
+
+          <div class="search-widget-builder">
+            {{ self.intro|richtext }}
+
+            <input class="js-url-input" type="hidden" value="{{ base_url }}{% url "iframe-search-widget" %}">
+
+            <label class="search-widget-builder__label" for="search-text">{% trans "Enter an accompanying text:" %}</label>
+            <input id="search-text" class="js-title-input search-widget-builder__input" value="Zoek in {{ base_url }}" />
+
+            <label class="search-widget-builder__label" for="widget-coe">{% trans "Copy the code below:" %}</label>
+            <textarea id="widget-code" class="js-code-textarea search-widget-builder__textarea" disabled style="width: 100%"></textarea>
+            <button aria-label="{% trans "Copy" %}" class="js-copy-code-button button search-widget-builder__button">{% trans "Copy" %}</button>
+            <span class="js-message search-widget-builder__message">{% trans "Code has been copied!" %}</span>
+              
+            <h4>{% trans "Voorbeeld" %}</h4>
+            <div class="js-example"></div>
+          </div>
+        </div>
+      </div>
+      {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
+    </div>
+
+{% endblock %}
+
+  </div>
+{% endblock content_area %}

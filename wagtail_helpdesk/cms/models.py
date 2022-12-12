@@ -32,6 +32,8 @@ from wagtail_helpdesk.volunteers.models import Volunteer
 
 
 class HomePage(Page):
+    template = "wagtail_helpdesk/cms/home_page.html"
+
     max_count = 1
 
     def get_context(self, request, *args, **kwargs):
@@ -135,7 +137,7 @@ register_snippet(AnswerCategory)
 
 
 class Answer(Page):
-    template = "cms/answer_detail.html"
+    template = "wagtail_helpdesk/cms/answer_detail.html"
 
     # Determines type and whether its highlighted in overview list
     type = models.CharField(
@@ -356,7 +358,7 @@ class Answer(Page):
 class AnswerIndexPage(RoutablePageMixin, Page):
     """List of answers on the website"""
 
-    template = "cms/answers_list.html"
+    template = "wagtail_helpdesk/cms/answers_list.html"
 
     subpage_types = ["Answer"]
 
@@ -465,7 +467,8 @@ class AnswerIndexPage(RoutablePageMixin, Page):
 class ExpertIndexPage(Page):
     """List of experts on the website"""
 
-    template = "experts/experts_list.html"
+    template = "wagtail_helpdesk/experts/experts_list.html"
+
     subtitle = models.CharField(max_length=128, blank=False)
     intro = RichTextField(blank=True)
     outro = RichTextField(blank=True)
@@ -492,7 +495,8 @@ class ExpertIndexPage(Page):
 
 
 class ExpertAnswerOverviewPage(RoutablePageMixin, Page):
-    template = "cms/expert_answer_overview_page.html"
+    template = "wagtail_helpdesk/cms/expert_answer_overview_page.html"
+
     preview_modes = []
     max_count = 1
 
@@ -514,7 +518,8 @@ class ExpertAnswerOverviewPage(RoutablePageMixin, Page):
 class VolunteerIndexPage(Page):
     """List of volunteers on the website"""
 
-    template = "volunteers/volunteers_list.html"
+    template = "wagtail_helpdesk/volunteers/volunteers_list.html"
+
     subtitle = models.CharField(max_length=128, blank=False)
     intro = RichTextField(blank=True)
     outro = RichTextField(blank=True)
@@ -541,7 +546,8 @@ class VolunteerIndexPage(Page):
 class GeneralPage(Page):
     """A page that won't show sidebar. Ideal for privacy policy, etc."""
 
-    template = "cms/general_page.html"
+    template = "wagtail_helpdesk/cms/general_page.html"
+
     subtitle = models.CharField(max_length=128, blank=True)
 
     content = RichTextField()
@@ -553,7 +559,7 @@ class GeneralPage(Page):
 
 
 class QuestionsInProgressPage(Page):
-    template = "cms/questions_in_progress.html"
+    template = "wagtail_helpdesk/cms/questions_in_progress.html"
 
     def get_context(self, request, *args, **kwargs):
         featured_experts = Expert.objects.filter(featured=True)[:3]
@@ -643,7 +649,7 @@ class AskQuestionPage(RoutablePageMixin, Page):
         else:
             form = QuestionForm()
 
-        template = "cms/ask_question_page.html"
+        template = "wagtail_helpdesk/cms/ask_question_page.html"
         context = self.get_context(request)
         context.update({"form": form})
         return render(request, template, context)
@@ -665,14 +671,14 @@ class AskQuestionPage(RoutablePageMixin, Page):
         else:
             form = KeepMePostedForm(instance=question)
 
-        template = "cms/ask_question_page_keep_me_posted.html"
+        template = "wagtail_helpdesk/cms/ask_question_page_keep_me_posted.html"
         context = self.get_context(request)
         context.update({"form": form})
         return render(request, template, context)
 
     @route(r"^dank/$", name="thank-you")
     def thank_you(self, request):
-        template = "cms/ask_question_page_thank_you.html"
+        template = "wagtail_helpdesk/cms/ask_question_page_thank_you.html"
         context = self.get_context(request)
         return render(request, template, context)
 
@@ -747,6 +753,8 @@ class FooterSettings(BaseSetting):
 
 
 class SearchWidgetPage(Page):
+    template = "wagtail_helpdesk/cms/search_widget_page.html"
+
     intro = models.TextField(
         default=_("Create a search widget to place on your own website")
     )

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-09 19:34+0100\n"
+"POT-Creation-Date: 2022-12-06 14:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,292 +18,433 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: config/settings/base.py:32
-msgid "Dutch"
-msgstr ""
-
-#: klimaat_helpdesk/cms/admin.py:10
+#: cms/admin.py:9
 msgid "Answers"
 msgstr ""
 
-#: klimaat_helpdesk/cms/admin.py:22
+#: cms/admin.py:21
 msgid "General Pages"
 msgstr ""
 
-#: klimaat_helpdesk/cms/apps.py:7
+#: cms/apps.py:7
 msgid "Q&A CMS"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:56 klimaat_helpdesk/experts/models.py:16
+#: cms/models.py:59
+msgid "Homepage"
+msgstr ""
+
+#: cms/models.py:60
+msgid "Homepages"
+msgstr ""
+
+#: cms/models.py:105 experts/models.py:15 volunteers/models.py:14
 msgid "name"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:58
+#: cms/models.py:107
 msgid "slug"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:61
+#: cms/models.py:110
 msgid "A slug to identify the category"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:62
+#: cms/models.py:113
 msgid "description"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:71
+#: cms/models.py:123
 msgid "Answer Category"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:72
+#: cms/models.py:124
 msgid "Answer Categories"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:92
+#: cms/models.py:146
 msgid "Choose between answer or discussion piece with a more prominent look"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:98
+#: cms/models.py:153
 msgid "Short description"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:102
+#: cms/models.py:157
 msgid "This helps with search engines and when sharing on social media"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:105
+#: cms/models.py:160
 msgid "Introduction"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:109
+#: cms/models.py:164
 msgid "This text is displayed above the tags, useful as a TLDR section"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:119
+#: cms/models.py:175
 msgid "This is the image that will be displayed when sharing on social media"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:145
+#: cms/models.py:198
 msgid "Show this answer on the home page"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:154
+#: cms/models.py:208
 msgid "Categorie(n)"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:156
+#: cms/models.py:213
 msgid "Categorie(s)"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:161 klimaat_helpdesk/cms/models.py:163
+#: cms/models.py:223 cms/models.py:228
 msgid "Expert(s)"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:168
+#: cms/models.py:234
 msgid "Image to be used when sharing on social media"
 msgstr ""
 
-#: klimaat_helpdesk/cms/models.py:233
+#: cms/models.py:297
 msgid "Unknown"
 msgstr ""
 
-#: klimaat_helpdesk/core/admin.py:10
+#: cms/models.py:573
+msgid "Questions in progress page"
+msgstr ""
+
+#: cms/models.py:574
+msgid "Questions in progress pages"
+msgstr ""
+
+#: cms/models.py:693
+msgid "Text"
+msgstr ""
+
+#: cms/models.py:695
+msgid "Didn't find the answer you were looking for?"
+msgstr ""
+
+#: cms/models.py:703 cms/models.py:729
+msgid "Title"
+msgstr ""
+
+#: cms/models.py:704 cms/models.py:730
+msgid "Page"
+msgstr ""
+
+#: cms/models.py:709
+msgid "Buttons"
+msgstr ""
+
+#: cms/models.py:714
+msgid "Main navigation"
+msgstr ""
+
+#: cms/models.py:720
+msgid "Initiator-text"
+msgstr ""
+
+#: cms/models.py:735
+msgid "Navigation"
+msgstr ""
+
+#: cms/models.py:739
+msgid "Maintainer text"
+msgstr ""
+
+#: cms/models.py:751
+msgid "Create a search widget to place on your own website"
+msgstr ""
+
+#: cms/models.py:771
+msgid "Site name"
+msgstr ""
+
+#: cms/models.py:778
+msgid "Twitter handle"
+msgstr ""
+
+#: cms/models.py:781
+msgid "Short site name"
+msgstr ""
+
+#: cms/models.py:784
+msgid "Short site description"
+msgstr ""
+
+#: core/admin.py:10
 msgid "Questions"
 msgstr ""
 
-#: klimaat_helpdesk/core/admin.py:23 klimaat_helpdesk/core/models.py:30
+#: core/admin.py:24 core/models.py:44
 msgid "Categories"
 msgstr ""
 
-#: klimaat_helpdesk/core/apps.py:7
+#: core/apps.py:7
 msgid "Core App"
 msgstr ""
 
-#: klimaat_helpdesk/core/forms.py:36
+#: core/forms.py:60
 msgid "Ik heb de algemene voorwaarden gelezen en ga er mee akkoord"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:19
+#: core/models.py:21
 msgid "Undecided"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:20
+#: core/models.py:22
 msgid "Approved"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:21
+#: core/models.py:23
 msgid "Answered"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:22
+#: core/models.py:24
 msgid "Rejected"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:25
+#: core/models.py:28
 msgid "Your Question"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:26
-msgid "Backup information"
+#: core/models.py:30
+msgid ""
+"How the question is displayed on the (questions pending) page, only approved "
+"questions are shown"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:27
+#: core/models.py:35 core/models.py:68
+msgid "Original Question"
+msgstr ""
+
+#: core/models.py:38
 msgid "Relevant timespan"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:28
+#: core/models.py:41
 msgid "Relevant location"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:29
+#: core/models.py:43
 msgid "Extra information"
 msgstr ""
 
-#: klimaat_helpdesk/core/models.py:32
+#: core/models.py:46
 msgid "User Email"
 msgstr ""
 
-#: klimaat_helpdesk/experts/admin.py:10 klimaat_helpdesk/experts/apps.py:7
+#: core/models.py:58
+msgid "General"
+msgstr ""
+
+#: core/models.py:75 templates/users/user_detail.html:4
+msgid "User"
+msgstr ""
+
+#: experts/admin.py:10 experts/apps.py:7
 msgid "Experts"
 msgstr ""
 
-#: klimaat_helpdesk/experts/models.py:17
+#: experts/models.py:16 volunteers/models.py:15
 msgid "email"
 msgstr ""
 
-#: klimaat_helpdesk/experts/models.py:18
+#: experts/models.py:17 volunteers/models.py:16
 msgid "biography"
 msgstr ""
 
-#: klimaat_helpdesk/experts/models.py:20
+#: experts/models.py:21
 msgid "areas of expertise"
 msgstr ""
 
-#: klimaat_helpdesk/experts/models.py:21
+#: experts/models.py:22 volunteers/models.py:21
 msgid "Affiliation"
 msgstr ""
 
-#: klimaat_helpdesk/experts/models.py:22
+#: experts/models.py:23 volunteers/models.py:22
 msgid "Website"
 msgstr ""
 
-#: klimaat_helpdesk/experts/models.py:23
+#: experts/models.py:24 volunteers/models.py:23
 msgid "Twitter Profile"
 msgstr ""
 
-#: klimaat_helpdesk/experts/models.py:24
+#: experts/models.py:25 volunteers/models.py:24
 msgid "LinkedIn Profile"
 msgstr ""
 
-#: klimaat_helpdesk/search/apps.py:7
-#: klimaat_helpdesk/templates/search/search.html:7
-msgid "Search"
+#: experts/models.py:26 volunteers/models.py:25
+msgid "OrcID Link"
 msgstr ""
 
-#: klimaat_helpdesk/templates/404.html:4 klimaat_helpdesk/templates/404.html:7
+#: templates/404.html:4 templates/404.html:7
 msgid "Page not found"
 msgstr ""
 
-#: klimaat_helpdesk/templates/404.html:9
+#: templates/404.html:9
 msgid "This is not the page you were looking for."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/account_inactive.html:5
-#: klimaat_helpdesk/templates/account/account_inactive.html:8
+#: templates/500.html:3
+msgid "Server Error"
+msgstr ""
+
+#: templates/500.html:10
+msgid "Looks like something went wrong!"
+msgstr ""
+
+#: templates/500.html:12
+msgid ""
+"We track these errors automatically, but if the problem persists feel free "
+"to contact us."
+msgstr ""
+
+#: templates/500.html:17 templates/cms/answers_list.html:55
+#: templates/cms/home_page.html:65 templates/cms/questions_in_progress.html:19
+msgid ""
+"Heb je het antwoord dat je zocht niet gevonden? Check de vragen in "
+"behandeling of stel je eigen vraag!"
+msgstr ""
+
+#: templates/500.html:20 templates/cms/answers_list.html:58
+#: templates/cms/home_page.html:68 templates/cms/questions_in_progress.html:22
+msgid "Stel je vraag"
+msgstr ""
+
+#: templates/500.html:26 templates/cms/answers_list.html:64
+#: templates/cms/home_page.html:74 templates/cms/questions_in_progress.html:28
+msgid "In Behandeling"
+msgstr ""
+
+#: templates/500.html:36 templates/cms/home_page.html:84
+#: templates/cms/questions_in_progress.html:38
+msgid "Hoe beantwoorden we jullie vragen?"
+msgstr ""
+
+#: templates/500.html:37 templates/cms/home_page.html:85
+#: templates/cms/questions_in_progress.html:39
+msgid ""
+"De vraag wordt doorgestuurd naar een expert, die aan de hand van "
+"verschillende bronnen een antwoord schrijft. Dit antwoord wordt door een "
+"tweede expert nagekeken en wordt dan als artikel gepubliceerd op de website."
+msgstr ""
+
+#: templates/500.html:42 templates/cms/home_page.html:90
+#: templates/cms/questions_in_progress.html:44
+msgid "Onze experts"
+msgstr ""
+
+#: templates/500.html:43 templates/cms/home_page.html:91
+#: templates/cms/questions_in_progress.html:45
+msgid ""
+"Elke vraag wordt beantwoord door een actieve wetenschapper of deskundige die "
+"expert is op dat vakgebied"
+msgstr ""
+
+#: templates/500.html:68 templates/cms/home_page.html:116
+#: templates/cms/questions_in_progress.html:70
+msgid "Maak kennis met alle experts"
+msgstr ""
+
+#: templates/account/account_inactive.html:5
+#: templates/account/account_inactive.html:8
 msgid "Account Inactive"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/account_inactive.html:10
+#: templates/account/account_inactive.html:10
 msgid "This account is inactive."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:7
+#: templates/account/email.html:7
 msgid "Account"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:10
+#: templates/account/email.html:10
 msgid "E-mail Addresses"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:13
+#: templates/account/email.html:13
 msgid "The following e-mail addresses are associated with your account:"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:27
+#: templates/account/email.html:27
 msgid "Verified"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:29
+#: templates/account/email.html:29
 msgid "Unverified"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:31
+#: templates/account/email.html:31
 msgid "Primary"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:37
+#: templates/account/email.html:37
 msgid "Make Primary"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:38
+#: templates/account/email.html:38
 msgid "Re-send Verification"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:39
+#: templates/account/email.html:39
 msgid "Remove"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:46
+#: templates/account/email.html:46
 msgid "Warning:"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:46
+#: templates/account/email.html:46
 msgid ""
 "You currently do not have any e-mail address set up. You should really add "
 "an e-mail address so you can receive notifications, reset your password, etc."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:51
+#: templates/account/email.html:51
 msgid "Add E-mail Address"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:56
+#: templates/account/email.html:56
 msgid "Add E-mail"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email.html:66
+#: templates/account/email.html:66
 msgid "Do you really want to remove the selected e-mail address?"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email_confirm.html:6
-#: klimaat_helpdesk/templates/account/email_confirm.html:10
+#: templates/account/email_confirm.html:6
+#: templates/account/email_confirm.html:10
 msgid "Confirm E-mail Address"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email_confirm.html:16
+#: templates/account/email_confirm.html:16
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email_confirm.html:20
+#: templates/account/email_confirm.html:20
 msgid "Confirm"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/email_confirm.html:27
+#: templates/account/email_confirm.html:27
 #, python-format
 msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/login.html:7
-#: klimaat_helpdesk/templates/account/login.html:11
-#: klimaat_helpdesk/templates/account/login.html:44
+#: templates/account/login.html:7 templates/account/login.html:11
+#: templates/account/login.html:44
 msgid "Sign In"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/login.html:16
+#: templates/account/login.html:16
 #, python-format
 msgid ""
 "Please sign in with one\n"
@@ -312,73 +453,72 @@ msgid ""
 "for a %(site_name)s account and sign in below:"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/login.html:26
+#: templates/account/login.html:26
 msgid "or"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/login.html:33
+#: templates/account/login.html:33
 #, python-format
 msgid ""
 "If you have not created an account yet, then please\n"
 "<a href=\"%(signup_url)s\">sign up</a> first."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/login.html:43
+#: templates/account/login.html:43
 msgid "Forgot Password?"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/logout.html:5
-#: klimaat_helpdesk/templates/account/logout.html:8
-#: klimaat_helpdesk/templates/account/logout.html:17
+#: templates/account/logout.html:5 templates/account/logout.html:8
+#: templates/account/logout.html:17
 msgid "Sign Out"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/logout.html:10
+#: templates/account/logout.html:10
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_change.html:6
-#: klimaat_helpdesk/templates/account/password_change.html:9
-#: klimaat_helpdesk/templates/account/password_change.html:14
-#: klimaat_helpdesk/templates/account/password_reset_from_key.html:5
-#: klimaat_helpdesk/templates/account/password_reset_from_key.html:8
-#: klimaat_helpdesk/templates/account/password_reset_from_key_done.html:4
-#: klimaat_helpdesk/templates/account/password_reset_from_key_done.html:7
+#: templates/account/password_change.html:6
+#: templates/account/password_change.html:9
+#: templates/account/password_change.html:14
+#: templates/account/password_reset_from_key.html:5
+#: templates/account/password_reset_from_key.html:8
+#: templates/account/password_reset_from_key_done.html:4
+#: templates/account/password_reset_from_key_done.html:7
 msgid "Change Password"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset.html:7
-#: klimaat_helpdesk/templates/account/password_reset.html:11
-#: klimaat_helpdesk/templates/account/password_reset_done.html:6
-#: klimaat_helpdesk/templates/account/password_reset_done.html:9
+#: templates/account/password_reset.html:7
+#: templates/account/password_reset.html:11
+#: templates/account/password_reset_done.html:6
+#: templates/account/password_reset_done.html:9
 msgid "Password Reset"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset.html:16
+#: templates/account/password_reset.html:16
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you "
 "an e-mail allowing you to reset it."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset.html:21
+#: templates/account/password_reset.html:21
 msgid "Reset My Password"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset.html:24
+#: templates/account/password_reset.html:24
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset_done.html:15
+#: templates/account/password_reset_done.html:15
 msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset_from_key.html:8
+#: templates/account/password_reset_from_key.html:8
 msgid "Bad Token"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset_from_key.html:12
+#: templates/account/password_reset_from_key.html:12
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
@@ -386,302 +526,234 @@ msgid ""
 "a>."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset_from_key.html:18
+#: templates/account/password_reset_from_key.html:18
 msgid "change password"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_reset_from_key.html:21
-#: klimaat_helpdesk/templates/account/password_reset_from_key_done.html:8
+#: templates/account/password_reset_from_key.html:21
+#: templates/account/password_reset_from_key_done.html:8
 msgid "Your password is now changed."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/password_set.html:6
-#: klimaat_helpdesk/templates/account/password_set.html:9
-#: klimaat_helpdesk/templates/account/password_set.html:14
+#: templates/account/password_set.html:6 templates/account/password_set.html:9
+#: templates/account/password_set.html:14
 msgid "Set Password"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/signup.html:6
+#: templates/account/signup.html:6
 msgid "Signup"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/signup.html:9
-#: klimaat_helpdesk/templates/account/signup.html:19
+#: templates/account/signup.html:9 templates/account/signup.html:19
 msgid "Sign Up"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/signup.html:11
+#: templates/account/signup.html:11
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/signup_closed.html:5
-#: klimaat_helpdesk/templates/account/signup_closed.html:8
+#: templates/account/signup_closed.html:5
+#: templates/account/signup_closed.html:8
 msgid "Sign Up Closed"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/signup_closed.html:10
+#: templates/account/signup_closed.html:10
 msgid "We are sorry, but the sign up is currently closed."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/verification_sent.html:5
-#: klimaat_helpdesk/templates/account/verification_sent.html:8
-#: klimaat_helpdesk/templates/account/verified_email_required.html:5
-#: klimaat_helpdesk/templates/account/verified_email_required.html:8
+#: templates/account/verification_sent.html:5
+#: templates/account/verification_sent.html:8
+#: templates/account/verified_email_required.html:5
+#: templates/account/verified_email_required.html:8
 msgid "Verify Your E-mail Address"
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/verification_sent.html:10
+#: templates/account/verification_sent.html:10
 msgid ""
 "We have sent an e-mail to you for verification. Follow the link provided to "
 "finalize the signup process. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/verified_email_required.html:12
+#: templates/account/verified_email_required.html:12
 msgid ""
 "This part of the site requires us to verify that\n"
 "you are who you claim to be. For this purpose, we require that you\n"
 "verify ownership of your e-mail address. "
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/verified_email_required.html:16
+#: templates/account/verified_email_required.html:16
 msgid ""
 "We have sent an e-mail to you for\n"
 "verification. Please click on the link inside this e-mail. Please\n"
 "contact us if you do not receive it within a few minutes."
 msgstr ""
 
-#: klimaat_helpdesk/templates/account/verified_email_required.html:20
+#: templates/account/verified_email_required.html:20
 #, python-format
 msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
 "mail address</a>."
 msgstr ""
 
-#: klimaat_helpdesk/templates/cms/answers_list.html:45
-#: klimaat_helpdesk/templates/core/home_page.html:53
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:18
-msgid ""
-"Heb je het antwoord dat je zocht niet gevonden? Check de vragen in "
-"behandeling of stel je eigen vraag!"
+#: templates/cms/answers_list.html:10
+msgid "Uw zoekterm"
 msgstr ""
 
-#: klimaat_helpdesk/templates/cms/answers_list.html:48
-#: klimaat_helpdesk/templates/core/home_page.html:56
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:21
-msgid "Stel je vraag"
+#: templates/cms/answers_list.html:11
+msgid "Zoek"
 msgstr ""
 
-#: klimaat_helpdesk/templates/cms/answers_list.html:54
-#: klimaat_helpdesk/templates/core/home_page.html:62
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:27
-msgid "In Behandeling"
+#: templates/cms/answers_list.html:47
+msgid "Helaas, er zijn geen vragen gevonden"
 msgstr ""
 
-#: klimaat_helpdesk/templates/cms/blocks/answer_origin.html:15
-msgid "Bronnen"
-msgstr ""
-
-#: klimaat_helpdesk/templates/cms/blocks/related_content.html:6
-msgid "Gerelateerde items"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:18
-msgid "Stel een vraag"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:24
-msgid ""
-"Wij willen je vraag graag zo compleet en correct mogelijk beantwoorden en "
-"verifiëren. Daar hebben wij gemiddeld twee weken voor nodig en binnen deze "
-"tijd gaan twee van onze experts voor jou aan de slag. De een doorzoekt "
-"bronnen, verifiëert, en discussiëert, de ander gaat alles nog eens grondig "
-"controleren. Zo behalen we de wetenschappelijke standaard die nodig is voor "
-"een betrouwbaar antwoord."
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:45
+#: templates/cms/ask_question_page.html:45
 msgid "Waar gaat je vraag over?"
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:46
+#: templates/cms/ask_question_page.html:46
 msgid "Formuleer je vraag"
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:61
-#: klimaat_helpdesk/templates/core/question_submitted.html:30
+#: templates/cms/ask_question_page.html:61
+#: templates/cms/ask_question_page_keep_me_posted.html:30
 msgid "Het formulier kon niet worden verzonden, controleer de gegevens."
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:76
+#: templates/cms/ask_question_page.html:76
 msgid "Continue"
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:84
+#: templates/cms/ask_question_page.html:84
 msgid "Tip:"
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:85
+#: templates/cms/ask_question_page.html:85
 msgid "Check voordat je een vraag stelt of iemand anders je niet voor was"
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:105
+#: templates/cms/ask_question_page.html:105
 msgid "Ik heb een vraag over "
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/ask_a_question_page.html:145
-#: klimaat_helpdesk/templates/core/question_submitted.html:56
+#: templates/cms/ask_question_page.html:137
+#: templates/cms/ask_question_page_keep_me_posted.html:56
 msgid "Submit"
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/home_page.html:44
-msgid "Vragenoverzicht"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/home_page.html:72
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:37
-msgid "Hoe beantwoorden we jullie vragen?"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/home_page.html:73
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:38
-msgid ""
-"De vraag wordt doorgestuurd naar een expert, die aan de hand van "
-"verschillende bronnen een antwoord schrijft. Dit antwoord wordt door een "
-"tweede expert nagekeken en wordt dan als artikel gepubliceerd op de website. "
-"[<a href=\"https://www.klimaathelpdesk.org/workflow/\">lees verder</a>]"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/home_page.html:78
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:43
-msgid "Onze experts"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/home_page.html:79
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:44
-msgid ""
-"Elke vraag wordt beantwoord door een actieve wetenschapper of deskundige die "
-"expert is op dat vakgebied"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/home_page.html:104
-#: klimaat_helpdesk/templates/core/questions_in_progress.html:69
-msgid "Maak kennis met alle experts"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/includes/answer_block.html:4
-#: klimaat_helpdesk/templates/core/includes/answer_home_block.html:4
-#: klimaat_helpdesk/templates/core/includes/related_item_block.html:5
-msgid "Beantwoord door"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/includes/aside.html:12
-msgid "Ask your question"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/includes/aside.html:13
-msgid "Didn't find the answer you were looking for? Submit your own question!"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/includes/aside.html:14
-msgid "Ask a Question"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/new_question_failure.html:18
-msgid "Sorry.. Er is iets misgegaan"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/new_question_thanks.html:17
-msgid ""
-"Bedankt voor het stellen van je vraag. We nemen je vraag in behandeling en "
-"proberen zo snel mogelijk een expert te vinden die je vraag kan "
-"beantwoorden.."
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/question_submitted.html:21
-msgid "Bedankt voor je vraag!"
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/question_submitted.html:22
-msgid ""
-"Laat je mailadres achter als je op de hoogte gehouden wilt worden "
-"[optioneel]."
-msgstr ""
-
-#: klimaat_helpdesk/templates/core/question_submitted.html:48
+#: templates/cms/ask_question_page_keep_me_posted.html:48
 msgid "Onze voorwaarden"
 msgstr ""
 
-#: klimaat_helpdesk/templates/core/question_submitted.html:64
+#: templates/cms/ask_question_page_keep_me_posted.html:64
 msgid "Terug naar de homepage"
 msgstr ""
 
-#: klimaat_helpdesk/templates/experts/expert_answer_overview_page.html:6
+#: templates/cms/blocks/answer_origin.html:16
+msgid "Bronnen"
+msgstr ""
+
+#: templates/cms/blocks/related_content.html:6
+msgid "Gerelateerde items"
+msgstr ""
+
+#: templates/cms/expert_answer_overview_page.html:6
 msgid "Antwoorden van "
 msgstr ""
 
-#: klimaat_helpdesk/templates/experts/expert_answer_overview_page.html:23
+#: templates/cms/expert_answer_overview_page.html:23
 msgid "Bekijk alle antwoorden"
 msgstr ""
 
-#: klimaat_helpdesk/templates/experts/experts_list.html:46
+#: templates/cms/home_page.html:56
+msgid "Vragenoverzicht"
+msgstr ""
+
+#: templates/cms/iframe_search_widget.html:19
+msgid "Your search term"
+msgstr ""
+
+#: templates/cms/iframe_search_widget.html:20
+msgid "Search"
+msgstr ""
+
+#: templates/cms/search_widget_page.html:39
+msgid "Enter an accompanying text:"
+msgstr ""
+
+#: templates/cms/search_widget_page.html:42
+msgid "Copy the code below:"
+msgstr ""
+
+#: templates/cms/search_widget_page.html:44
+msgid "Copy"
+msgstr ""
+
+#: templates/cms/search_widget_page.html:45
+msgid "Code has been copied!"
+msgstr ""
+
+#: templates/cms/search_widget_page.html:47
+msgid "Voorbeeld"
+msgstr ""
+
+#: templates/core/includes/answer_block.html:4
+#: templates/core/includes/answer_home_block.html:4
+#: templates/core/includes/related_item_block.html:5
+msgid "Beantwoord door"
+msgstr ""
+
+#: templates/core/includes/aside.html:12
+msgid "Ask your question"
+msgstr ""
+
+#: templates/core/includes/aside.html:13
+msgid "Didn't find the answer you were looking for? Submit your own question!"
+msgstr ""
+
+#: templates/core/includes/aside.html:14
+msgid "Ask a Question"
+msgstr ""
+
+#: templates/experts/experts_list.html:46
 msgid "Wie zijn de mensen achter de KlimaatHelpdesk"
 msgstr ""
 
-#: klimaat_helpdesk/templates/experts/experts_list.html:56
+#: templates/experts/experts_list.html:56
 msgid "Wie zijn wij?"
 msgstr ""
 
-#: klimaat_helpdesk/templates/experts/includes/expert_block.html:25
+#: templates/experts/includes/expert_block.html:31
 msgid "Bekijk de vragen die beantwoord zijn door "
 msgstr ""
 
-#: klimaat_helpdesk/templates/search/search.html:23
-msgid "No answers found"
+#: templates/includes/menu_overlay.html:9
+msgid "Close navigation"
 msgstr ""
 
-#: klimaat_helpdesk/templates/under_construction.html:34
-msgid "Helpdesk-Climate is an online expert system under construction."
+#: templates/under_construction.html:35
+msgid "This website under construction."
 msgstr ""
 
-#: klimaat_helpdesk/templates/under_construction.html:35
-msgid ""
-"If you are willing to provide your expertise and help us answering "
-"questions, please join our team by sending\n"
-"        an email to helpdesk@scientists4future.nl mentioning your area of "
-"expertise."
-msgstr ""
-
-#: klimaat_helpdesk/templates/users/user_detail.html:4
-msgid "User"
-msgstr ""
-
-#: klimaat_helpdesk/templates/users/user_detail.html:24
+#: templates/users/user_detail.html:24
 msgid "My Info"
 msgstr ""
 
-#: klimaat_helpdesk/templates/users/user_detail.html:25
+#: templates/users/user_detail.html:25
 msgid "E-Mail"
 msgstr ""
 
-#: klimaat_helpdesk/templates/users/user_form.html:13
+#: templates/users/user_form.html:13
 msgid "Update"
 msgstr ""
 
-#: klimaat_helpdesk/users/apps.py:7
-msgid "Users"
+#: volunteers/admin.py:10 volunteers/apps.py:7
+msgid "Volunteers"
 msgstr ""
 
-#: klimaat_helpdesk/users/forms.py:16
-msgid "This username has already been taken."
-msgstr ""
-
-#: klimaat_helpdesk/users/models.py:15
-msgid "Name of User"
-msgstr ""
-
-#: klimaat_helpdesk/users/views.py:34
-msgid "Infos successfully updated"
+#: volunteers/models.py:20
+msgid "roles"
 msgstr ""

@@ -763,3 +763,23 @@ class SearchWidgetPage(Page):
             }
         )
         return context
+
+
+@register_setting
+class HelpdeskSiteSettings(BaseSetting):
+    site_name = models.CharField(
+        verbose_name=_("Site name"), max_length=255, blank=True
+    )
+
+
+@register_setting
+class SocialMediaSettings(BaseSetting):
+    twitter_handle = models.CharField(
+        verbose_name=_("Twitter handle"), max_length=15, blank=True
+    )
+    short_site_name = models.CharField(
+        verbose_name=_("Short site name"), max_length=255, blank=True
+    )
+    short_site_description = models.CharField(
+        verbose_name=_("Short site description"), max_length=255, blank=True
+    )

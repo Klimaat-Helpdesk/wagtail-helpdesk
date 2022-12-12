@@ -29,7 +29,6 @@ class QuestionForm(forms.ModelForm):
     extra_info = forms.CharField(
         max_length=5000, required=False, label="Aanvullende informatie"
     )
-    # accept_terms = forms.BooleanField(label=_('Ik ga ermee akkoord dat mijn vraag op klimaathelpdesk.nl gepubliceerd wordt.'), required=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

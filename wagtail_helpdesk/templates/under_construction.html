@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{% block title %}KlimaatHelpdesk{% endblock title %}</title>
+  <title>{% block title %}{{ settings.cms.HelpdeskSiteSettings.site_name }}{% endblock title %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -13,8 +13,6 @@
   <!--[if lt IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
   <![endif]-->
-
-  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
   {% block css %}
 
@@ -31,9 +29,8 @@
 <body>
 <main class="wagtail_helpdesk-content">
   <section class="section">
-    <div class="container"><p>{% blocktrans %}Helpdesk-Climate is an online expert system under construction.{% endblocktrans %}</p>
-      <p>{% blocktrans %}If you are willing to provide your expertise and help us answering questions, please join our team by sending
-        an email to helpdesk@scientists4future.nl mentioning your area of expertise.{% endblocktrans %}</p>
+    <div class="container">
+      <p>{% blocktrans %}This website under construction.{% endblocktrans %}</p>
     </div>
   </section>
 </main>

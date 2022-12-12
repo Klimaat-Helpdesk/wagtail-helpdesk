@@ -5,7 +5,7 @@ from wagtail_helpdesk.core.models import Question
 
 
 class TagWidget(forms.CheckboxSelectMultiple):
-    option_template_name = "core/forms/tag_option.html"
+    option_template_name = "wagtail_helpdesk/core/forms/tag_option.html"
 
 
 class QuestionForm(forms.ModelForm):

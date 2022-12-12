@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "wagtail_helpdesk/base.html" %}
 {% load i18n static wagtailcore_tags %}
 
 {% block smokedglass %}
@@ -32,7 +32,7 @@
           {{ self.content|richtext }}
         </div>
       </div>
-      {% include "includes/social_share_buttons.html" %}
+      {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
     </div>
 {% endblock %}
 

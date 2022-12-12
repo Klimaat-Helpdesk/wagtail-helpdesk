@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "wagtail_helpdesk/base.html" %}
 {% load static i18n wagtailimages_tags %}
 
 {% block content %}
@@ -12,7 +12,7 @@
         {% endfor %}
       </div>
     </div>
-    {% include "includes/social_share_buttons.html" %}
+    {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
 
     <div class="sticky-link">
       <div class="sticky-link__wrapper">

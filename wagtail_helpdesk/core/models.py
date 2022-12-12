@@ -83,7 +83,8 @@ class Question(models.Model):
 
     def get_as_home_row_card(self):
         return render_to_string(
-            "core/includes/question_list_block.html", context=self.get_card_data()
+            "wagtail_helpdesk/core/includes/question_list_block.html",
+            context=self.get_card_data(),
         )
 
     def save(self, *args, **kwargs):

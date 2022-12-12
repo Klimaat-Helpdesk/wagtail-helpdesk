@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "wagtail_helpdesk/base.html" %}
 {% load i18n static wagtailcore_tags%}
 
 {% block smokedglass %}
@@ -33,7 +33,7 @@
     <div class="expert-list__wrapper">
       <div class="expert-list__experts">
         {% for expert in experts %}
-          {% include 'experts/includes/expert_block.html' with expert=expert %}
+          {% include "wagtail_helpdesk/experts/includes/expert_block.html" with expert=expert %}
         {% endfor %}
       </div>
     </div>
@@ -62,6 +62,6 @@
   </div>
 
   {% endblock %}
-  {% include "includes/social_share_buttons.html" %}
+  {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
   </div>
 {% endblock content_area %}

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "wagtail_helpdesk/base.html" %}
 {% load i18n static wagtailcore_tags wagtailimages_tags  %}
 
 {% block title %}
@@ -73,7 +73,7 @@
     <div class="menu-bar__bar">
       <div class="menu-bar__logo-container">
         <a class="menu-bar__logo" href="/">
-          {% include 'includes/logo.html' %}
+          {% include "wagtail_helpdesk/includes/logo.html" %}
         </a>
       </div>
 
@@ -133,7 +133,7 @@
   {% for block in self.page_content %}
     {% include_block block %}
   {% endfor %}
-  {% include "includes/social_share_buttons.html" %}
+  {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
 
   {% for block in self.answer_origin %}
     {% include_block block %}

@@ -318,21 +318,25 @@ class Answer(Page):
     def get_as_overview_row_card(self):
         if self.type == "answer":
             return render_to_string(
-                "core/includes/answer_block.html", context=self.get_card_data()
+                "wagtail_helpdesk/core/includes/answer_block.html",
+                context=self.get_card_data(),
             )
         else:  # It's a column
             return render_to_string(
-                "core/includes/column_block.html", context=self.get_card_data()
+                "wagtail_helpdesk/core/includes/column_block.html",
+                context=self.get_card_data(),
             )
 
     def get_as_home_row_card(self):
         return render_to_string(
-            "core/includes/answer_home_block.html", context=self.get_card_data()
+            "wagtail_helpdesk/core/includes/answer_home_block.html",
+            context=self.get_card_data(),
         )
 
     def get_as_related_row_card(self):
         return render_to_string(
-            "core/includes/related_item_block.html", context=self.get_card_data()
+            "wagtail_helpdesk/core/includes/related_item_block.html",
+            context=self.get_card_data(),
         )
 
     def get_context(self, request, *args, **kwargs):

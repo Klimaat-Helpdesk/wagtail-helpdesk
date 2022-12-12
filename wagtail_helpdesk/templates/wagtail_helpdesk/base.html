@@ -37,7 +37,7 @@
 
 <body class="wagtail_helpdesk" data-controller="navigation">
 {% block navbar %}
-  {% include 'includes/navbar.html' %}
+  {% include "wagtail_helpdesk/includes/navbar.html" %}
 {% endblock %}
 
 <main class="wagtail_helpdesk-content">
@@ -61,7 +61,7 @@
   <div class="footer-bar__wrapper">
     <div class="footer-bar__logo-container">
       <a class="footer-bar__logo-link" href="/">
-        {% include 'includes/logo.html' %}
+        {% include "wagtail_helpdesk/includes/logo.html" %}
       </a>
     </div>
 
@@ -92,12 +92,12 @@
 {% endblock %}
 
 {% block overlays %}
-  {% include 'includes/menu_overlay.html' %}
+  {% include "wagtail_helpdesk/includes/menu_overlay.html" %}
 {% endblock %}
 
 {% block js %}
   <script src="{% versioned_static 'wagtail_helpdesk/main.js' %}"></script>
 {% endblock %}
-{% include "includes/icons.html" %}
+{% include "wagtail_helpdesk/includes/icons.html" %}
 </body>
 </html>

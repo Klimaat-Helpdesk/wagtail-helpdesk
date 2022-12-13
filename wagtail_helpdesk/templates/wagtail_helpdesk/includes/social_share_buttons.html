@@ -1,23 +1,24 @@
-<div class="social-share-buttons" data-controller="social_share_buttons">
-  <h3 class="social-share-buttons__title">Deel deze pagina</h3>
+{% load i18n %}
+<div class="social-share-buttons {% if expert_margin%}expert-margin{% endif %}" data-controller="social-share-buttons">
+  <h3 class="social-share-buttons__title">{% trans "Share this page" %}</h3>
   <ul class="social-share-buttons__button-list">
     <li class="social-share-buttons__list-item">
-      <a target="_blank" rel="noopener" title="Facebook" data-social-platform="facebook" class="social-share-buttons__button js-social-share-button">
+      <a target="_blank" rel="noopener" title="Facebook" data-social-platform="facebook" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
         <svg class="icon"><use xlink:href="#facebook" /></svg>
       </a>
     </li>
     <li class="social-share-buttons__list-item">
-      <a target="_blank" rel="noopener" title="Twitter" data-social-platform="twitter" class="social-share-buttons__button js-social-share-button">
+      <a target="_blank" rel="noopener" title="Twitter" data-social-platform="twitter" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
         <svg class="icon"><use xlink:href="#twitter" /></svg>
       </a>
     </li>
     <li class="social-share-buttons__list-item">
-      <a target="_blank" rel="noopener" title="LinkedIn" data-social-platform="linkedin" class="social-share-buttons__button js-social-share-button">
+      <a target="_blank" rel="noopener" title="LinkedIn" data-social-platform="linkedin" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
         <svg class="icon"><use xlink:href="#linkedin" /></svg>
       </a>
     </li>
     <li class="social-share-buttons__list-item">
-      <a target="_blank" rel="noopener" title="Whatsapp" data-social-platform="whatsapp" class="social-share-buttons__button js-social-share-button">
+      <a target="_blank" rel="noopener" title="Whatsapp" data-social-platform="whatsapp" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
         <svg class="icon"><use xlink:href="#whatsapp" /></svg>
       </a>
     </li>

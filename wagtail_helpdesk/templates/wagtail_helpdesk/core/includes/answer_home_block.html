@@ -1,8 +1,17 @@
-{% load i18n %}
+{% load i18n wagtailcore_tags wagtailroutablepage_tags %}
+{% with object.get_card_data as card_data %}
 <div class="question-link">
-    <a href="{{ url }}"><h3 class="question-link__title">{{ title }}</h3></a>
-    <p class="question-link__author"> <span class="question-link__by">{% trans 'Beantwoord door' %}</span> <span class="question-link__author-name">{{ author }}</span> </p>
-    {% for category in categories %}
-       <a href="answers{{ category.url }}"><span class="tag">{{ category.title }}</span></a>
+    <a href="{% pageurl object %}"><h3 class="question-link__title">{{ card_data.title }}</h3></a>
+    <p class="question-link__author">
+      <span class="question-link__by">{% trans 'Answered by' %}</span>
+      {% if card_data.author and card_data.author.pk %}
+        <a href="{% routablepageurl expert_answers_overview_page "expert_answers" card_data.author.pk %}" class="question-link__author-name">{{ card_data.author }}</a>
+      {% else %}
+        <span class="question-link__author-name">{% trans "Unknown" %}</span>
+      {% endif %}
+    </p>
+    {% for category in card_data.categories %}
+       <a href="{{ answers_list_url }}{{ category.url }}"><span class="tag">{{ category.title }}</span></a>
     {% endfor %}
 </div>
+{% endwith %}

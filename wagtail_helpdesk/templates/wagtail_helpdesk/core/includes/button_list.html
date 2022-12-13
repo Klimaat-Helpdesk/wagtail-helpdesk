@@ -1,0 +1,10 @@
+{% load wagtailcore_tags %}
+
+{% for obj in stream %}
+  <a href="{% pageurl obj.value.page %}"{% if class %} class="{{ class }}"{% endif %}>
+    <button class="button{% if secondary or forloop.counter != 1 %} button--secondary{% endif %}">
+      <span class="button__text">{{ obj.value.title }}</span>
+      <span class="button__icon"></span>
+    </button>
+  </a>
+{% endfor %}

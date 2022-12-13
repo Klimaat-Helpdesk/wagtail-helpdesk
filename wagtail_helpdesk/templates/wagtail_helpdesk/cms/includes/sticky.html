@@ -1,0 +1,10 @@
+{% load wagtailcore_tags %}
+
+{% with settings.cms.StickySettings as sticky_settings %}
+    <div class="sticky-link">
+      <div class="sticky-link__wrapper">
+        <h5 class="sticky-link__title">{{ sticky_settings.text }}</h5>
+        {% include "wagtail_helpdesk/core/includes/button_list.html" with stream=sticky_settings.buttons class="sticky-link__link" %}
+      </div>
+    </div>
+{% endwith %}

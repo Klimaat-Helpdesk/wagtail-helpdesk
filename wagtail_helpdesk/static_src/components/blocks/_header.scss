@@ -3,6 +3,16 @@
   margin: 0 0 50px 0;
   padding: 30px 0 0 0;
 
+    &.header__homepage  {
+    grid-column: column 2 / span 10;
+    @include landscape {
+      grid-column: column 1/span 9;
+    }
+    border-bottom: 1px solid $color-true-black;
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+
   .header__wrapper {
     @include grid-container;
   }
@@ -28,6 +38,7 @@
       display: inline-block;
       border-radius: 5px 0 0 5px;
       padding: 10px;
+      height: 43px;
     }
   }
   .header__search-wrapper {
@@ -39,12 +50,15 @@
   .header__search-button {
     background: $color-true-black;
     color: $color-white;
-    height: 42px;
+    height: 43px;
     padding: 10px;
     border-radius: 0 5px 5px 0;
     margin-left: -5px;
     top: 5px;
     position: relative;
+    border-top: 1px solid $color-true-black;
+    border-right: 1px solid $color-true-black;
+    border-bottom: 1px solid $color-true-black;
   }
   .header__search-icon {
     max-width: 30px;
@@ -52,6 +66,10 @@
 
   .header__buttons {
     grid-column: column 2 / span 10;
+  }
+
+  .header__text {
+    @include typography(paragraph);
   }
 
   .header__button {

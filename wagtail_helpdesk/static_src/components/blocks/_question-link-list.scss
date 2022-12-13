@@ -8,6 +8,9 @@
     grid-column: column 2 / span 10;
     padding: 40px 0 25px 0;
     border-bottom: 1px solid $color-true-black;
+    &.no-border {
+      border-bottom: none;
+    }
   }
 
   .question-link-list__links {

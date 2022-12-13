@@ -1,0 +1,7 @@
+{% load i18n %}
+<div class="header__search-wrapper">
+  <input class="header__search-input" type="text" name="search" value="{{ search }}" placeholder="{% trans 'Your search query' %}" />
+  <button class="header__search-button" type="submit" aria-label="{% trans "Search" %}">
+    <svg class="header__search-icon"><use xlink:href="#search" /></svg>
+  </button>
+</div>

@@ -30,29 +30,68 @@ from wagtail_helpdesk.core.models import Question
 from wagtail_helpdesk.experts.models import Expert
 from wagtail_helpdesk.volunteers.models import Volunteer
 
+LINK_STREAM = [
+    (
+        "item",
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(verbose_name="Titel")),
+                ("page", blocks.PageChooserBlock(verbose_name="Pagina")),
+            ]
+        ),
+    )
+]
+
 
 class HomePage(Page):
     template = "wagtail_helpdesk/cms/home_page.html"
 
     max_count = 1
 
-    def get_context(self, request, *args, **kwargs):
-        featured_answers = (
-            Answer.objects.live()
-            .filter(featured=True)
-            .order_by("-first_published_at")[:10]
-        )
-        categories = AnswerCategory.objects.all()
-        featured_experts = Expert.objects.filter(featured=True)[:3]
+    intro = models.TextField(blank=True)
+    header_buttons = StreamField(LINK_STREAM, blank=True, verbose_name=_("Buttons"))
+    recent_question_title = models.CharField(
+        max_length=255, verbose_name=_("Title"), blank=True
+    )
+    recent_question_buttons = StreamField(
+        LINK_STREAM, blank=True, verbose_name=_("Buttons")
+    )
 
+    content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                FieldPanel("intro"),
+                FieldPanel("header_buttons"),
+            ],
+            heading=_("Header"),
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("recent_question_title"),
+                FieldPanel("recent_question_buttons"),
+            ],
+            heading=_("Recent questions"),
+        ),
+    ]
+
+    def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context.update(
             {
-                "answers_page": AnswerIndexPage.objects.first().url,
-                "experts_page": ExpertIndexPage.objects.first(),
-                "featured_answers": featured_answers,
-                "categories": categories,
-                "featured_experts": featured_experts,
+                "featured_answers": Answer.objects.live()
+                .filter(featured=True)
+                .prefetch_related(
+                    "answer_expert_relationship__expert",
+                    "answer_category_relationship__category",
+                )
+                .order_by("-first_published_at")[:10],
+                "featured_experts": Expert.objects.prefetch_related(
+                    "expert_answer_relationship__answer__answer_category_relationship__category"
+                )
+                .select_related("picture")
+                .filter(featured=True)[:3],
+                "answer_index_page": AnswerIndexPage.objects.live().first(),
+                "expert_answers_overview_page": ExpertAnswerOverviewPage.objects.first(),
             }
         )
         return context
@@ -726,22 +765,23 @@ class MainNavSettings(BaseSetting):
 
 @register_setting
 class FooterSettings(BaseSetting):
+    about_title = models.CharField(max_length=255, verbose_name=_("Title"), blank=True)
+    about_text = RichTextField(verbose_name=_("Text"), blank=True)
+    about_buttons = StreamField(LINK_STREAM, blank=True, verbose_name=_("Buttons"))
+
+    expert_title = models.CharField(max_length=255, verbose_name=_("Title"), blank=True)
+    expert_text = RichTextField(
+        verbose_name=_("Text"),
+        blank=True,
+    )
+    expert_buttons = StreamField(LINK_STREAM, blank=True, verbose_name=_("Buttons"))
+
     initiator_text = RichTextField(
         verbose_name=_("Initiator-text"),
         default='<p>An initiative of <a href="#">...</a> & <a href="#">...</a></p>',
     )
     nav = StreamField(
-        [
-            (
-                "item",
-                blocks.StructBlock(
-                    [
-                        ("title", blocks.CharBlock(verbose_name=_("Title"))),
-                        ("page", blocks.PageChooserBlock(verbose_name=_("Page"))),
-                    ]
-                ),
-            )
-        ],
+        LINK_STREAM,
         verbose_name=_("Navigation"),
         blank=True,
     )
@@ -752,8 +792,50 @@ class FooterSettings(BaseSetting):
         "registered under Chamber of Commerce number ...",
     )
 
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel("about_title"),
+                FieldPanel("about_text"),
+                FieldPanel("about_buttons"),
+            ],
+            heading=_("About us"),
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("expert_title"),
+                FieldPanel("expert_text"),
+                FieldPanel("expert_buttons"),
+            ],
+            heading=_("Experts"),
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("initiator_text"),
+                FieldPanel("nav"),
+                FieldPanel("maintainer_text"),
+            ],
+            heading=_("Primary footer"),
+        ),
+    ]
+
     class Meta:
         verbose_name = "Footer"
+
+
+@register_setting
+class StickySettings(BaseSetting):
+    text = models.CharField(
+        max_length=255,
+        verbose_name=_("Text"),
+        default=_(
+            "Didn't find the answer you were looking for? Check out the pending questions or ask your own question!"
+        ),
+    )
+    buttons = StreamField(LINK_STREAM, verbose_name=_("Buttons"), blank=True)
+
+    class Meta:
+        verbose_name = _("Sticky menu")
 
 
 class SearchWidgetPage(Page):

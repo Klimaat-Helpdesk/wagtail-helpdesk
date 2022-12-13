@@ -49,12 +49,14 @@ class HomePage(Page):
     max_count = 1
 
     intro = models.TextField(blank=True)
-    header_buttons = StreamField(LINK_STREAM, blank=True, verbose_name=_("Buttons"))
+    header_buttons = StreamField(
+        LINK_STREAM, blank=True, verbose_name=_("Buttons"), use_json_field=True
+    )
     recent_question_title = models.CharField(
         max_length=255, verbose_name=_("Title"), blank=True
     )
     recent_question_buttons = StreamField(
-        LINK_STREAM, blank=True, verbose_name=_("Buttons")
+        LINK_STREAM, blank=True, verbose_name=_("Buttons"), use_json_field=True
     )
 
     content_panels = Page.content_panels + [
@@ -223,14 +225,19 @@ class Answer(Page):
             ("richtext", AnswerRichTextBlock()),
             ("image", AnswerImageBlock()),
             ("quote", QuoteBlock()),
-        ]
+        ],
+        use_json_field=True,
     )
 
     # Which experts and how was this answered?
-    answer_origin = StreamField([("origin", AnswerOriginBlock())], blank=True)
+    answer_origin = StreamField(
+        [("origin", AnswerOriginBlock())], blank=True, use_json_field=True
+    )
 
     # Related items
-    related_items = StreamField([("related_items", RelatedItemsBlock())], blank=True)
+    related_items = StreamField(
+        [("related_items", RelatedItemsBlock())], blank=True, use_json_field=True
+    )
 
     parent_page_types = ["AnswerIndexPage"]
 
@@ -757,6 +764,7 @@ class MainNavSettings(BaseSetting):
         ],
         verbose_name=_("Buttons"),
         blank=True,
+        use_json_field=True,
     )
 
     class Meta:
@@ -767,23 +775,25 @@ class MainNavSettings(BaseSetting):
 class FooterSettings(BaseSetting):
     about_title = models.CharField(max_length=255, verbose_name=_("Title"), blank=True)
     about_text = RichTextField(verbose_name=_("Text"), blank=True)
-    about_buttons = StreamField(LINK_STREAM, blank=True, verbose_name=_("Buttons"))
+    about_buttons = StreamField(
+        LINK_STREAM, blank=True, verbose_name=_("Buttons"), use_json_field=True
+    )
 
     expert_title = models.CharField(max_length=255, verbose_name=_("Title"), blank=True)
     expert_text = RichTextField(
         verbose_name=_("Text"),
         blank=True,
     )
-    expert_buttons = StreamField(LINK_STREAM, blank=True, verbose_name=_("Buttons"))
+    expert_buttons = StreamField(
+        LINK_STREAM, blank=True, verbose_name=_("Buttons"), use_json_field=True
+    )
 
     initiator_text = RichTextField(
         verbose_name=_("Initiator-text"),
         default='<p>An initiative of <a href="#">...</a> & <a href="#">...</a></p>',
     )
     nav = StreamField(
-        LINK_STREAM,
-        verbose_name=_("Navigation"),
-        blank=True,
+        LINK_STREAM, verbose_name=_("Navigation"), blank=True, use_json_field=True
     )
     maintainer_text = models.TextField(
         verbose_name=_("Maintainer text"),
@@ -832,7 +842,9 @@ class StickySettings(BaseSetting):
             "Didn't find the answer you were looking for? Check out the pending questions or ask your own question!"
         ),
     )
-    buttons = StreamField(LINK_STREAM, verbose_name=_("Buttons"), blank=True)
+    buttons = StreamField(
+        LINK_STREAM, verbose_name=_("Buttons"), blank=True, use_json_field=True
+    )
 
     class Meta:
         verbose_name = _("Sticky menu")

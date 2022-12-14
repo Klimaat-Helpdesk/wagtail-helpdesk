@@ -12,23 +12,8 @@
     <p>{% trans "We track these errors automatically, but if the problem persists feel free to contact us." %}</p>
 
   </div>
-  <div class="sticky-link">
-      <div class="sticky-link__wrapper">
-        <h5 class="sticky-link__title">{% trans 'Heb je het antwoord dat je zocht niet gevonden? Check de vragen in behandeling of stel je eigen vraag!' %}</h5>
-        <a class="sticky-link__link" href="/ask">
-          <button class="button">
-            <span class="button__text">{% trans 'Stel je vraag' %}</span>
-            <span class="button__icon"></span>
-          </button>
-        </a>
-        <a class="sticky-link__link" href="/in_behandeling">
-          <button class="button">
-            <span class="button__text">{% trans 'In Behandeling' %}</span>
-            <span class="button__icon"></span>
-          </button>
-        </a>
-      </div>
-    </div>
+
+  {% include "wagtail_helpdesk/cms/includes/sticky.html" %}
 
     <div class="footer">
       <div class="footer__wrapper">

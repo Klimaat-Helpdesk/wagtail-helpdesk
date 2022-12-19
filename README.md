@@ -33,6 +33,10 @@ This repository holds the code for `wagtail-helpdesk`, a Wagtail app aimed at an
         "wagtail_helpdesk.experts",
         "wagtail_helpdesk.utils",
         "wagtail_helpdesk.volunteers",
+        # Add all wagtail apps according to wagtail docs
+        ...
+        # Add wagtail routable page contrib module
+        "wagtail.contrib.routable_page",
     ]
   ```
 

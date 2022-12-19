@@ -9,7 +9,7 @@ This repository holds the code for `wagtail-helpdesk`, a Wagtail app aimed at an
 ## Links
 
 - [Documentation](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/blob/main/README.md)
-- [Discussions](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/discussions)
+- [Questions, issues and bugs](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/issues)
 - [Security](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/security)
 
 ## Supported versions

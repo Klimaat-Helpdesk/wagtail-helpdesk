@@ -2,7 +2,7 @@
   "name": "wagtail-helpdesk",
   "version": "0.1.0",
   "author": "Four Digits",
-  "license": "BSD",
+  "license": "MIT",
   "description": "This repository holds the code for wagtail-helpdesk, a Wagtail app aimed at answering questions by experts.",
   "engines": {
     "node": "18"

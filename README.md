@@ -2,7 +2,7 @@
 
 This repository holds the code for `wagtail-helpdesk`, a Wagtail app aimed at answering questions by experts. The original implementation was done for [Klimaathelpdesk](https://klimaathelpdesk.org), a website aimed at answering questions regarding climate change, global warming, and related.
 
-[![License]![GitHub](https://img.shields.io/github/license/Klimaat-Helpdesk/wagtail-helpdesk)](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/Klimaat-Helpdesk/wagtail-helpdesk)](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/blob/main/LICENSE)
 [![PyPI version](https://badge.fury.io/py/wagtail-helpdesk.svg)](https://badge.fury.io/py/wagtail-helpdesk)
 [![wagtail-helpdesk CI](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/actions/workflows/test.yml/badge.svg)](https://github.com/Klimaat-Helpdesk/wagtail-helpdesk/actions/workflows/test.yml)
 

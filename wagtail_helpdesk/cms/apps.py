@@ -2,8 +2,9 @@ from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
 
-class CmsConfig(AppConfig):
+class WagtailHelpdeskCmsConfig(AppConfig):
     name = "wagtail_helpdesk.cms"
+    label = "wagtail_helpdesk_cms"
     verbose_name = _("Q&A CMS")
 
     def ready(self):

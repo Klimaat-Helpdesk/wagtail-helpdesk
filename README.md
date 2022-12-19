@@ -20,6 +20,10 @@ This repository holds the code for `wagtail-helpdesk`, a Wagtail app aimed at an
 
 ## Installation
 
+- Install the `wagtail-helpdesk` package:
+
+  `$ pip install wagtail-helpdesk`
+
 - Add the wagtail-helpdesk apps to your `INSTALLED_APPS` in your project's `settings.py`:
   ```python
     INSTALLED_APPS = [

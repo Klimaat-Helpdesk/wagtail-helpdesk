@@ -9,8 +9,6 @@ This repository holds the code for `wagtail-helpdesk`, a Wagtail app aimed at an
 ## Links
 
 - [Documentation](https://github.com/fourdigits/wagtail-helpdesk/blob/main/README.md)
-- [Changelog](https://github.com/fourdigits/wagtail-helpdesk/blob/main/CHANGELOG.md)
-- [Contributing](https://github.com/fourdigits/wagtail-helpdesk/blob/main/CHANGELOG.md)
 - [Discussions](https://github.com/fourdigits/wagtail-helpdesk/discussions)
 - [Security](https://github.com/fourdigits/wagtail-helpdesk/security)
 

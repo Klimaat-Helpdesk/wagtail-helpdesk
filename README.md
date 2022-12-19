@@ -14,7 +14,7 @@ This repository holds the code for `wagtail-helpdesk`, a Wagtail app aimed at an
 
 ## Supported versions
 
-- Python 3.9, 3.10
+- Python 3.9, 3.10, 3.11
 - Django 3.2 LTS
 - Wagtail 4.1 LTS
 

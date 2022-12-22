@@ -253,12 +253,12 @@ class Answer(Page):
             [
                 InlinePanel(
                     "answer_category_relationship",
-                    label=_("Categorie(n)"),
+                    label=_("Categories"),
                     panels=None,
                     min_num=1,
                 )
             ],
-            heading=_("Categorie(s)"),
+            heading=_("Categories"),
         ),
         FieldPanel(
             "tags",

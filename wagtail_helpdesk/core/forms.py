@@ -57,7 +57,7 @@ class KeepMePostedForm(forms.ModelForm):
 
     user_email = forms.EmailField(required=False)
     accept_terms = forms.BooleanField(
-        label=_("Ik heb de algemene voorwaarden gelezen en ga er mee akkoord"),
+        label=_("I have read and agree to the terms and conditions"),
         required=True,
     )
 

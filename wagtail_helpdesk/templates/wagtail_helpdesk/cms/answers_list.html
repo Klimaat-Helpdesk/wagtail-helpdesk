@@ -7,8 +7,8 @@
 
       <form class="header__form" name="filter" method="get">
         <div class="header__search-wrapper">
-          <input class="header__search-input" type="text" name="search" value="{{ search }}" placeholder="{% trans 'Uw zoekterm' %}" />
-          <button class="header__search-button" type="submit" aria-label="{% trans 'Zoek' %}">
+          <input class="header__search-input" type="text" name="search" value="{{ search }}" placeholder="{% trans 'Your search term' %}" />
+          <button class="header__search-button" type="submit" aria-label="{% trans 'Search' %}">
             <svg class="header__search-icon"><use xlink:href="#search" /></svg>
           </button>
         </div>
@@ -44,7 +44,7 @@
           {{ answer.get_as_overview_row_card }}
         {% empty %}
           <div class="question-link-list__no-results">
-            {% trans 'Helaas, er zijn geen vragen gevonden' %}
+            {% trans 'Unfortunately, no questions were found' %}
           </div>
         {% endfor %}
       </div>

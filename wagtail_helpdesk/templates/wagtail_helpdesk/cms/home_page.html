@@ -1,6 +1,8 @@
 {% extends "wagtail_helpdesk/base.html" %}
 {% load static i18n wagtailimages_tags wagtailcore_tags %}
 {% block extra_head %}
+  {{ block.super }}
+
   {% with settings.cms.SocialMediaSettings as social_media_settings %}
   <meta property="og:title" content="{{ social_media_settings.short_site_name }}">
   <meta property="twitter:title" content="{{ social_media_settings.short_site_name }}">

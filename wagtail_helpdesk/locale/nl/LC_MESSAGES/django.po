@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-06 14:01+0100\n"
+"POT-Creation-Date: 2022-12-22 14:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,463 +18,318 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cms/admin.py:9
 msgid "Answers"
-msgstr ""
+msgstr "Antwoorden"
 
-#: cms/admin.py:21
 msgid "General Pages"
-msgstr ""
+msgstr "Algemene pagina's"
 
-#: cms/apps.py:7
 msgid "Q&A CMS"
 msgstr ""
 
-#: cms/models.py:59
+msgid "Buttons"
+msgstr "Knoppen"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Header"
+msgstr "Kop"
+
+msgid "Recent questions"
+msgstr "Recente vragen"
+
 msgid "Homepage"
-msgstr ""
+msgstr "Homepagina"
 
-#: cms/models.py:60
 msgid "Homepages"
-msgstr ""
+msgstr "Homepagina's"
 
-#: cms/models.py:105 experts/models.py:15 volunteers/models.py:14
 msgid "name"
 msgstr "Naam"
 
-#: cms/models.py:107
 msgid "slug"
-msgstr ""
+msgstr "slug"
 
-#: cms/models.py:110
 msgid "A slug to identify the category"
-msgstr ""
+msgstr "Een slug om de categorie te identificeren"
 
-#: cms/models.py:113
 msgid "description"
 msgstr "Omschrijving"
 
-#: cms/models.py:123
 msgid "Answer Category"
 msgstr "Antwoord categorie"
 
-#: cms/models.py:124
 msgid "Answer Categories"
 msgstr "Antwoord categoriën"
 
-#: cms/models.py:146
 msgid "Choose between answer or discussion piece with a more prominent look"
 msgstr ""
+"Kies tussen antwoord of discussiestuk met een meer prominente uitstraling"
 
-#: cms/models.py:153
 msgid "Short description"
 msgstr "Korte omschrijving"
 
-#: cms/models.py:157
 msgid "This helps with search engines and when sharing on social media"
-msgstr ""
+msgstr "Dit helpt bij zoekmachines en bij het delen op sociale media."
 
-#: cms/models.py:160
 msgid "Introduction"
-msgstr ""
+msgstr "Inleiding"
 
-#: cms/models.py:164
 msgid "This text is displayed above the tags, useful as a TLDR section"
-msgstr ""
+msgstr "Deze tekst wordt weergegeven boven de tags, handig als TLDR-sectie"
 
-#: cms/models.py:175
 msgid "This is the image that will be displayed when sharing on social media"
 msgstr ""
+"Dit is de afbeelding die wordt weergegeven bij het delen op sociale media"
 
-#: cms/models.py:198
 msgid "Show this answer on the home page"
-msgstr ""
+msgstr "Toon dit antwoord op de homepagina"
 
-#: cms/models.py:208
-#, fuzzy
-#| msgid "Categories"
-msgid "Categorie(n)"
-msgstr "Categoriën"
-
-#: cms/models.py:213
-#, fuzzy
-#| msgid "Categories"
-msgid "Categorie(s)"
-msgstr "Categoriën"
-
-#: cms/models.py:223 cms/models.py:228
-msgid "Expert(s)"
-msgstr "Experts"
-
-#: cms/models.py:234
-msgid "Image to be used when sharing on social media"
-msgstr ""
-
-#: cms/models.py:297
-msgid "Unknown"
-msgstr ""
-
-#: cms/models.py:573
-msgid "Questions in progress page"
-msgstr ""
-
-#: cms/models.py:574
-msgid "Questions in progress pages"
-msgstr ""
-
-#: cms/models.py:693
-msgid "Text"
-msgstr ""
-
-#: cms/models.py:695
-#, fuzzy
-#| msgid ""
-#| "Didn't find the answer you were looking for? Submit your own question!"
-msgid "Didn't find the answer you were looking for?"
-msgstr "Heb je het antwoord dat je zocht niet gevonden? Stel je eigen vraag!"
-
-#: cms/models.py:703 cms/models.py:729
-msgid "Title"
-msgstr ""
-
-#: cms/models.py:704 cms/models.py:730
-msgid "Page"
-msgstr ""
-
-#: cms/models.py:709
-msgid "Buttons"
-msgstr ""
-
-#: cms/models.py:714
-msgid "Main navigation"
-msgstr ""
-
-#: cms/models.py:720
-msgid "Initiator-text"
-msgstr ""
-
-#: cms/models.py:735
-msgid "Navigation"
-msgstr ""
-
-#: cms/models.py:739
-msgid "Maintainer text"
-msgstr ""
-
-#: cms/models.py:751
-msgid "Create a search widget to place on your own website"
-msgstr ""
-
-#: cms/models.py:771
-#, fuzzy
-#| msgid "name"
-msgid "Site name"
-msgstr "Naam"
-
-#: cms/models.py:778
-#, fuzzy
-#| msgid "Twitter Profile"
-msgid "Twitter handle"
-msgstr "op Twitter"
-
-#: cms/models.py:781
-#, fuzzy
-#| msgid "Short description"
-msgid "Short site name"
-msgstr "Korte omschrijving"
-
-#: cms/models.py:784
-#, fuzzy
-#| msgid "Short description"
-msgid "Short site description"
-msgstr "Korte omschrijving"
-
-#: core/admin.py:10
-msgid "Questions"
-msgstr "Vragen"
-
-#: core/admin.py:24 core/models.py:44
 msgid "Categories"
 msgstr "Categoriën"
 
-#: core/apps.py:7
+msgid "Expert(s)"
+msgstr "Expert(s)"
+
+msgid "Image to be used when sharing on social media"
+msgstr "Afbeelding te gebruiken bij het delen op sociale media."
+
+msgid "Unknown"
+msgstr "Onbekend"
+
+msgid "Questions in progress page"
+msgstr "Vragen in behandeling pagina"
+
+msgid "Questions in progress pages"
+msgstr "Vragen in behandeling pagina's"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "Didn't find the answer you were looking for?"
+msgstr "Heb je het antwoord dat je zocht niet gevonden?"
+
+msgid "Page"
+msgstr "Pagina"
+
+msgid "Main navigation"
+msgstr "Hoofdnavigatie"
+
+msgid "Initiator-text"
+msgstr "Initiatiefnemer-tekst"
+
+msgid "Navigation"
+msgstr "Navigatie"
+
+msgid "Maintainer text"
+msgstr "Tekst van de beheerder"
+
+msgid "About us"
+msgstr "Over ons"
+
+msgid "Experts"
+msgstr "Experts"
+
+msgid "Primary footer"
+msgstr "Hoofd footer"
+
+msgid ""
+"Didn't find the answer you were looking for? Check out the pending questions "
+"or ask your own question!"
+msgstr ""
+"Geen antwoord gevonden? Bekijk de openstaande vragen of stel je eigen vraag!"
+
+msgid "Sticky menu"
+msgstr "Sticky menu"
+
+msgid "Create a search widget to place on your own website"
+msgstr "Maak een zoekwidget om op uw eigen website te plaatsen"
+
+msgid "Twitter handle"
+msgstr ""
+
+msgid "Short site name"
+msgstr "Korte site-naam"
+
+msgid "Short site description"
+msgstr "Korte site-omschrijving"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Questions"
+msgstr "Vragen"
+
 msgid "Core App"
 msgstr ""
 
-#: core/forms.py:60
-msgid "Ik heb de algemene voorwaarden gelezen en ga er mee akkoord"
-msgstr ""
+msgid "I have read and agree to the terms and conditions"
+msgstr "Ik heb de algemene voorwaarden gelezen en ga er mee akkoord"
 
-#: core/models.py:21
 msgid "Undecided"
-msgstr ""
+msgstr "Onbeslist"
 
-#: core/models.py:22
 msgid "Approved"
-msgstr ""
+msgstr "Goedgekeurd"
 
-#: core/models.py:23
-#, fuzzy
-#| msgid "Answer Category"
 msgid "Answered"
-msgstr "Antwoord categorie"
+msgstr "Beantwoord"
 
-#: core/models.py:24
 msgid "Rejected"
-msgstr ""
+msgstr "Afgewezen"
 
-#: core/models.py:28
 msgid "Your Question"
 msgstr "Jouw vraag"
 
-#: core/models.py:30
 msgid ""
 "How the question is displayed on the (questions pending) page, only approved "
 "questions are shown"
 msgstr ""
+"Hoe de vraag wordt weergegeven op de (vragen in behandeling) pagina, alleen "
+"goedgekeurde vragen worden getoond"
 
-#: core/models.py:35 core/models.py:68
-#, fuzzy
-#| msgid "Your Question"
 msgid "Original Question"
-msgstr "Jouw vraag"
+msgstr "Oorspronkelijke vraag"
 
-#: core/models.py:38
 msgid "Relevant timespan"
-msgstr ""
+msgstr "Relevante tijdsspanne"
 
-#: core/models.py:41
 msgid "Relevant location"
-msgstr ""
+msgstr "Relevante locatie"
 
-#: core/models.py:43
 msgid "Extra information"
-msgstr ""
+msgstr "Aanvullende informatie"
 
-#: core/models.py:46
 msgid "User Email"
 msgstr "Gebruikers e-mail"
 
-#: core/models.py:58
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
-#: core/models.py:75 templates/users/user_detail.html:4
 msgid "User"
 msgstr "Gebruiker"
 
-#: experts/admin.py:10 experts/apps.py:7
-msgid "Experts"
-msgstr "Deskundigen"
-
-#: experts/models.py:16 volunteers/models.py:15
 msgid "email"
 msgstr "e-mail"
 
-#: experts/models.py:17 volunteers/models.py:16
 msgid "biography"
 msgstr "biografie"
 
-#: experts/models.py:21
 msgid "areas of expertise"
 msgstr "expertisegebieden"
 
-#: experts/models.py:22 volunteers/models.py:21
 msgid "Affiliation"
 msgstr "Werkzaam bij"
 
-#: experts/models.py:23 volunteers/models.py:22
 msgid "Website"
 msgstr "Website"
 
-#: experts/models.py:24 volunteers/models.py:23
 msgid "Twitter Profile"
 msgstr "op Twitter"
 
-#: experts/models.py:25 volunteers/models.py:24
 msgid "LinkedIn Profile"
 msgstr "op LinkedIn"
 
-#: experts/models.py:26 volunteers/models.py:25
 msgid "OrcID Link"
 msgstr ""
 
-#: templates/404.html:4 templates/404.html:7
 msgid "Page not found"
 msgstr "Pagina niet gevonden"
 
-#: templates/404.html:9
 msgid "This is not the page you were looking for."
 msgstr "Dit is niet de pagina waar je naar zocht."
 
-#: templates/500.html:3
 msgid "Server Error"
 msgstr ""
 
-#: templates/500.html:10
 msgid "Looks like something went wrong!"
-msgstr ""
+msgstr "Het lijkt erop dat er iets mis is gegaan!"
 
-#: templates/500.html:12
 msgid ""
 "We track these errors automatically, but if the problem persists feel free "
 "to contact us."
 msgstr ""
+"Wij houden deze fouten automatisch bij, maar als het probleem aanhoudt, neem "
+"dan gerust contact met ons op."
 
-#: templates/500.html:17 templates/cms/answers_list.html:55
-#: templates/cms/home_page.html:65 templates/cms/questions_in_progress.html:19
-msgid ""
-"Heb je het antwoord dat je zocht niet gevonden? Check de vragen in "
-"behandeling of stel je eigen vraag!"
-msgstr ""
-
-#: templates/500.html:20 templates/cms/answers_list.html:58
-#: templates/cms/home_page.html:68 templates/cms/questions_in_progress.html:22
-msgid "Stel je vraag"
-msgstr ""
-
-#: templates/500.html:26 templates/cms/answers_list.html:64
-#: templates/cms/home_page.html:74 templates/cms/questions_in_progress.html:28
-msgid "In Behandeling"
-msgstr ""
-
-#: templates/500.html:36 templates/cms/home_page.html:84
-#: templates/cms/questions_in_progress.html:38
-msgid "Hoe beantwoorden we jullie vragen?"
-msgstr ""
-
-#: templates/500.html:37 templates/cms/home_page.html:85
-#: templates/cms/questions_in_progress.html:39
-msgid ""
-"De vraag wordt doorgestuurd naar een expert, die aan de hand van "
-"verschillende bronnen een antwoord schrijft. Dit antwoord wordt door een "
-"tweede expert nagekeken en wordt dan als artikel gepubliceerd op de website."
-msgstr ""
-
-# ## in English, this should actually be Helpdesk-Climate (or use the dutch name for all languages)
-#: templates/500.html:42 templates/cms/home_page.html:90
-#: templates/cms/questions_in_progress.html:44
-#, fuzzy
-#| msgid "Our Experts"
-msgid "Onze experts"
-msgstr "Onze deskundigen"
-
-#: templates/500.html:43 templates/cms/home_page.html:91
-#: templates/cms/questions_in_progress.html:45
-msgid ""
-"Elke vraag wordt beantwoord door een actieve wetenschapper of deskundige die "
-"expert is op dat vakgebied"
-msgstr ""
-
-#: templates/500.html:68 templates/cms/home_page.html:116
-#: templates/cms/questions_in_progress.html:70
-#, fuzzy
-#| msgid "Meet an expert"
-msgid "Maak kennis met alle experts"
-msgstr "Maak kennis met een deskundige"
-
-#: templates/account/account_inactive.html:5
-#: templates/account/account_inactive.html:8
 msgid "Account Inactive"
 msgstr "Inactief account"
 
-#: templates/account/account_inactive.html:10
 msgid "This account is inactive."
 msgstr "Dit account is inactief"
 
-#: templates/account/email.html:7
 msgid "Account"
 msgstr "Account"
 
-#: templates/account/email.html:10
-msgid "E-mail Addresses"
+msgid "Email Addresses"
 msgstr "E-mailadressen"
 
-#: templates/account/email.html:13
-msgid "The following e-mail addresses are associated with your account:"
+msgid "The following email addresses are associated with your account:"
 msgstr "De volgende e-mailadressen zijn gelinked aan jouw account:"
 
-#: templates/account/email.html:27
 msgid "Verified"
 msgstr "Geverifieerd"
 
-#: templates/account/email.html:29
 msgid "Unverified"
 msgstr "Ongeverifieerd"
 
-#: templates/account/email.html:31
 msgid "Primary"
 msgstr "Hoofd"
 
-#: templates/account/email.html:37
 msgid "Make Primary"
 msgstr "Maak hoofd"
 
-#: templates/account/email.html:38
 msgid "Re-send Verification"
 msgstr "Verzend verificatie opnieuw"
 
-#: templates/account/email.html:39
 msgid "Remove"
 msgstr "Verwijder"
 
-#: templates/account/email.html:46
 msgid "Warning:"
 msgstr "Waarschuwing:"
 
-#: templates/account/email.html:46
 msgid ""
-"You currently do not have any e-mail address set up. You should really add "
-"an e-mail address so you can receive notifications, reset your password, etc."
+"You currently do not have any email address set up. You should really add an "
+"email address so you can receive notifications, reset your password, etc."
 msgstr ""
 "Je hebt momenteel geen e-mailadres toegevoegd. Voeg aub een e-mailadrestoe, "
 "zodat je notificaties kunt ontvangen, je wachtwoord kunt resetten, etc."
 
-#: templates/account/email.html:51
-msgid "Add E-mail Address"
+msgid "Add Email Address"
 msgstr "Voeg e-mailadres toe"
 
-#: templates/account/email.html:56
-msgid "Add E-mail"
+msgid "Add Email"
 msgstr "Voeg e-mail toe"
 
-#: templates/account/email.html:66
-msgid "Do you really want to remove the selected e-mail address?"
+msgid "Do you really want to remove the selected email address?"
 msgstr "Weet je zeker dat je het geselecteerde e-mailadres wilt verwijderen?"
 
-#: templates/account/email_confirm.html:6
-#: templates/account/email_confirm.html:10
-msgid "Confirm E-mail Address"
+msgid "Confirm Email Address"
 msgstr "Bevestig je e-mailadres"
 
-#: templates/account/email_confirm.html:16
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
 "Bevestig aub dat <a href=\"mailto:%(email)s\">%(email)s</a> een e-mailadres "
 "is voor de gebruiker %(user_display)s."
 
-#: templates/account/email_confirm.html:20
 msgid "Confirm"
 msgstr "Bevestig"
 
-#: templates/account/email_confirm.html:27
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Deze bevestigingslink is verlopen of niet geldig. <a href=\"%(email_url)s"
-"\">Vraag een nieuwe bevestigingsmail aan.</a>"
+"Deze bevestigingslink is verlopen of niet geldig. <a "
+"href=\"%(email_url)s\">Vraag een nieuwe bevestigingsmail aan.</a>"
 
-#: templates/account/login.html:7 templates/account/login.html:11
-#: templates/account/login.html:44
 msgid "Sign In"
 msgstr "Log in"
 
-#: templates/account/login.html:16
 #, python-format
 msgid ""
 "Please sign in with one\n"
@@ -482,14 +337,13 @@ msgid ""
 "up</a>\n"
 "for a %(site_name)s account and sign in below:"
 msgstr ""
-"Log in met een van je bestaande accounts. Of <a href=\"%(signup_url)s"
-"\">schrijf je in</a> voor een %(site_name)s account en log hieronder in:"
+"Log in met een van je bestaande accounts. Of <a "
+"href=\"%(signup_url)s\">schrijf je in</a> voor een %(site_name)s account en "
+"log hieronder in:"
 
-#: templates/account/login.html:26
 msgid "or"
 msgstr "of"
 
-#: templates/account/login.html:33
 #, python-format
 msgid ""
 "If you have not created an account yet, then please\n"
@@ -498,67 +352,46 @@ msgstr ""
 "Als je nog geen account hebt gemaakt, <a href=\"%(signup_url)s\">schrijf je</"
 "a> dan in."
 
-#: templates/account/login.html:43
 msgid "Forgot Password?"
 msgstr "Wachtwoord vergeten?"
 
-#: templates/account/logout.html:5 templates/account/logout.html:8
-#: templates/account/logout.html:17
 msgid "Sign Out"
 msgstr "Log uit"
 
-#: templates/account/logout.html:10
 msgid "Are you sure you want to sign out?"
 msgstr "Weet je zeker dat je uit wilt loggen?"
 
-#: templates/account/password_change.html:6
-#: templates/account/password_change.html:9
-#: templates/account/password_change.html:14
-#: templates/account/password_reset_from_key.html:5
-#: templates/account/password_reset_from_key.html:8
-#: templates/account/password_reset_from_key_done.html:4
-#: templates/account/password_reset_from_key_done.html:7
 msgid "Change Password"
 msgstr "Verander je wachtwoord"
 
-#: templates/account/password_reset.html:7
-#: templates/account/password_reset.html:11
-#: templates/account/password_reset_done.html:6
-#: templates/account/password_reset_done.html:9
 msgid "Password Reset"
 msgstr "Reset je wachtwoord"
 
-#: templates/account/password_reset.html:16
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you "
-"an e-mail allowing you to reset it."
+"Forgotten your password? Enter your email address below, and we'll send you "
+"an email allowing you to reset it."
 msgstr ""
 "Wachtwoord vergeten? Vul hieronder je e-mailadres in, en we zullen een e-"
 "mail sturen met een rest link."
 
-#: templates/account/password_reset.html:21
 msgid "Reset My Password"
 msgstr "Reset mijn wachtwoord"
 
-#: templates/account/password_reset.html:24
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr ""
 "Neem contact met ons op als je problemen hebt met het resetten van je "
 "wachtwoord."
 
-#: templates/account/password_reset_done.html:15
 msgid ""
-"We have sent you an e-mail. Please contact us if you do not receive it "
-"within a few minutes."
+"We have sent you an email. Please contact us if you do not receive it within "
+"a few minutes."
 msgstr ""
 "We hebben je een e-mail gestuurd. Mocht je na een paar minuten nog niks "
 "hebben ontvangen, neem dan contact met ons op."
 
-#: templates/account/password_reset_from_key.html:8
 msgid "Bad Token"
 msgstr ""
 
-#: templates/account/password_reset_from_key.html:12
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
@@ -569,54 +402,38 @@ msgstr ""
 "is hergebruikt. <a href=\"%(passwd_reset_url)s\">Vraag een nieuw wachtwoord "
 "aan</a>."
 
-#: templates/account/password_reset_from_key.html:18
 msgid "change password"
 msgstr "Verander je wachtwoord"
 
-#: templates/account/password_reset_from_key.html:21
-#: templates/account/password_reset_from_key_done.html:8
 msgid "Your password is now changed."
 msgstr "Je wachtwoord is nu veranderd."
 
-#: templates/account/password_set.html:6 templates/account/password_set.html:9
-#: templates/account/password_set.html:14
 msgid "Set Password"
 msgstr "Maak wachtwoord aan"
 
-#: templates/account/signup.html:6
 msgid "Signup"
 msgstr "Account aanmaken"
 
 # ## seems signup and sign up are both used
-#: templates/account/signup.html:9 templates/account/signup.html:19
 msgid "Sign Up"
 msgstr "Account aanmaken"
 
-#: templates/account/signup.html:11
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
 msgstr "Heb je al een account? <a href=\"%(login_url)s\">Log hier in</a>"
 
-#: templates/account/signup_closed.html:5
-#: templates/account/signup_closed.html:8
 msgid "Sign Up Closed"
 msgstr "Inschrijvingen gesloten"
 
-#: templates/account/signup_closed.html:10
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Het spijt ons, maar er kan momenteel niet worden ingeschreven."
 
-#: templates/account/verification_sent.html:5
-#: templates/account/verification_sent.html:8
-#: templates/account/verified_email_required.html:5
-#: templates/account/verified_email_required.html:8
-msgid "Verify Your E-mail Address"
+msgid "Verify Your email Address"
 msgstr "Verifieer je e-mailadres"
 
-#: templates/account/verification_sent.html:10
 msgid ""
-"We have sent an e-mail to you for verification. Follow the link provided to "
+"We have sent an email to you for verification. Follow the link provided to "
 "finalize the signup process. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
@@ -624,186 +441,133 @@ msgstr ""
 "de e-mail om dit process te voltooien. Mocht je na een paar minuten nog niks "
 "hebben ontvangen, neem dan contact met ons op."
 
-#: templates/account/verified_email_required.html:12
 msgid ""
 "This part of the site requires us to verify that\n"
 "you are who you claim to be. For this purpose, we require that you\n"
-"verify ownership of your e-mail address. "
+"verify ownership of your email address. "
 msgstr "Voor dit gedeelte van de site moet je jouw e-mailadres verifiëren."
 
-#: templates/account/verified_email_required.html:16
 msgid ""
-"We have sent an e-mail to you for\n"
-"verification. Please click on the link inside this e-mail. Please\n"
+"We have sent an email to you for\n"
+"verification. Please click on the link inside this email. Please\n"
 "contact us if you do not receive it within a few minutes."
 msgstr ""
 "We hebben een e-mail gestuurd voor de verificatie. Klik op de link in deze e-"
 "mail. Mocht je na een paar minuten nog niks hebben ontvangen, neem dan "
 "contact met ons op."
 
-#: templates/account/verified_email_required.html:20
 #, python-format
 msgid ""
-"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
-"mail address</a>."
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
+"email address</a>."
 msgstr "Je kunt je <a href=\"%(email_url)s\">e-mailadres aanpassen</a>."
 
-#: templates/cms/answers_list.html:10
-msgid "Uw zoekterm"
-msgstr ""
+msgid "Your search term"
+msgstr "Uw zoekterm"
 
-#: templates/cms/answers_list.html:11
-msgid "Zoek"
-msgstr ""
+msgid "Unfortunately, no questions were found"
+msgstr "Helaas zijn er geen vragen gevonden"
 
-#: templates/cms/answers_list.html:47
-msgid "Helaas, er zijn geen vragen gevonden"
-msgstr ""
+msgid "What is your question about?"
+msgstr "Waar gaat je vraag over?"
 
-#: templates/cms/ask_question_page.html:45
-msgid "Waar gaat je vraag over?"
-msgstr ""
+msgid "Phrase your question"
+msgstr "Formuleer uw vraag"
 
-#: templates/cms/ask_question_page.html:46
-msgid "Formuleer je vraag"
-msgstr ""
+msgid "The form could not be sent, please check the data."
+msgstr "Het formulier kon niet worden verzonden, controleer de gegevens."
 
-#: templates/cms/ask_question_page.html:61
-#: templates/cms/ask_question_page_keep_me_posted.html:30
-msgid "Het formulier kon niet worden verzonden, controleer de gegevens."
-msgstr ""
-
-#: templates/cms/ask_question_page.html:76
 msgid "Continue"
-msgstr ""
+msgstr "Ga verder"
 
-#: templates/cms/ask_question_page.html:84
 msgid "Tip:"
-msgstr ""
+msgstr "Tip:"
 
-#: templates/cms/ask_question_page.html:85
-msgid "Check voordat je een vraag stelt of iemand anders je niet voor was"
+msgid ""
+"Before you ask a question, check that someone else didn't beat you to it"
 msgstr ""
+"Voordat je een vraag stelt, controleer of iemand anders je niet voor was"
 
-#: templates/cms/ask_question_page.html:105
-msgid "Ik heb een vraag over "
-msgstr ""
+msgid "I have a question about "
+msgstr "Ik heb een vraag over "
 
-#: templates/cms/ask_question_page.html:137
-#: templates/cms/ask_question_page_keep_me_posted.html:56
 msgid "Submit"
 msgstr "Verstuur"
 
-#: templates/cms/ask_question_page_keep_me_posted.html:48
-msgid "Onze voorwaarden"
-msgstr ""
+msgid "Our conditions"
+msgstr "Onze voorwaarden"
 
-#: templates/cms/ask_question_page_keep_me_posted.html:64
-msgid "Terug naar de homepage"
-msgstr ""
+msgid "Back to homepage"
+msgstr "Terug naar de homepage"
 
-#: templates/cms/blocks/answer_origin.html:16
-msgid "Bronnen"
-msgstr ""
+msgid "Sources"
+msgstr "Bronnen"
 
-#: templates/cms/blocks/related_content.html:6
-msgid "Gerelateerde items"
-msgstr ""
+msgid "Related items"
+msgstr "Gerelateerde items"
 
-#: templates/cms/expert_answer_overview_page.html:6
-msgid "Antwoorden van "
-msgstr ""
+msgid "Answers from "
+msgstr "Antwoorden van"
 
-#: templates/cms/expert_answer_overview_page.html:23
-msgid "Bekijk alle antwoorden"
-msgstr ""
+msgid "See all answers"
+msgstr "Bekijk alle antwoorden"
 
-#: templates/cms/home_page.html:56
-msgid "Vragenoverzicht"
-msgstr ""
+msgid "Find a question"
+msgstr "Zoek een vraag"
 
-#: templates/cms/iframe_search_widget.html:19
-msgid "Your search term"
-msgstr ""
+msgid "Your search query"
+msgstr "Uw zoekopdracht"
 
-#: templates/cms/iframe_search_widget.html:20
-msgid "Search"
-msgstr "Zoeken"
-
-#: templates/cms/search_widget_page.html:39
 msgid "Enter an accompanying text:"
-msgstr ""
+msgstr "Voer een begeleidende tekst in:"
 
-#: templates/cms/search_widget_page.html:42
 msgid "Copy the code below:"
-msgstr ""
+msgstr "Kopieer de onderstaande code:"
 
-#: templates/cms/search_widget_page.html:44
 msgid "Copy"
-msgstr ""
+msgstr "Kopieer"
 
-#: templates/cms/search_widget_page.html:45
 msgid "Code has been copied!"
-msgstr ""
+msgstr "Code is gekopieerd!"
 
-#: templates/cms/search_widget_page.html:47
-msgid "Voorbeeld"
-msgstr ""
+msgid "Example"
+msgstr "Voorbeeld"
 
-#: templates/core/includes/answer_block.html:4
-#: templates/core/includes/answer_home_block.html:4
-#: templates/core/includes/related_item_block.html:5
-msgid "Beantwoord door"
-msgstr ""
+msgid "Answered by"
+msgstr "Beantwoord door"
 
-#: templates/core/includes/aside.html:12
 msgid "Ask your question"
 msgstr "Stel je vraag"
 
-#: templates/core/includes/aside.html:13
 msgid "Didn't find the answer you were looking for? Submit your own question!"
 msgstr "Heb je het antwoord dat je zocht niet gevonden? Stel je eigen vraag!"
 
-#: templates/core/includes/aside.html:14
 msgid "Ask a Question"
 msgstr "Stel je vraag"
 
-#: templates/experts/experts_list.html:46
-msgid "Wie zijn de mensen achter de KlimaatHelpdesk"
-msgstr ""
+msgid "Who are the people behind the Climate Help Desk"
+msgstr "Wie zijn de mensen achter de Klimaathelpdesk"
 
-#: templates/experts/experts_list.html:56
-msgid "Wie zijn wij?"
-msgstr ""
+msgid "Who we are"
+msgstr "Wie we zijn"
 
-#: templates/experts/includes/expert_block.html:31
-msgid "Bekijk de vragen die beantwoord zijn door "
-msgstr ""
+msgid "View the questions answered by "
+msgstr "Bekijk de vragen beantwoord door "
 
-#: templates/includes/menu_overlay.html:9
 msgid "Close navigation"
-msgstr ""
+msgstr "Navigatie sluiten"
 
-#: templates/under_construction.html:35
-msgid "This website under construction."
-msgstr ""
+msgid "Share this page"
+msgstr "Deel deze pagina"
 
-#: templates/users/user_detail.html:24
 msgid "My Info"
 msgstr "Mijn info"
 
-#: templates/users/user_detail.html:25
-msgid "E-Mail"
-msgstr "E-mail"
-
-#: templates/users/user_form.html:13
 msgid "Update"
 msgstr "Bijwerken"
 
-#: volunteers/admin.py:10 volunteers/apps.py:7
 msgid "Volunteers"
-msgstr ""
+msgstr "Vrijwilligers"
 
-#: volunteers/models.py:20
 msgid "roles"
-msgstr ""
+msgstr "rollen"

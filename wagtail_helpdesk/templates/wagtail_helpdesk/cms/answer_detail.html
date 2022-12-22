@@ -1,8 +1,9 @@
 {% extends "wagtail_helpdesk/base.html" %}
 {% load i18n static wagtailcore_tags wagtailimages_tags  %}
+{% wagtail_site as current_site %}
 
 {% block title %}
-  {{ self.title }} | {{ settings.cms.HelpdeskSiteSettings.site_name }}
+  {{ self.title }} | {{ current_site.site_name }}
 {% endblock title %}
 
 {% block extra_head %}
@@ -35,7 +36,7 @@
     <meta name="keywords" content="{% for tag in self.tags.all %}{{ tag }}, {% endfor %}">
 
     <meta property="og:locale" content="nl_NL">
-    <meta property="og:site_name" content="{{ social_site_settings.short_site_name }}">
+    <meta property="og:site_name" content="{{ social_media_settings.short_site_name }}">
   {% endwith %}
 {% endblock extra_head %}
 

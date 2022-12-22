@@ -1,13 +1,13 @@
 {% load static i18n helpdesk_tags wagtailcore_tags wagtailsettings_tags %}
 {% get_settings %}
-
+{% wagtail_site as current_site %}
 
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{% block title %}{{ settings.cms.HelpdeskSiteSettings.site_name }}{% endblock title %}</title>
+  <title>{% block title %}{{ current_site.site_name }}{% endblock title %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {% block css %}

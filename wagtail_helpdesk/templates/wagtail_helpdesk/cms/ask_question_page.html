@@ -42,8 +42,8 @@
       </div>
 
       <div class="form__header__container">
-          <h1 class="form__header form-step__one">1. {% trans 'Waar gaat je vraag over?' %}</h1>
-          <h1 class="form__header form-step__two is-hidden">2. {% trans 'Formuleer je vraag' %}</h1>
+          <h1 class="form__header form-step__one">1. {% trans 'What is your question about?' %}</h1>
+          <h1 class="form__header form-step__two is-hidden">2. {% trans 'Phrase your question' %}</h1>
       </div>
 
       <form class="form__form" method="post" novalidate>
@@ -58,7 +58,7 @@
 
       {% if form.errors %}
         <div class="form__error">
-          {% trans 'Het formulier kon niet worden verzonden, controleer de gegevens.' %}
+          {% trans 'The form could not be sent, please check the data.' %}
         </div>
       {% endif %}
 
@@ -82,7 +82,7 @@
       <div class="form__tip is-hidden">
         <span class="form__tip-text">
           <strong>{% trans 'Tip:' %}</strong>
-          {% trans 'Check voordat je een vraag stelt of iemand anders je niet voor was' %}
+          {% trans "Before you ask a question, check that someone else didn't beat you to it" %}
         </span>
 
         <div class="suggestion-answers__list">
@@ -102,7 +102,7 @@
     <div class="form-step__two is-hidden">
 
       <div class="form__form-subtitle">
-        <span>{% trans 'Ik heb een vraag over ' %}</span><span id="form-step__selected-categories"></span>
+        <span>{% trans 'I have a question about ' %}</span><span id="form-step__selected-categories"></span>
       </div>
 
       <div class="form__form-fields">

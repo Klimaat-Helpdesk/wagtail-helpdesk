@@ -27,7 +27,7 @@
 
         {% if form.errors %}
           <div class="form__error">
-            {% trans 'Het formulier kon niet worden verzonden, controleer de gegevens.' %}
+            {% trans 'The form could not be sent, please check the data.' %}
             {{ form.non_field_errors }}
             {{ form.source.errors }}
             {{ form.source }}
@@ -45,7 +45,7 @@
             {{ form.accept_terms.label_tag }}
             {{ form.accept_terms }}
             <p>
-              <a href="/voorwaarden" target="_blank">{% trans 'Onze voorwaarden' %}</a>
+              <a href="/voorwaarden" target="_blank">{% trans 'Our conditions' %}</a>
             </p>
             {{ form.accept_terms.errors }}
           </div>
@@ -61,7 +61,7 @@
         <div class="form__button">
           <a href="/">
            <button type="button" class="button button--secondary">
-              <span class="button__text">{% trans 'Terug naar de homepage' %}</span>
+              <span class="button__text">{% trans 'Back to homepage' %}</span>
               <span class="button__icon"></span>
             </button>
          </a>

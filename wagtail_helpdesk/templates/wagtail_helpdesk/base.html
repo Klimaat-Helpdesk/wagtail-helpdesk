@@ -46,9 +46,11 @@
 <footer class="footer-bar">
   <div class="footer-bar__wrapper">
     <div class="footer-bar__logo-container">
+      {% block footer_logo %}
       <a class="footer-bar__logo-link" href="/">
-        {% include "wagtail_helpdesk/includes/logo.html" %}
+          {% include "wagtail_helpdesk/includes/logo.html" %}
       </a>
+      {% endblock footer_logo %}
     </div>
 
     {% with settings.cms.FooterSettings as footer_settings %}

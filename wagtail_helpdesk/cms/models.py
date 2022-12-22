@@ -872,13 +872,6 @@ class SearchWidgetPage(Page):
 
 
 @register_setting
-class HelpdeskSiteSettings(BaseSetting):
-    site_name = models.CharField(
-        verbose_name=_("Site name"), max_length=255, blank=True
-    )
-
-
-@register_setting
 class SocialMediaSettings(BaseSetting):
     twitter_handle = models.CharField(
         verbose_name=_("Twitter handle"), max_length=15, blank=True

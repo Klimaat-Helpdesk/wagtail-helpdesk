@@ -24,7 +24,7 @@ class AnswerRichTextBlock(blocks.StructBlock):
 
     class Meta:
         icon = "text"
-        template = "cms/blocks/rich_text.html"
+        template = "wagtail_helpdesk/cms/blocks/rich_text.html"
 
 
 class AnswerImageBlock(blocks.StructBlock):
@@ -35,7 +35,7 @@ class AnswerImageBlock(blocks.StructBlock):
 
     class Meta:
         icon = "image"
-        template = "cms/blocks/image.html"
+        template = "wagtail_helpdesk/cms/blocks/image.html"
 
 
 class QuoteBlock(blocks.StructBlock):
@@ -43,7 +43,7 @@ class QuoteBlock(blocks.StructBlock):
 
     class Meta:
         icon = "text"
-        template = "cms/blocks/quote.html"
+        template = "wagtail_helpdesk/cms/blocks/quote.html"
 
 
 class ScientificSourceBlock(blocks.StructBlock):
@@ -66,7 +66,7 @@ class AnswerOriginBlock(blocks.StructBlock):
 
     class Meta:
         icon = "text"
-        template = "cms/blocks/answer_origin.html"
+        template = "wagtail_helpdesk/cms/blocks/answer_origin.html"
 
 
 class RelatedItemsBlock(blocks.StructBlock):
@@ -74,4 +74,4 @@ class RelatedItemsBlock(blocks.StructBlock):
 
     class Meta:
         icon = "text"
-        template = "cms/blocks/related_content.html"
+        template = "wagtail_helpdesk/cms/blocks/related_content.html"

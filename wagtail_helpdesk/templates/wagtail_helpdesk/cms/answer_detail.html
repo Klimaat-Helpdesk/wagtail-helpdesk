@@ -77,9 +77,11 @@
   <div class="menu-bar menu-bar--inverted">
     <div class="menu-bar__bar">
       <div class="menu-bar__logo-container">
+        {% block menu_bar_logo %}
         <a class="menu-bar__logo" href="/">
           {% include "wagtail_helpdesk/includes/logo.html" %}
         </a>
+        {% endblock menu_bar_logo %}
       </div>
 
       <div class="menu-bar__expert-container">

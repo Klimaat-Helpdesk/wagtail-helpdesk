@@ -29,6 +29,12 @@
     font-weight: 500;
     margin: 0 30px 45px 0;
     display: inline-block;
+
+    a {
+      color: $color-yellow-warm;
+      @include typography(navigation);
+      font-weight: 500;
+    }
   }
 
   .footer-bar__coc {

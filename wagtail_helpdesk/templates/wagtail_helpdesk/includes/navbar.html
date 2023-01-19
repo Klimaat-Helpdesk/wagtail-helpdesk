@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="menu-bar">
   <div class="menu-bar__bar">
     <div class="menu-bar__logo-container">
@@ -6,7 +7,7 @@
       </a>
     </div>
     <div class="menu-bar__icon-container">
-      <button class="menu-bar__icon-button">
+      <button class="menu-bar__icon-button" aria-label="{% trans 'Open menu' %}" data-action="navigation#open">
         <span class="menu-bar__icon"></span>
       </button>
     </div>

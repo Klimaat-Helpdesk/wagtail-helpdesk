@@ -1,20 +1,15 @@
-import Controller from '../modules/controller';
+import {Controller} from "@hotwired/stimulus"
 
-export default class SocialShareButtonsController extends Controller {
+export default class extends Controller {
+  static targets = ["link"]
 
-  init() {
-      this.initializeButtons();
-  }
-
-  initializeButtons() {
+  connect() {
     const url = window.location.href;
     const title = document.title;
-    const shareButtons = document.querySelectorAll(".js-social-share-button");
-    if (!shareButtons) { return };
-    shareButtons.forEach(button => {
-      const socialMediaPlatform = button.dataset.socialPlatform
+    this.linkTargets.forEach(element => {
+      const socialMediaPlatform = element.dataset.socialPlatform;
       let link = ""
-      if(socialMediaPlatform === "facebook") {
+      if (socialMediaPlatform === "facebook") {
         link = `https://www.facebook.com/sharer/sharer.php?u=${url}`
       } else if (socialMediaPlatform === "twitter") {
         link = `http://twitter.com/share?&url=${url}`
@@ -23,8 +18,7 @@ export default class SocialShareButtonsController extends Controller {
       } else if (socialMediaPlatform === "whatsapp") {
         link = `https://wa.me/?text=${url}`;
       }
-      button.setAttribute("href", link);
+      element.setAttribute("href", link);
     })
   }
-
 }

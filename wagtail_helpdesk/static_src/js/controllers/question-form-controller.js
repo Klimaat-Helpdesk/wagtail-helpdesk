@@ -1,15 +1,17 @@
-import Controller from '../modules/controller';
+import {Controller} from "@hotwired/stimulus"
 
-export default class NavigationController extends Controller {
+export default class extends Controller {
 
-  init() {
-      this.initializeButtons();
-      this.initializeCheckboxes();
+  connect() {
+    this.initializeButtons();
+    this.initializeCheckboxes();
 
-      // Repopulate in case of invalid form returned
-      this.selectedCategories = this.getSelectedCategories();
-      this.toggleSuggestionsDiv();
+    // Repopulate in case of invalid form returned
+    this.selectedCategories = this.getSelectedCategories();
+    this.toggleSuggestionsDiv();
   }
+
+  // TODO: Refactor to stimulus
 
   initializeButtons() {
     var continueButton = document.getElementById('form-step__continue');

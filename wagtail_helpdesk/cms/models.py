@@ -538,6 +538,7 @@ class ExpertIndexPage(Page):
             {
                 "experts": experts,
                 "answers_page": AnswerIndexPage.objects.first().url,
+                "expert_answers_page": ExpertAnswerOverviewPage.objects.first(),
                 "categories": categories,
             }
         )

@@ -359,6 +359,7 @@ class Answer(Page):
             "author": self.get_primary_expert(),
             "categories": self.get_all_categories(),
             "type": "answer",
+            "answers_page_url": self.get_parent().url if self.get_parent() else "",
         }
 
     def get_as_overview_row_card(self):

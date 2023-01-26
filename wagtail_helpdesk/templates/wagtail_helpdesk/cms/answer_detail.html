@@ -110,7 +110,7 @@
 {% block head %}
   <div class="content-header">
     <div class="content-header__wrapper">
-      <a class="content-header__back-link" href="/answers">
+      <a class="content-header__back-link" href="{% pageurl self.get_parent %}">
         <span class="content-header__back-link-icon"></span>
       </a>
       <div class="content-header__title-container">
@@ -120,7 +120,7 @@
       </div>
       <div class="content-header__theme">
         {% for category in self.get_all_categories %}
-          <a href="/answers/{{ category.url }}"><span
+          <a href="{% pageurl self.get_parent %}{{ category.url }}"><span
                   class="content-header__subject-tag tag">{{ category.title }}</span></a>
         {% endfor %}
       </div>

@@ -1,4 +1,4 @@
-{% load static wagtailimages_tags i18n %}
+{% load static wagtailimages_tags i18n wagtailroutablepage_tags %}
 
 <div class="expert" id="{{ expert.pk }}">
   <div class="expert__image-container">
@@ -27,8 +27,10 @@
       <p>{{ expert.bio }}</p>
     </div>
     <div class="expert__link">
+        {% if expert_answers_page %}
       <a class="expert__link-text"
-         href="/answers_by/{{ expert.pk }}">{% trans 'View the questions answered by ' %} {{ expert.name }}</a>
+         href="{% routablepageurl expert_answers_page "expert_answers" expert.pk %}">{% trans 'View the questions answered by ' %} {{ expert.name }}</a>
+        {% endif %}
     </div>
 
     <div class="expert__themes">

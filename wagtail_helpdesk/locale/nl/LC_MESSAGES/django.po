@@ -144,7 +144,7 @@ msgid "Sticky menu"
 msgstr "Sticky menu"
 
 msgid "Create a search widget to place on your own website"
-msgstr "Maak een zoekwidget om op uw eigen website te plaatsen"
+msgstr "Maak een zoekwidget om op je eigen website te plaatsen"
 
 msgid "Twitter handle"
 msgstr ""
@@ -463,7 +463,7 @@ msgid ""
 msgstr "Je kunt je <a href=\"%(email_url)s\">e-mailadres aanpassen</a>."
 
 msgid "Your search term"
-msgstr "Uw zoekterm"
+msgstr "Je zoekterm"
 
 msgid "Unfortunately, no questions were found"
 msgstr "Helaas zijn er geen vragen gevonden"
@@ -472,7 +472,7 @@ msgid "What is your question about?"
 msgstr "Waar gaat je vraag over?"
 
 msgid "Phrase your question"
-msgstr "Formuleer uw vraag"
+msgstr "Formuleer je vraag"
 
 msgid "The form could not be sent, please check the data."
 msgstr "Het formulier kon niet worden verzonden, controleer de gegevens."
@@ -516,7 +516,7 @@ msgid "Find a question"
 msgstr "Zoek een vraag"
 
 msgid "Your search query"
-msgstr "Uw zoekopdracht"
+msgstr "Je zoekopdracht"
 
 msgid "Enter an accompanying text:"
 msgstr "Voer een begeleidende tekst in:"

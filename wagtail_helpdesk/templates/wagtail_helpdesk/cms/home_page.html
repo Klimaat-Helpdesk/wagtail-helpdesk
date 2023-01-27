@@ -24,6 +24,9 @@
         <div class="header__button">
           {% include "wagtail_helpdesk/core/includes/button_list.html" with stream=page.header_buttons %}
         </div>
+          <form class="header__form" name="filter" method="get" action="{% pageurl answer_index_page %}">
+            {% include "wagtail_helpdesk/cms/includes/search.html" with is_small=True %}
+          </form>
       </div>
     </div>
   </div>
@@ -32,19 +35,6 @@
 {% block content %}
   <main class="section">
     <div class="question-link-list">
-      {% if answer_index_page %}
-      <div class="header header__homepage">
-        <div>
-          <form class="header__form" name="filter" method="get" action="{% pageurl answer_index_page %}">
-            <div class="header__text">
-              {% trans "Find a question" %}
-            </div>
-            {% include "wagtail_helpdesk/cms/includes/search.html" %}
-          </form>
-        </div>
-      </div>
-      {% endif %}
-
       <h4 class="question-link-list__title no-border">{% trans "Recent questions" %}</h4>
 
       <div class="question-link-list__links">

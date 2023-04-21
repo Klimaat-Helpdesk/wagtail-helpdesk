@@ -1,16 +1,27 @@
 .social-share-buttons {
   @include typography(button);
-  max-width: calc(var(--grid-max-width) + var(--grid-gutter) * 2 + var(--grid-margin) * 2);
+  max-width: calc(
+    var(--grid-max-width) + var(--grid-gutter) * 2 + var(--grid-margin) * 2
+  );
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--grid-margin);
   padding-right: var(--grid-margin);
   position: relative;
 
+  @include mobile-only {
+    display: grid;
+    grid-template-columns: repeat(12, [column] minmax(0, 1fr));
+  }
+
   &__button-list {
     margin: 0;
     padding: 0;
     list-style: none;
+
+    @include mobile-only {
+      grid-column: column 2 / span 10;
+    }
   }
   &__list-item {
     display: inline;
@@ -27,7 +38,7 @@
     color: $color-white;
     margin-right: 15px;
     margin-bottom: 20px;
-    transition: all .2s;
+    transition: all 0.2s;
     text-align: center;
     &:hover {
       background-color: $color-yellow-lighter;
@@ -35,5 +46,9 @@
   }
   &__title {
     margin-bottom: 20px;
+
+    @include mobile-only {
+      grid-column: column 2 / span 10;
+    }
   }
 }

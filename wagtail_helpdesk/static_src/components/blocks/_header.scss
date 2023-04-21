@@ -3,10 +3,10 @@
   margin: 0 0 50px 0;
   padding: 30px 0 0 0;
 
-    &.header__homepage  {
+  &.header__homepage {
     grid-column: column 2 / span 10;
     @include landscape {
-      grid-column: column 1/span 9;
+      grid-column: column 1 / span 9;
     }
     border-bottom: 1px solid $color-true-black;
     margin-bottom: 0;
@@ -75,6 +75,10 @@
     justify-content: space-between;
     gap: 20px;
     grid-column: column 2 / span 10;
+
+    @include mobile-only {
+      flex-direction: column;
+    }
   }
 
   .header__text {

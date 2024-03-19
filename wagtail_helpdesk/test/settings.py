@@ -49,12 +49,12 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail.api.v2",
-    "wagtail.contrib.modeladmin",
     "wagtail.contrib.routable_page",
     "wagtail.contrib.styleguide",
     "wagtail.sites",
-    "wagtail.core",
+    "wagtail",
     "taggit",
+    "wagtail_modeladmin",
     "rest_framework",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -161,7 +161,7 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "test-media")
 
-BASE_URL = "example.com"
+WAGTAILADMIN_BASE_URL = "example.com"
 
 # Wagtail settings
 

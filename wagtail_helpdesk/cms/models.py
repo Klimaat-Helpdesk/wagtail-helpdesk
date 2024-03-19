@@ -9,12 +9,12 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
 from wagtail import blocks
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
-from wagtail.contrib.settings.models import BaseSetting
+from wagtail.contrib.settings.models import BaseSiteSetting
 from wagtail.contrib.settings.registry import register_setting
-from wagtail.core.fields import RichTextField, StreamField
-from wagtail.core.models import Orderable, Page
+from wagtail.fields import RichTextField, StreamField
+from wagtail.models import Orderable, Page
 from wagtail.search import index as search_index
 from wagtail.snippets.models import register_snippet
 
@@ -746,7 +746,7 @@ class AskQuestionPage(RoutablePageMixin, Page):
 
 
 @register_setting
-class MainNavSettings(BaseSetting):
+class MainNavSettings(BaseSiteSetting):
     text = models.CharField(
         verbose_name=_("Text"),
         max_length=255,
@@ -774,7 +774,7 @@ class MainNavSettings(BaseSetting):
 
 
 @register_setting
-class FooterSettings(BaseSetting):
+class FooterSettings(BaseSiteSetting):
     about_title = models.CharField(max_length=255, verbose_name=_("Title"), blank=True)
     about_text = RichTextField(verbose_name=_("Text"), blank=True)
     about_buttons = StreamField(
@@ -836,7 +836,7 @@ class FooterSettings(BaseSetting):
 
 
 @register_setting
-class StickySettings(BaseSetting):
+class StickySettings(BaseSiteSetting):
     text = models.CharField(
         max_length=255,
         verbose_name=_("Text"),
@@ -867,14 +867,14 @@ class SearchWidgetPage(Page):
         context = super().get_context(request, *args, **kwargs)
         context.update(
             {
-                "base_url": settings.BASE_URL,
+                "base_url": settings.WAGTAILADMIN_BASE_URL,
             }
         )
         return context
 
 
 @register_setting
-class SocialMediaSettings(BaseSetting):
+class SocialMediaSettings(BaseSiteSetting):
     twitter_handle = models.CharField(
         verbose_name=_("Twitter handle"), max_length=15, blank=True
     )

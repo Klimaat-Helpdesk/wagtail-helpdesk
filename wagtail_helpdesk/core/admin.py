@@ -1,5 +1,5 @@
 from django.utils.translation import gettext_lazy as _
-from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+from wagtail_modeladmin.options import ModelAdmin, modeladmin_register
 
 from wagtail_helpdesk.cms.models import AnswerCategory
 from wagtail_helpdesk.core.models import Question

@@ -42,13 +42,15 @@ setup(
         "Framework :: Wagtail :: 4.1",
         "Framework :: Wagtail :: 4.2",
         "Framework :: Wagtail :: 5.0",
+        "Framework :: Wagtail :: 5.1",
     ],
     install_requires=[
         "Django>=3.2.18,<4.3",
-        "Wagtail>=3.0,<5.1",
+        "Wagtail>=3.0,<5.2",
         "django-allauth>=0.44,<1.0",
         "django-crispy-forms>=1.0,<2.0",
         "argon2-cffi>=21.0,<22.0",
+        "wagtail-modeladmin>=1.0,<3.0",
     ],
     extras_require={
         "testing": [
@@ -57,7 +59,7 @@ setup(
             "factory-boy>=3,<4",
             "pytest-django>=4,<5",
             "pytest-cov>=4,<5",
-            "wagtail-factories>=3,<4",
+            "wagtail-factories>=3,<5",
             "django-webtest>=1,<2",
         ],
     },

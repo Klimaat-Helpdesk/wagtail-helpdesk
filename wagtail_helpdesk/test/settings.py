@@ -161,7 +161,7 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "test-media")
 
-BASE_URL = "example.com"
+WAGTAILADMIN_BASE_URL = "example.com"
 
 # Wagtail settings
 

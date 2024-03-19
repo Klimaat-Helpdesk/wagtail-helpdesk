@@ -13,7 +13,7 @@ def iframe_search_widget(request):
         "wagtail_helpdesk/cms/iframe_search_widget.html",
         {
             "title": request.GET.get("title", _("Search")),
-            "answers_page": f"{settings.BASE_URL}{AnswerIndexPage.objects.first().url}",
-            "base_url": settings.BASE_URL,
+            "answers_page": f"{settings.WAGTAILADMIN_BASE_URL}{AnswerIndexPage.objects.first().url}",
+            "base_url": settings.WAGTAILADMIN_BASE_URL,
         },
     )

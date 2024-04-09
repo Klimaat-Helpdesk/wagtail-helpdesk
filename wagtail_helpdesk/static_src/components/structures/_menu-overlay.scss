@@ -1,6 +1,6 @@
 .menu-overlay {
   bottom: 0;
-  background-color: rgba(255, 255, 255,.8)  ;
+  background-color: rgba(255, 255, 255, 0.8);
   color: $color-true-black;
   left: 0;
   position: fixed;
@@ -18,13 +18,13 @@
   }
 
   &::after {
-    content: '';
+    content: "";
     background-color: $color-yellow-warm;
     width: 100%;
     z-index: -1;
     bottom: 0;
     display: block;
-    height: 80%;
+    height: 100%;
     position: absolute;
     right: 0;
     top: 0;
@@ -32,29 +32,39 @@
 
   .menu-overlay__wrapper {
     @include grid-container;
-    height: 75%;
+    height: 100%;
     overflow-y: auto;
+    position: relative;
+  }
+
+  .menu-overlay__top-wrapper {
+    position: relative;
+    z-index: 99999;
+    grid-column: column 2 / span 10;
   }
 
   .menu-overlay__button-container {
     position: absolute;
     right: 15px;
     top: 20px;
+    z-index: 99999;
   }
 
-  .menu-overlay__close-button {
-      //
-    }
+  .menu-overlay__logo {
+    margin-top: 20px;
+    width: 100px;
+    display: block;
+  }
 
   .menu-overlay__close-icon {
-    background-image: url('../icons/close.svg');
+    background-image: url("../icons/close.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
     display: inline-block;
-    height: 18px;
+    height: 25px;
     vertical-align: middle;
-    width: 18px;
+    width: 25px;
   }
 
   .menu-overlay__links {
@@ -65,8 +75,19 @@
   .menu-overlay__link {
     display: block;
     @include typography(heading-1);
+    font-size: 32px;
     color: $color-true-black;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
+
+    &-active {
+      font-weight: 600;
+      margin-left: 40px;
+    }
+
+    @include landscape {
+      margin-left: 20px;
+      font-size: 40px;
+    }
   }
 
   .menu-overlay__footer-items {
@@ -82,17 +103,67 @@
 
   @include landscape {
     &::after {
-      width: 50%;
+      width: 40%;
       height: 100%;
     }
 
     .menu-overlay__wrapper {
       height: calc(100% - 50px);
+      padding-left: 0;
+      padding-right: 100px;
+    }
+
+    .menu-overlay__top-wrapper {
+      position: relative;
+      z-index: 99999;
+      grid-column: column 9 / span 4;
+    }
+
+    .menu-overlay__logo {
+      margin: 20px 0 0 20px;
     }
 
     .menu-overlay__links {
-      grid-column: column 8 / span 5;
+      grid-column: column 9 / span 4;
       margin: 100px 0 0 0;
+    }
+
+    .menu-overlay__link {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        margin-left: 70px;
+        font-weight: 600;
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-image: url("../icons/link-arrow-right.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0;
+        position: absolute;
+        top: 15px;
+        left: -50px;
+      }
+
+      &:hover:before {
+        opacity: 1;
+        transition: opacity 0.4s ease-in-out;
+      }
+
+      &-active {
+        font-weight: 600;
+        margin-left: 70px;
+
+        &:hover:before {
+          opacity: 0;
+        }
+      }
     }
 
     .menu-overlay__button-container {
@@ -106,7 +177,89 @@
     }
 
     .menu-overlay__footer-items {
-      grid-column: column 8 / span 5;
+      grid-column: column 9 / span 4;
+      margin-left: 20px;
+    }
+
+    .menu-overlay__buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+
+  @include wide {
+    .menu-overlay__top-wrapper {
+      margin-left: 50px;
+    }
+
+    .menu-overlay__links {
+      margin-left: 50px;
+    }
+
+    .menu-overlay__footer-items {
+      margin-left: 70px;
+    }
+  }
+}
+
+.menu-button {
+  @include typography(button);
+  margin-bottom: 10px;
+  opacity: 0.8;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 700;
+  border: 0;
+  padding: 15px 30px 15px 30px;
+  margin-right: 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: fit-content;
+
+  svg {
+    width: 15px;
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    opacity: 1;
+    padding-right: 40px;
+    margin-right: 0;
+    svg {
+      transform: translateX(10px);
+    }
+  }
+
+  &:last-child {
+    color: white;
+    background-color: black;
+    &:hover {
+      color: #ffc400;
+      svg {
+        fill: #ffc400;
+      }
+    }
+    svg {
+      fill: white;
+    }
+  }
+
+  &:first-child {
+    color: black;
+    border: 2px solid black;
+    background-color: transparent;
+    &:hover {
+      background-color: black;
+      color: #ffc400;
+      svg {
+        fill: #ffc400;
+      }
+    }
+    svg {
+      fill: black;
     }
   }
 }

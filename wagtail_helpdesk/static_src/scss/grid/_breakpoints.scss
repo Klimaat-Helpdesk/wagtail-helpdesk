@@ -7,8 +7,8 @@ $website-max-width: 2560px;
 // Only 1 breakpoint
 $breakpoint-mobile: 320px;
 $breakpoint-landscape: 800px;
+$breakpoint-wide: 2100px;
 
 // Pre-assigned variables - for convenience reasons
 $almost-mobile: $breakpoint-mobile - 1;
 $almost-landscape: $breakpoint-landscape - 1;
-

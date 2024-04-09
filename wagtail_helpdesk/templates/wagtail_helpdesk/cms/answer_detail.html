@@ -85,14 +85,17 @@
       </div>
 
       <div class="menu-bar__expert-container">
-        {% with self.get_primary_expert as expert %}
-          <a class="menu-bar__expert-link" href="/experts#{{ expert.pk }}">
-            {% image expert.picture fill-200x200 as image %}
-            <img class="menu-bar__image" src="{{ image.url }}" alt="{{ image.alt }}">
-            <span class="menu-bar__expert-name">{{ expert.name }}</span>
-            <span class="menu-bar__expert-title">{{ expert.affiliation }}</span>
+        {% for expert in self.experts %}
+             <a class="menu-bar__expert-link" href="/experts#{{ expert.pk }}">
+                 {% image expert.picture fill-200x200 as image %}
+                <img class="menu-bar__image" src="{{ image.url }}" alt="{{ image.alt }}">
+                <span class="menu-bar__expert-name">{{ expert.name }}</span>
+                {% if self.experts|length == 1 %}
+                    <span class="menu-bar__expert-title">{{ expert.affiliation }}</span>
+                {% endif %}
           </a>
-        {% endwith %}
+
+        {% endfor %}
       </div>
 
       <div class="menu-bar__icon-container">

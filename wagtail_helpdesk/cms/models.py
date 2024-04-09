@@ -362,11 +362,21 @@ class Answer(Page):
             "answers_page_url": self.get_parent().url if self.get_parent() else "",
         }
 
+    def get_answer_card_data(self):
+        return {
+            "title": self.title,
+            "url": self.url,
+            "authors": self.experts,
+            "categories": self.get_all_categories(),
+            "type": "answer",
+            "answers_page_url": self.get_parent().url if self.get_parent() else "",
+        }
+
     def get_as_overview_row_card(self):
         if self.type == "answer":
             return render_to_string(
                 "wagtail_helpdesk/core/includes/answer_block.html",
-                context=self.get_card_data(),
+                context=self.get_answer_card_data(),
             )
         else:  # It's a column
             return render_to_string(
@@ -377,7 +387,7 @@ class Answer(Page):
     def get_as_home_row_card(self):
         return render_to_string(
             "wagtail_helpdesk/core/includes/answer_home_block.html",
-            context=self.get_card_data(),
+            context=self.get_answer_card_data(),
         )
 
     def get_as_related_row_card(self):

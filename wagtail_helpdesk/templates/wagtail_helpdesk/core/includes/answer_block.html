@@ -1,8 +1,20 @@
 {% load i18n %}
 <div class="question-link">
     <a href="{{ url }}"><h3 class="question-link__title">{{ title }}</h3></a>
-    <p class="question-link__author"> <span class="question-link__by">{% trans 'Answered by' %}</span> <span class="question-link__author-name">{{ author }}</span> </p>
+    <p class="question-link__author"><span class="question-link__by">{% trans 'Answered by' %}</span>
+        {% for author in authors %}
+            <span class="question-link__author-name">
+                {% if forloop.last and not forloop.first %}
+                    & {{ author }}
+                {% elif forloop.revcounter != 2 and not forloop.last %}
+                    {{ author }},
+                {% else %}
+                    {{ author }}
+                {% endif %}
+            </span>
+        {% endfor %}
+    </p>
     {% for category in categories %}
-       <a href="{{ category.url }}"><span class="tag">{{ category.title }}</span></a>
+        <a href="{{ category.url }}"><span class="tag">{{ category.title }}</span></a>
     {% endfor %}
 </div>

@@ -29,9 +29,11 @@
   .menu-bar__expert-container {
     align-self: center;
     text-align: center;
+    justify-content: center;
     width: 33%;
     display: flex;
     flex-shrink: 0;
+    gap: 10px;
   }
 
   .menu-bar__expert-link {
@@ -41,14 +43,12 @@
   .menu-bar__image {
     height: 38px;
     border-radius: 50%;
-    margin: 0 10px;
-    flex-shrink: 0;
+    aspect-ratio: 1/1;
   }
 
   .menu-bar__expert-name {
     display: none;
     @include typography(navigation);
-    margin: 0 30px 0 20px;
     font-weight: 600;
     vertical-align: super;
   }
@@ -56,7 +56,6 @@
   .menu-bar__expert-title {
     display: none;
     @include typography(navigation);
-    margin-left: 20px;
     vertical-align: super;
   }
 
@@ -110,6 +109,7 @@
     .menu-bar__expert-container {
       width: auto;
       margin-left: 50px;
+      gap: 20px;
     }
 
     .menu-bar__expert-name {

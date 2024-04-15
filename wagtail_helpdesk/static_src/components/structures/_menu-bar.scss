@@ -15,6 +15,7 @@
   .menu-bar__logo-container {
     align-self: center;
     width: 33%;
+    flex-shrink: 0;
   }
 
   .menu-bar__logo {
@@ -28,7 +29,11 @@
   .menu-bar__expert-container {
     align-self: center;
     text-align: center;
+    justify-content: center;
     width: 33%;
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
   }
 
   .menu-bar__expert-link {
@@ -38,12 +43,12 @@
   .menu-bar__image {
     height: 38px;
     border-radius: 50%;
+    aspect-ratio: 1/1;
   }
 
   .menu-bar__expert-name {
     display: none;
     @include typography(navigation);
-    margin-left: 20px;
     font-weight: 600;
     vertical-align: super;
   }
@@ -51,7 +56,6 @@
   .menu-bar__expert-title {
     display: none;
     @include typography(navigation);
-    margin-left: 20px;
     vertical-align: super;
   }
 
@@ -60,6 +64,7 @@
     width: 33%;
     text-align: right;
     margin-left: auto;
+    flex-shrink: 0;
   }
 
   .menu-bar__icon-button {
@@ -69,7 +74,7 @@
   }
 
   .menu-bar__icon {
-    background-image: url('../icons/menu.svg');
+    background-image: url("../icons/menu.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -97,9 +102,14 @@
       margin-left: 30px;
     }
 
+    .menu-bar__image {
+      margin: 0;
+    }
+
     .menu-bar__expert-container {
       width: auto;
       margin-left: 50px;
+      gap: 20px;
     }
 
     .menu-bar__expert-name {
@@ -133,6 +143,6 @@
   }
 
   .menu-bar__icon {
-    background-image: url('../icons/menu-white.svg');
+    background-image: url("../icons/menu-white.svg");
   }
 }

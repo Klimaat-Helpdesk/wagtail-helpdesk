@@ -1,11 +1,19 @@
 {% load i18n wagtailcore_tags wagtailroutablepage_tags %}
-{% with object.get_card_data as card_data %}
+{% with object.get_answer_card_data as card_data %}
 <div class="question-link">
     <a href="{% pageurl object %}"><h3 class="question-link__title">{{ card_data.title }}</h3></a>
     <p class="question-link__author">
       <span class="question-link__by">{% trans 'Answered by' %}</span>
-      {% if card_data.author and card_data.author.pk %}
-        <a href="{% routablepageurl expert_answers_overview_page "expert_answers" card_data.author.pk %}" class="question-link__author-name">{{ card_data.author }}</a>
+      {% if card_data.authors %}
+          {% for author in card_data.authors %}
+                {% if forloop.last and not forloop.first %}
+                    &  <a href="{% routablepageurl expert_answers_overview_page "expert_answers" author.pk %}" class="question-link__author-name">{{ author }}</a>
+                {% elif forloop.revcounter != 2 and not forloop.last %}
+                     <a href="{% routablepageurl expert_answers_overview_page "expert_answers" author.pk %}" class="question-link__author-name">{{ author }}</a>,
+                {% else %}
+                     <a href="{% routablepageurl expert_answers_overview_page "expert_answers" author.pk %}" class="question-link__author-name">{{ author }}</a>
+                {% endif %}
+        {% endfor %}
       {% else %}
         <span class="question-link__author-name">{% trans "Unknown" %}</span>
       {% endif %}

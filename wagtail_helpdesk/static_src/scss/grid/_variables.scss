@@ -1,4 +1,3 @@
-
 // Grid variables
 //
 // You can add or remove breakpoints at will,
@@ -8,6 +7,7 @@
   // Breakpoints
   --breakpoint-mobile: #{$breakpoint-mobile};
   --breakpoint-landscape: #{$breakpoint-landscape};
+  --breakpoint-wide: #{$breakpoint-wide};
 
   // Breakpoint reference (for javascript)
   --breakpoint: var(--breakpoint-mobile);
@@ -43,15 +43,19 @@
   }
 }
 
-@mixin grid-container($columns: 'repeat(var(--grid-columns), [column] minmax(0, 1fr))') {
+@mixin grid-container(
+  $columns: "repeat(var(--grid-columns), [column] minmax(0, 1fr))"
+) {
   display: grid;
   grid-gap: var(--grid-spacing) var(--grid-gutter);
   grid-template-columns: unquote($columns);
   margin-left: auto;
   margin-right: auto;
-  max-width: calc(var(--grid-max-width) + (var(--grid-gutter) * 2) + (var(--grid-margin) * 2));
+  max-width: calc(
+    var(--grid-max-width) + (var(--grid-gutter) * 2) + (var(--grid-margin) * 2)
+  );
   padding-left: var(--grid-margin);
-  padding-right:  var(--grid-margin);
+  padding-right: var(--grid-margin);
 }
 
 @mixin subgrid-container($columns: auto) {

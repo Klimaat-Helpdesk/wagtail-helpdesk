@@ -17,7 +17,6 @@ module.exports = (env, argv) => {
     },
     output: {
       path: destination,
-      publicPath: "/static/wagtail_helpdesk/",
       filename: "[name].js",
       clean: true,
     },

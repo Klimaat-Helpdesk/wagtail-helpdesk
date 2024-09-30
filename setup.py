@@ -47,6 +47,7 @@ setup(
         "django-crispy-forms>=1.0,<2.0",
         "argon2-cffi>=21.0,<22.0",
         "wagtail-modeladmin>=1.0,<3.0",
+        "django-ipware>=7.0.1,<8.0",
     ],
     extras_require={
         "testing": [

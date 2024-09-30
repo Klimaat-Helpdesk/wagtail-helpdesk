@@ -5,6 +5,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
+from ipware import get_client_ip
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
@@ -675,15 +676,6 @@ class QuestionsInProgressPage(Page):
         verbose_name_plural = _("Questions in progress pages")
 
 
-def get_client_ip(request):
-    x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(",")[0]
-    else:
-        ip = request.META.get("REMOTE_ADDR")
-    return ip
-
-
 class AskQuestionPage(RoutablePageMixin, Page):
     intro = RichTextField(
         verbose_name="Intro",
@@ -746,7 +738,13 @@ class AskQuestionPage(RoutablePageMixin, Page):
             form = QuestionForm(request.POST)
             if form.is_valid():
                 obj = form.save(commit=False)
-                obj.asked_by_ip = get_client_ip(request)
+
+                client_ip, is_routable = get_client_ip(request)
+                # Strip internal proxy prefix from ip
+                if client_ip.startswith("::ffff:"):
+                    client_ip = client_ip.split("::ffff:")[1]
+
+                obj.asked_by_ip = client_ip
                 obj.save()
                 request.session["question_id"] = obj.pk
                 return HttpResponseRedirect(self.reverse_subpage("keep-me-posted"))

@@ -532,12 +532,43 @@ class ExpertIndexPage(Page):
 
     subtitle = models.CharField(max_length=128, blank=False)
     intro = RichTextField(blank=True)
-    outro = RichTextField(blank=True)
+
+    outro_title = models.CharField(
+        verbose_name="Title",
+        max_length=255,
+        blank=True,
+        help_text="Example: Who are the people behind ...?",
+        default="Who are the people behind ...?",
+    )
+    outro_text = RichTextField(verbose_name="Text", blank=True)
+    outro_button_text = models.CharField(
+        verbose_name="Button text",
+        max_length=255,
+        blank=True,
+        help_text="Example: Who we are",
+        default="Who we are",
+    )
+    outro_page = models.ForeignKey(
+        "wagtailcore.Page",
+        verbose_name="Page",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel("subtitle"),
         FieldPanel("intro"),
-        FieldPanel("outro"),
+        MultiFieldPanel(
+            [
+                FieldPanel("outro_title"),
+                FieldPanel("outro_text"),
+                FieldPanel("outro_button_text"),
+                FieldPanel("outro_page"),
+            ],
+            heading=_("Outro"),
+        ),
     ]
 
     def get_context(self, request, *args, **kwargs):

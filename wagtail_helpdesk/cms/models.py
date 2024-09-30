@@ -744,7 +744,7 @@ class AskQuestionPage(RoutablePageMixin, Page):
                 if client_ip.startswith("::ffff:"):
                     client_ip = client_ip.split("::ffff:")[1]
 
-                obj.feedback_by_ip = client_ip
+                obj.asked_by_ip = client_ip
                 obj.save()
                 request.session["question_id"] = obj.pk
                 return HttpResponseRedirect(self.reverse_subpage("keep-me-posted"))

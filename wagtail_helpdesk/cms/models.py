@@ -673,6 +673,15 @@ class QuestionsInProgressPage(Page):
         verbose_name_plural = _("Questions in progress pages")
 
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(",")[0]
+    else:
+        ip = request.META.get("REMOTE_ADDR")
+    return ip
+
+
 class AskQuestionPage(RoutablePageMixin, Page):
     intro = RichTextField(
         verbose_name="Intro",
@@ -735,7 +744,7 @@ class AskQuestionPage(RoutablePageMixin, Page):
             form = QuestionForm(request.POST)
             if form.is_valid():
                 obj = form.save(commit=False)
-                obj.asked_by_ip = request.META.get("REMOTE_ADDR", "")
+                obj.asked_by_ip = get_client_ip(request)
                 obj.save()
                 request.session["question_id"] = obj.pk
                 return HttpResponseRedirect(self.reverse_subpage("keep-me-posted"))

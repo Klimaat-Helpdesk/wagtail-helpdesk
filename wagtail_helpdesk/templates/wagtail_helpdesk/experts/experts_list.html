@@ -1,5 +1,5 @@
 {% extends "wagtail_helpdesk/base.html" %}
-{% load i18n static wagtailcore_tags%}
+{% load i18n static wagtailcore_tags %}
 
 {% block smokedglass %}
 {% endblock %}
@@ -43,20 +43,21 @@
    <div class="link-block__wrapper">
      <div class="link-block__title-container">
       <h2 class="link-block__title">
-        {% trans 'Who are the people behind the Climate Help Desk' %}
+          {{ page.outro_title }}
       </h2>
      </div>
-
      <div class="link-block__text-container">
-       <div class="link-block__text richtext">
-         {{ page.outro|richtext }}
-       </div>
-       <a href="/about">
-          <button class="button">
-            <span class="button__text">{% trans 'Who we are' %}</span>
+       {% if page.outro_text %}
+         <div class="link-block__text richtext">
+           {{ page.outro_text|richtext }}
+         </div>
+       {% endif %}
+       {% if page.outro_page %}
+         <a href="{% pageurl page.outro_page %}" class="button">
+            <span class="button__text">{{ page.outro_button_text }}</span>
             <span class="button__icon"></span>
-          </button>
-       </a>
+         </a>
+       {% endif %}
       </div>
     </div>
   </div>

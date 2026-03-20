@@ -1,7 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const { watch } = require("fs");
 
 const source = path.resolve(path.join("./wagtail_helpdesk", "./static_src"));
 const destination = path.resolve(path.join("./wagtail_helpdesk", "./static", "./wagtail_helpdesk"));
@@ -12,19 +11,17 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: [
-        path.join(source, "js", "main.js"),
+        path.join(source, "js", "main.ts"),
         path.join(source, "scss", "main.scss"),
       ],
+      carboncalculator: [
+        path.join(source,"js","carboncalculator.ts")
+      ]
     },
     output: {
       path: destination,
       filename: "[name].js",
       clean: true,
-    },
-    watch: true,
-    watchOptions: {
-      aggregateTimeout: 200,
-      poll: 1000,
     },
     devtool: isProductionMode ? false : "inline-source-map",
     module: {
@@ -75,6 +72,10 @@ module.exports = (env, argv) => {
             from: path.join(source, "images"),
             to: path.join(destination, "images"),
           },
+           {   
+            from: path.join(source, "js","co2categories.js"),
+            to: path.join(destination, "co2categories.js")
+          }
         ],
       }),
     ],

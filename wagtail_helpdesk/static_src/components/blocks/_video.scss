@@ -1,0 +1,73 @@
+#videoContent.is-hidden,
+#pageContent.is-hidden {
+  display: none !important;
+}
+
+#videoContent.is-visible {
+  display: flex !important;
+  justify-content: center;
+}
+
+#pageContent.is-visible {
+  display: block !important;
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  width: 100%;
+}
+
+.video__video-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.video__video-content iframe {
+  margin: 0 auto;
+  display: block;
+}
+
+.video__toggle-text {
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.toggle-link {
+  color: $color-true-black;
+  background-color: transparent;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: $geomanist-font-stack, system-ui, sans-serif !important;
+  font-size: 20px;
+  font-weight: inherit;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-link:hover {
+  background-color: $color-true-black;
+  color: $color-white;
+  text-decoration: none;
+}
+
+.reading-time {
+  font-family: $geomanist-font-stack, system-ui, sans-serif;
+  font-size: 16px;
+  color: $color-true-black;
+  opacity: 1;
+}

@@ -1,0 +1,93 @@
+{% extends "wagtail_helpdesk/base.html" %}
+{% load static i18n helpdesk_tags wagtailimages_tags wagtailcore_tags %}
+{% block head %}
+<script>
+  const carbonemissioncategoriesvar = '{{ carbonemissioncategories|escapejs  }}';
+
+  function openPopup() {
+    console.log("click");
+    document.getElementById("cc__popup").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("cc__popup").style.display = "none";
+  }
+</script>
+<script defer src="{% versioned_static 'wagtail_helpdesk/carboncalculator.js' %}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+{% endblock %}
+
+{%block content%}
+<div id="cc__content-header" class="content-header">
+  <div class="content-header__wrapper">
+    <div class="content-header__title-container">
+      <h1 class="content-header__title">
+        {{ page.title }} 
+        <i onclick="openPopup()" class="fa fa-question-circle" aria-hidden="true" style="font-size:24px"></i>
+      </h1>
+      
+    </div>
+  </div>
+</div>
+
+<div id="cc__popup">
+  <div id="cc__popup-content" class="content__container">
+    <i onclick="closePopup()" class="fa fa-times" aria-hidden="true" style="font-size:24px"></i>
+    <div class="content__answer richtext">
+      <p>{{ page.content|richtext }}</p>
+    </div>
+  </div>
+</div>
+
+<div id="cc__content" class="content">
+  <div class="content__container">
+    <div id="cc__konva"></div>
+  </div>
+  
+  {% comment %} <div class="cc__form">
+    <form onload="LoadCarbonCategories()">
+      <label>Klik op een cirkel om de categorie te verwijderen.</label>
+      </br>
+      <label>Voeg hier categorieën toe:</label>
+      </br>
+      <select name="co2categories" id="co2categories">
+        <option value="">-</option>
+      </select>
+      </br>
+      <button id="co2button" class="button" type="button">Voeg toe</button>
+    </form>
+  </div> {% endcomment %}
+</div>
+
+<div class="social-share-buttons " data-controller="social-share-buttons">
+  <h3 class="social-share-buttons__title">Deel deze pagina</h3>
+  <ul class="social-share-buttons__button-list">
+    <li class="social-share-buttons__list-item">
+      <a target="_blank" rel="noopener" title="Facebook" data-social-platform="facebook" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
+        <svg class="icon"><use xlink:href="#facebook" /></svg>
+      </a>
+    </li>
+    <li class="social-share-buttons__list-item">
+      <a target="_blank" rel="noopener" title="Twitter" data-social-platform="twitter" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
+        <svg class="icon"><use xlink:href="#twitter" /></svg>
+      </a>
+    </li>
+    <li class="social-share-buttons__list-item">
+      <a target="_blank" rel="noopener" title="LinkedIn" data-social-platform="linkedin" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
+        <svg class="icon"><use xlink:href="#linkedin" /></svg>
+      </a>
+    </li>
+    <li class="social-share-buttons__list-item">
+      <a target="_blank" rel="noopener" title="Whatsapp" data-social-platform="whatsapp" class="social-share-buttons__button js-social-share-button" data-social-share-buttons-target="link">
+        <svg class="icon"><use xlink:href="#whatsapp" /></svg>
+      </a>
+    </li>
+  </ul>
+</div>
+<script>
+
+</script>
+
+{% endblock%}

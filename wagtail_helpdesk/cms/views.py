@@ -17,3 +17,8 @@ def iframe_search_widget(request):
             "base_url": settings.WAGTAILADMIN_BASE_URL,
         },
     )
+
+def js_wrapper(request):
+    django_var = "a message to js"
+    context_for_js = {'django_var ': django_var}
+    return render(request, 'templates-wagtail/helpdesk/cms/carboncalculator.js', context_for_js ,"application/javascript")

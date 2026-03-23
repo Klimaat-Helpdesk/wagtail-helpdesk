@@ -5,34 +5,37 @@
   "license": "MIT",
   "description": "This repository holds the code for wagtail-helpdesk, a Wagtail app aimed at answering questions by experts.",
   "engines": {
-    "node": "18"
+    "node": ">=18"
   },
   "scripts": {
     "start": "webpack --mode=development --watch --progress",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "watch": "npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "babel-loader": "^9.1.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.2",
-    "@hotwired/stimulus": "^3.0.1",
-    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "mini-css-extract-plugin": "^2.7.0",
     "postcss": "^8.4.19",
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "^7.8.3",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
-    "webpack": "^5.76.0",
-    "webpack-cli": "^5.0.0"
+    "webpack": "^5.105.4",
+    "webpack-cli": "^5.1.4"
   },
   "browserslist": [
     "defaults"
   ],
   "dependencies": {
-        "copy-to-clipboard": "^3.3.1"
-    }
+    "copy-to-clipboard": "^3.3.1",
+    "konva": "^10.2.3",
+    "watch": "^1.0.2"
+  }
 }

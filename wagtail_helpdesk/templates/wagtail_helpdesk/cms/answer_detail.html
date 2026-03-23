@@ -33,8 +33,6 @@
         <meta property="twitter:creator" content="@{{ expert.twitter_username }}">
       {% endif %}
     {% endwith %}
-    <meta name="keywords" content="{% for tag in self.tags.all %}{{ tag }}, {% endfor %}">
-
     <meta property="og:locale" content="nl_NL">
     <meta property="og:site_name" content="{{ social_media_settings.short_site_name }}">
   {% endwith %}
@@ -66,6 +64,7 @@
 }
 </script>
 {% endblock schema %}
+
 {% block description %}
   {% if self.excerpt %}
     {{ self.excerpt }}
@@ -73,6 +72,7 @@
     {{ self.introduction }}
   {% endif %}
 {% endblock %}
+
 {% block navbar %}
   <div class="menu-bar menu-bar--inverted">
     <div class="menu-bar__bar">
@@ -86,15 +86,14 @@
 
       <div class="menu-bar__expert-container">
         {% for expert in self.experts %}
-             <a class="menu-bar__expert-link" href="/experts#{{ expert.pk }}">
-                 {% image expert.picture fill-200x200 as image %}
-                <img class="menu-bar__image" src="{{ image.url }}" alt="{{ image.alt }}">
-                <span class="menu-bar__expert-name">{{ expert.name }}</span>
-                {% if self.experts|length == 1 %}
-                    <span class="menu-bar__expert-title">{{ expert.affiliation }}</span>
-                {% endif %}
+          <a class="menu-bar__expert-link" href="/experts#{{ expert.pk }}">
+            {% image expert.picture fill-200x200 as image %}
+            <img class="menu-bar__image" src="{{ image.url }}" alt="{{ image.alt }}">
+            <span class="menu-bar__expert-name">{{ expert.name }}</span>
+            {% if self.experts|length == 1 %}
+              <span class="menu-bar__expert-title">{{ expert.affiliation }}</span>
+            {% endif %}
           </a>
-
         {% endfor %}
       </div>
 
@@ -106,43 +105,127 @@
     </div>
   </div>
 {% endblock %}
-{##}
-{#{% block smokedglass %}#}
-{#{% endblock %}#}
+
 
 {% block head %}
-  <div class="content-header">
+  <div class="content-header" data-controller="video">
     <div class="content-header__wrapper">
       <a class="content-header__back-link" href="{% pageurl self.get_parent %}">
         <span class="content-header__back-link-icon"></span>
       </a>
       <div class="content-header__title-container">
-        <h1 class="content-header__title">
-          {{ self.title }}
-        </h1>
+        <h1 class="content-header__title">{{ self.title }}</h1>
       </div>
+
       <div class="content-header__theme">
         {% for category in self.get_all_categories %}
-          <a href="{% pageurl self.get_parent %}{{ category.url }}"><span
-                  class="content-header__subject-tag tag">{{ category.title }}</span></a>
+          <a href="{% pageurl self.get_parent %}{{ category.url }}">
+            <span class="content-header__subject-tag tag">{{ category.title }}</span>
+          </a>
         {% endfor %}
       </div>
-      <div class="content-header__introduction">
-        <p class="content-header__introduction-text">{{ self.introduction }}</p>
-      </div>
-      <div class="content-header__tags">
-        {% for tag in self.tags.all %}
-          <span class="content-header__tag">#{{ tag }}</span>
-        {% endfor %}
+
+      <div class="content-header__introduction" style="position:relative">
+        <div class="video">
+
+          <div class="video__video-abstract" role="region" aria-label="Introductie">
+            <p class="content-header__introduction-text">{{ self.introduction }}</p>
+          </div>
+
+          <div class="video__toggle-text">
+            <a
+              href="javascript:void(0)"
+              id="toggleLink"
+              class="toggle-link"
+              aria-controls="videoContent pageContent"
+              aria-pressed="true"
+            >
+              Lees meer...
+            </a>
+
+            {% with minutes=self.calculated_reading_time %}
+              {% if minutes %}
+                <span class="reading-time">{{ minutes }} min. leestijd</span>
+              {% endif %}
+            {% endwith %}
+          </div>
+
+          {% if self.youtube_video_id %}
+            <div id="videoContent" class="video__video-content fade is-visible" role="region" aria-label="Videoweergave">
+              <iframe width="342" height="609"
+                      src="https://www.youtube.com/embed/{{ self.youtube_video_id }}"
+                      title="{{ self.title }}" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          {% endif %}
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const btn  = document.getElementById('toggleLink');
+            const vid  = document.getElementById('videoContent');
+            const page = document.getElementById('pageContent');
+
+            // Check of er een video is
+            const hasVideo = Boolean(vid);
+            // Starttoestand: video zichtbaar als die er is, anders tekst ingeklapt
+            let isExpanded = false;
+
+            function setState(expand) {
+              isExpanded = expand;
+
+              if (isExpanded) {
+                // Tekst opengeklapt
+                btn.textContent = hasVideo ? 'Bekijk video' : 'Lees minder...';
+                if (vid) {
+                  vid.classList.remove('is-visible');
+                  vid.classList.add('is-hidden');
+                }
+                if (page) {
+                  page.classList.remove('is-hidden');
+                  page.classList.add('is-visible');
+                  page.removeAttribute('aria-hidden');
+                }
+              } else {
+                // Tekst ingeklapt
+                btn.textContent = 'Lees meer...';
+                if (vid) {
+                  vid.classList.remove('is-hidden');
+                  vid.classList.add('is-visible');
+                }
+                if (page) {
+                  page.classList.remove('is-visible');
+                  page.classList.add('is-hidden');
+                  page.setAttribute('aria-hidden', 'true');
+                }
+              }
+
+              btn.blur();
+            }
+
+            btn.addEventListener('click', function (e) {
+              e.preventDefault();
+              setState(!isExpanded);
+            });
+
+            // Altijd standaard: tekst ingeklapt als er geen video is bij laden
+            setState(!hasVideo);
+          });
+        </script>
+
       </div>
     </div>
   </div>
 {% endblock %}
 
 {% block content %}
-  {% for block in self.page_content %}
-    {% include_block block %}
-  {% endfor %}
+  <div id="pageContent" class="fade is-hidden">
+    {% for block in self.page_content %}
+      {% include_block block %}
+    {% endfor %}
+  </div>
+
   {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
 
   {% for block in self.answer_origin %}
@@ -152,8 +235,4 @@
   {% for block in self.related_items %}
     {% include_block block %}
   {% endfor %}
-
 {% endblock %}
-
-
-

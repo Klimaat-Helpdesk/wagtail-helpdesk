@@ -11,9 +11,12 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: [
-        path.join(source, "js", "main.js"),
+        path.join(source, "js", "main.ts"),
         path.join(source, "scss", "main.scss"),
       ],
+      carboncalculator: [
+        path.join(source,"js","carboncalculator.ts")
+      ]
     },
     output: {
       path: destination,
@@ -69,6 +72,10 @@ module.exports = (env, argv) => {
             from: path.join(source, "images"),
             to: path.join(destination, "images"),
           },
+           {   
+            from: path.join(source, "js","co2categories.js"),
+            to: path.join(destination, "co2categories.js")
+          }
         ],
       }),
     ],

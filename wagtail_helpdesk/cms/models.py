@@ -1,6 +1,8 @@
 from django.conf import settings
+from django.core import serializers
 from django.db import models
 from django.db.models import TextField
+from django.db.models import CharField
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
@@ -18,6 +20,7 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Orderable, Page
 from wagtail.search import index as search_index
 from wagtail.snippets.models import register_snippet
+from embed_video.fields import EmbedVideoField
 
 from wagtail_helpdesk.cms.blocks import (
     AnswerImageBlock,
@@ -30,6 +33,8 @@ from wagtail_helpdesk.core.forms import KeepMePostedForm, QuestionForm
 from wagtail_helpdesk.core.models import Question
 from wagtail_helpdesk.experts.models import Expert
 from wagtail_helpdesk.volunteers.models import Volunteer
+
+import re
 
 LINK_STREAM = [
     (
@@ -177,6 +182,47 @@ class AnswerCategory(models.Model):
 
 register_snippet(AnswerCategory)
 
+class CarbonEmissionCategory(models.Model):
+    name = models.CharField(_("name"), max_length=50, help_text="The name of this CarbonEmission category")
+    conversion_to_kg_CO2 = models.FloatField(default=1,name="conversion_to_kg_CO2", help_text="The conversion ratio to 1kg of CO2")
+    description = models.CharField(
+        _("description"), max_length=255, blank=False, null=True, help_text="A description for this category"
+    )
+    image_url = models.URLField(name="image_url", blank=True, null=True, help_text="A URL for an image depicting this category")
+    source_description = models.CharField(
+        _("source_description"), max_length=255, blank=True, null=True, help_text="A description of the source of this conversion number")
+    source_url = models.CharField(
+        _("source_url"), max_length=255, blank=True, null=True, help_text="A URL for  the source of this conversion number"  
+    )
+    is_emission = models.BooleanField(
+        _("is_emission"), default=True, help_text="True if it is a CO2 emission, False if it is a CO2 absorbtion"  
+    )
+
+
+
+    panels = [
+        FieldPanel("name"),
+        FieldPanel("conversion_to_kg_CO2"),
+        FieldPanel("description"),
+        FieldPanel("image_url"),
+        FieldPanel("source_description"),
+        FieldPanel("source_url"),
+        FieldPanel("is_emission"),
+    ]
+
+    class Meta:
+        verbose_name = _("CO2 emission category")
+        verbose_name_plural = _("CO2 emission categories")
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+    def get_prefiltered_search_params(self):
+        return "?{}=".format(self.name)
+
+
+register_snippet(CarbonEmissionCategory)
 
 class Answer(Page):
     template = "wagtail_helpdesk/cms/answer_detail.html"
@@ -220,6 +266,15 @@ class Answer(Page):
         ),
     )
 
+    youtube_video_id  = CharField(
+        verbose_name=_("Youtube Video ID"),
+        default="",
+        blank=True,
+        null=True,
+        max_length=20,
+        help_text=_("This ID of the video on Youtube,the part after 'embed/'"),
+    )
+
     # Freeform content of answer
     page_content = StreamField(
         [
@@ -245,6 +300,7 @@ class Answer(Page):
     content_panels = Page.content_panels + [
         FieldPanel("type"),
         FieldPanel("featured", heading=_("Show this answer on the home page")),
+        FieldPanel("youtube_video_id", heading=_("The ID of the video on Youtube")),
         FieldPanel(
             "excerpt",
             classname="full",
@@ -282,6 +338,7 @@ class Answer(Page):
         FieldPanel(
             "social_image", help_text=_("Image to be used when sharing on social media")
         ),
+        # FieldPanel("videourl", help_text=_("The url to show the video")),
     ]
 
     search_fields = Page.search_fields + [
@@ -290,6 +347,40 @@ class Answer(Page):
         search_index.SearchField("introduction"),
         search_index.SearchField("page_content"),
     ]
+
+    def get_plain_text_from_page_content(self) -> str:
+        parts = []
+
+        if self.excerpt:
+            parts.append(self.excerpt)
+        
+        if self.introduction:
+            parts.append(self.introduction)
+
+        for block in self.page_content or []:
+            if block.block_type == "richtext":
+                try:
+                    html = block.value["content"].source
+                except Exception:
+                    html = ""
+
+                text = re.sub(r"<[^>]+>", " ", html)
+                parts.append(text)
+
+            elif block.block_type == "quote":
+                if hasattr(block.value, "get"):
+                    quote_html = block.value.get("text", "") or block.value.get("quote", "")
+                    quote_text = re.sub(r"<[^>]+>", " ", quote_html)
+                    parts.append(quote_text)
+
+        return " ".join(parts)
+        
+    @property
+    def calculated_reading_time(self) -> int | None:
+        text = self.get_plain_text_from_page_content()
+        avg_read_speed = 200
+        word_count = len(re.findall(r"\w+", text))
+        return max(1, round(word_count / avg_read_speed)) if word_count else None
 
     @property
     def experts(self):
@@ -675,6 +766,27 @@ class QuestionsInProgressPage(Page):
         verbose_name = _("Questions in progress page")
         verbose_name_plural = _("Questions in progress pages")
 
+class CarbonCalculatorPage(Page):
+    """The carboncalculator tool"""
+
+    template = "wagtail_helpdesk/cms/carboncalculator.html"
+
+    content = RichTextField()
+
+    content_panels = Page.content_panels + [
+        FieldPanel("content"),
+    ]
+    def get_context(self, request, *args, **kwargs):
+        context = super(CarbonCalculatorPage, self).get_context(request, *args, **kwargs)
+        carbonemissioncategories = CarbonEmissionCategory.objects.all()
+        cc_json = serializers.serialize('json', carbonemissioncategories)
+
+        context.update(
+            {
+                "carbonemissioncategories":cc_json
+            }
+        )
+        return context
 
 class AskQuestionPage(RoutablePageMixin, Page):
     intro = RichTextField(

@@ -1,0 +1,4 @@
+-r base.in
+gunicorn 
+psycopg2
+sentry-sdk

@@ -1,5 +1,5 @@
 {% extends "wagtail_helpdesk/base.html" %}
-{% load i18n static %}
+{% load i18n static helpdesk_tags %}
 {% block head %}
   <div class="header">
     <div class="header__wrapper">
@@ -38,6 +38,7 @@
 
 {#{% block container-class %} smokedglass{% endblock %}#}
 {% block content %}
+
     <div class="question-link-list">
       <div class="question-link-list__links">
         {% for answer in answers_and_columns %}
@@ -48,6 +49,33 @@
           </div>
         {% endfor %}
       </div>
+    </div>
+    <div class="pagination">
+          {% if answers_and_columns.paginator.num_pages > 1 %}
+            <div class="pagination__row">
+              {% if answers_and_columns.has_previous %}
+                <li class="pagination__page-item">
+                  <a href="?{% updated_params page=answers_and_columns.previous_page_number %}" class="pagination__page-link"><span>&laquo;</span></a>
+                </li>
+              {% endif %}
+              {% for page_num in answers_and_columns.paginator.page_range %}
+                <li class="pagination__page-item">
+                {% if page_num == current_page %} 
+                  <a href="?{% updated_params page=page_num %} " class="pagination__page-link pagination__page-link-active">{{ page_num }}</a>
+                {% else %}
+                  <a href="?{% updated_params page=page_num %} " class="pagination__page-link">{{ page_num }}</a>
+                {% endif %}
+                </li>
+              {% endfor %}
+              {% if answers_and_columns.has_next %}
+                <li class="pagination__page-item">
+                  <a href="?{% updated_params page=answers_and_columns.next_page_number %}" class="pagination__page-link"><span>&raquo;</span></a>
+                </li>
+              {% endif %}
+
+            </div>
+          {% endif %}
+
     </div>
 
     {% include "wagtail_helpdesk/cms/includes/sticky.html" %}

@@ -13,3 +13,11 @@ def versioned_static(path):
     See https://github.com/wagtail/wagtail/blob/main/wagtail/admin/templatetags/wagtailadmin_tags.py#L663
     """
     return versioned_static_func(path)
+
+#function to add a tag to the url, but replace the value if it already exists
+@register.simple_tag(takes_context=True)
+def updated_params(context, **kwargs):
+    dict_ = context['request'].GET.copy()
+    for k, v in kwargs.items():
+        dict_[k] = v
+    return dict_.urlencode()

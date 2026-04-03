@@ -1,6 +1,5 @@
 .expert-list {
   position: relative;
-
   &::before {
     content: '';
     position: absolute;
@@ -9,5 +8,21 @@
     top: -100px;
     background-color: $color-orange-light;
     z-index: -1;
+    display:grid;
+    grid-template-columns: repeat(var(--grid-columns), [column] minmax(0, 1fr));
   }
 }
+.expert-list__wrapper .pagination
+{
+  @include grid-container;
+  /*background-color:blue;*/
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+  margin-bottom:20px;
+  height: 20px;
+}
+.expert-list__wrapper .pagination__row
+{
+  grid-column: column 4 / span 7;
+}
+

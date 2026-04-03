@@ -690,13 +690,47 @@ class ExpertIndexPage(Page):
         context = super(ExpertIndexPage, self).get_context(request, *args, **kwargs)
         experts = Expert.objects.all()
         categories = AnswerCategory.objects.all()
+        itemsperpage = 25
+        if request.GET.get("expertID") is not None :
+            try:
+                requestedexpertid = int(request.GET.get("expertID"))
+                expertids = list(experts.values_list('id', flat = True))
+                experttoopenwithindex= expertids.index(requestedexpertid)
+                pagettoopenwith = 1 + experttoopenwithindex // itemsperpage # find the first page that contains the iddex of this expert
+
+            except ValueError:
+                pagettoopenwith = 1
+                requestedexpertid = 0
+        else :
+            requestedexpertid = 0
+            pagettoopenwith = 1 
+
+
+        #list created, now paginate
+        paginator = Paginator(experts,itemsperpage)
+        if request.GET.get("page") is not None :
+            page = request.GET.get("page")
+        else :
+            page = pagettoopenwith
+
+        try:
+            paginated_experts = paginator.page(page)
+            currentpage = int(page)
+        except PageNotAnInteger:
+            paginated_experts = paginator.page(1)
+            currentpage = 1 
+        except EmptyPage:
+            paginated_experts = paginator.page(paginator.num_pages)
+            currentpage = paginator.num_pages
+
 
         context.update(
             {
-                "experts": experts,
+                "experts": paginated_experts,
                 "answers_page": AnswerIndexPage.objects.first().url,
                 "expert_answers_page": ExpertAnswerOverviewPage.objects.first(),
                 "categories": categories,
+                "current_page" : currentpage,
             }
         )
         return context

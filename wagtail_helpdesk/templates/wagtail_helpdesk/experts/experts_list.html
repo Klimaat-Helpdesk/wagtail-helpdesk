@@ -1,13 +1,13 @@
 {% extends "wagtail_helpdesk/base.html" %}
-{% load i18n static wagtailcore_tags %}
+{% load i18n static helpdesk_tags wagtailcore_tags %}
 
 {% block smokedglass %}
 {% endblock %}
 
 {% block content_area %}
-  <div {% block smokedglass-class %}{% endblock %}>
+<div {% block smokedglass-class %}{% endblock %}>
 
-{% block head %}
+  {% block head %}
   <div class="simple-header">
     <div class="simple-header__wrapper">
       <a class="simple-header__back-link" href="/">
@@ -26,43 +26,106 @@
 
     </div>
   </div>
-{% endblock %}
+  {% endblock %}
 
-{% block content %}
+  {% block content %}
+
+
   <div class="expert-list">
     <div class="expert-list__wrapper">
+      <div class="pagination">
+        {% if experts.paginator.num_pages > 1 %}
+        <div class="pagination__row">
+          {% if experts.has_previous %}
+          <li class="pagination__page-item">
+            <a href="?{% updated_params page=experts.previous_page_number %}"
+              class="pagination__page-link"><span>&laquo;</span></a>
+          </li>
+          {% endif %}
+          {% for page_num in experts.paginator.page_range %}
+          <li class="pagination__page-item">
+            {% if page_num == current_page %}
+              <a href="?{% updated_params page=page_num %} " class="pagination__page-link pagination__page-link-active">{{ page_num }}</a>
+            {% else %}
+              <a href="?{% updated_params page=page_num %} " class="pagination__page-link">{{ page_num }}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+          {% if experts.has_next %}
+          <li class="pagination__page-item">
+            <a href="?{% updated_params page=experts.next_page_number %}"
+              class="pagination__page-link"><span>&raquo;</span></a>
+          </li>
+          {% endif %}
+
+        </div>
+        {% endif %}
+      </div>
+
       <div class="expert-list__experts">
         {% for expert in experts %}
-          {% include "wagtail_helpdesk/experts/includes/expert_block.html" with expert=expert %}
+        {% include "wagtail_helpdesk/experts/includes/expert_block.html" with expert=expert %}
         {% endfor %}
       </div>
+
+      <div class="pagination">
+        {% if experts.paginator.num_pages > 1 %}
+        <div class="pagination__row">
+          {% if experts.has_previous %}
+          <li class="pagination__page-item">
+            <a href="?{% updated_params page=experts.previous_page_number %}"
+              class="pagination__page-link"><span>&laquo;</span></a>
+          </li>
+          {% endif %}
+          {% for page_num in experts.paginator.page_range %}
+          <li class="pagination__page-item">
+            {% if page_num == current_page %}
+              <a href="?{% updated_params page=page_num %} " class="pagination__page-link pagination__page-link-active">{{ page_num }}</a>
+            {% else %}
+              <a href="?{% updated_params page=page_num %} " class="pagination__page-link">{{ page_num }}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+          {% if experts.has_next %}
+          <li class="pagination__page-item">
+            <a href="?{% updated_params page=experts.next_page_number %}"
+              class="pagination__page-link"><span>&raquo;</span></a>
+          </li>
+          {% endif %}
+
+        </div>
+        {% endif %}
+      </div>
+
     </div>
+
   </div>
 
+
   <div class="link-block">
-   <div class="link-block__wrapper">
-     <div class="link-block__title-container">
-      <h2 class="link-block__title">
+    <div class="link-block__wrapper">
+      <div class="link-block__title-container">
+        <h2 class="link-block__title">
           {{ page.outro_title }}
-      </h2>
-     </div>
-     <div class="link-block__text-container">
-       {% if page.outro_text %}
-         <div class="link-block__text richtext">
-           {{ page.outro_text|richtext }}
-         </div>
-       {% endif %}
-       {% if page.outro_page %}
-         <a href="{% pageurl page.outro_page %}" class="button">
-            <span class="button__text">{{ page.outro_button_text }}</span>
-            <span class="button__icon"></span>
-         </a>
-       {% endif %}
+        </h2>
+      </div>
+      <div class="link-block__text-container">
+        {% if page.outro_text %}
+        <div class="link-block__text richtext">
+          {{ page.outro_text|richtext }}
+        </div>
+        {% endif %}
+        {% if page.outro_page %}
+        <a href="{% pageurl page.outro_page %}" class="button">
+          <span class="button__text">{{ page.outro_button_text }}</span>
+          <span class="button__icon"></span>
+        </a>
+        {% endif %}
       </div>
     </div>
   </div>
 
   {% endblock %}
   {% include "wagtail_helpdesk/includes/social_share_buttons.html" %}
-  </div>
+</div>
 {% endblock content_area %}

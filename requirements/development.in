@@ -2,6 +2,7 @@
 -r testing.in
 fabric
 dotenv 
+botocore
 GitPython
 inquirer
 pep8

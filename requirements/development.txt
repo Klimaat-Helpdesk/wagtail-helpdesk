@@ -8,10 +8,6 @@ ansicon==1.89.0
     # via jinxed
 anyascii==0.3.3
     # via wagtail
-argon2-cffi==21.3.0
-    # via wagtail-helpdesk
-argon2-cffi-bindings==25.1.0
-    # via argon2-cffi
 asgiref==3.11.1
     # via django
 bcrypt==5.0.0
@@ -32,6 +28,7 @@ boto3==1.42.57
     # via django-storages
 botocore==1.42.57
     # via
+    #   -r requirements/development.in
     #   boto3
     #   s3transfer
 cachecontrol[filecache]==0.14.4
@@ -42,7 +39,6 @@ certifi==2026.2.25
     # via requests
 cffi==2.0.0
     # via
-    #   argon2-cffi-bindings
     #   cryptography
     #   pynacl
 charset-normalizer==3.4.4
@@ -67,41 +63,47 @@ defusedxml==0.7.1
     #   willow
 deprecated==1.3.1
     # via fabric
-django==4.2.28
+django==6.0.3
     # via
     #   -r requirements/base.in
-    #   django-allauth
     #   django-embed-video
     #   django-filter
     #   django-health-check
     #   django-modelcluster
     #   django-permissionedforms
     #   django-storages
+    #   django-stubs-ext
     #   django-taggit
+    #   django-tasks
     #   django-treebeard
     #   djangorestframework
+    #   laces
+    #   modelsearch
     #   wagtail
-    #   wagtail-helpdesk
-django-allauth==0.63.6
-    # via wagtail-helpdesk
-django-crispy-forms==1.14.0
-    # via wagtail-helpdesk
 django-embed-video==1.4.10
     # via -r requirements/base.in
-django-filter==23.5
-    # via wagtail
+django-filter==25.2
+    # via
+    #   -r requirements/base.in
+    #   wagtail
 django-health-check==3.24.0
     # via -r requirements/base.in
 django-ipware==7.0.1
-    # via wagtail-helpdesk
+    # via -r requirements/base.in
 django-modelcluster==6.4.1
     # via wagtail
 django-permissionedforms==0.1
     # via wagtail
 django-storages[s3]==1.14.6
     # via -r requirements/base.in
-django-taggit==4.0.0
+django-stubs-ext==6.0.2
+    # via django-tasks
+django-taggit==6.1.0
     # via wagtail
+django-tasks==0.11.0
+    # via
+    #   modelsearch
+    #   wagtail
 django-treebeard==4.8.0
     # via wagtail
 django-webtest==1.9.14
@@ -142,8 +144,6 @@ gitdb==4.0.12
     # via gitpython
 gitpython==3.1.46
     # via -r requirements/development.in
-html5lib==1.1
-    # via wagtail
 idna==3.11
     # via requests
 iniconfig==2.3.0
@@ -164,7 +164,7 @@ jmespath==1.1.0
     # via
     #   boto3
     #   botocore
-l18n==2021.3
+laces==0.1.2
     # via wagtail
 license-expression==30.4.4
     # via cyclonedx-python-lib
@@ -174,6 +174,8 @@ mccabe==0.7.0
     # via flake8
 mdurl==0.1.2
     # via markdown-it-py
+modelsearch==1.2
+    # via wagtail
 msgpack==1.1.2
     # via cachecontrol
 mypy-extensions==1.1.0
@@ -254,8 +256,6 @@ python-ipware==3.0.0
     # via django-ipware
 pytokens==0.4.1
     # via black
-pytz==2025.2
-    # via l18n
 pyyaml==6.0.3
     # via responses
 readchar==4.2.1
@@ -280,10 +280,7 @@ runs==1.3.0
 s3transfer==0.16.0
     # via boto3
 six==1.17.0
-    # via
-    #   html5lib
-    #   l18n
-    #   python-dateutil
+    # via python-dateutil
 smmap==5.0.2
     # via gitdb
 sortedcontainers==2.4.0
@@ -301,7 +298,10 @@ tomli==2.4.0
 tomli-w==1.2.0
     # via pip-audit
 typing-extensions==4.15.0
-    # via cyclonedx-python-lib
+    # via
+    #   cyclonedx-python-lib
+    #   django-stubs-ext
+    #   django-tasks
 tzdata==2025.3
     # via
     #   django
@@ -311,29 +311,24 @@ urllib3==2.6.3
     #   botocore
     #   requests
     #   responses
-wagtail==5.2.8
+wagtail==7.3.1
     # via
     #   -r requirements/base.in
     #   wagtail-factories
-    #   wagtail-helpdesk
     #   wagtail-modeladmin
 wagtail-factories==4.2.1
     # via -r requirements/testing.in
-wagtail-helpdesk @ https://github.com/KlimaatHelpdeskInternal/wagtail-helpdesk/archive/refs/heads/main.zip
-    # via -r requirements/base.in
 wagtail-modeladmin==2.2.0
-    # via wagtail-helpdesk
+    # via -r requirements/base.in
 waitress==3.0.2
     # via webtest
 wcwidth==0.6.0
     # via blessed
-webencodings==0.5.1
-    # via html5lib
 webob==1.8.9
     # via webtest
 webtest==3.0.7
     # via django-webtest
-willow[heif]==1.6.3
+willow[heif]==1.11.0
     # via
     #   wagtail
     #   willow

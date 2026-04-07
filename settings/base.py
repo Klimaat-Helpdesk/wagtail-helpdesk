@@ -70,7 +70,7 @@ INSTALLED_APPS = [
     "wagtail_helpdesk.experts",
     "wagtail_helpdesk.utils",
     "wagtail_helpdesk.volunteers",
-    "wagtail.contrib.modeladmin",
+    "wagtail_modeladmin",
     "wagtail.contrib.table_block",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -98,6 +98,7 @@ INSTALLED_APPS = [
 
     # Health check
     "health_check",
+    "django.contrib.postgres"
 ]
 
 MIDDLEWARE = [

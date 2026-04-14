@@ -1,0 +1,10 @@
+-r base.in
+-r testing.in
+fabric
+dotenv 
+botocore
+GitPython
+inquirer
+pep8
+psycopg2-binary
+termcolor

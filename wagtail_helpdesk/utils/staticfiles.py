@@ -5,9 +5,9 @@ https://github.com/wagtail/wagtail/blob/main/wagtail/admin/staticfiles.py
 
 import hashlib
 
-from django.conf import settings
+from django.conf import STATICFILES_STORAGE_ALIAS, settings
 from django.contrib.staticfiles.storage import HashedFilesMixin
-from django.core.files.storage import get_storage_class
+from django.core.files.storage import storages
 from django.templatetags.static import static
 
 from wagtail_helpdesk import __version__
@@ -19,8 +19,9 @@ def get_version_hash(version_string):
         use_version_strings = True
     else:
         # see if we're using a storage backend using hashed filenames
-        storage = get_storage_class(settings.STATICFILES_STORAGE)
-        use_version_strings = not issubclass(storage, HashedFilesMixin)
+        use_version_strings = not isinstance(
+            storages[STATICFILES_STORAGE_ALIAS], HashedFilesMixin
+        )
 
     if use_version_strings:
         return hashlib.sha1(

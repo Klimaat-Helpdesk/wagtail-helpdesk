@@ -1,0 +1,9 @@
+django~=6.0
+wagtail~=7.1
+django_filter~=25.0
+python-gitlab
+django-health-check
+django-storages[s3]
+django-embed-video
+wagtail-modeladmin
+django-ipware
